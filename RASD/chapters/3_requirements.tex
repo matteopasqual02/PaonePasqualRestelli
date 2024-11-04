@@ -1,51 +1,171 @@
 \chapter{Specific Requirements}
+This section is devoted to a specific description of every kind of requirement the system has to deal with to achieve all the functionalities described.
 
 \section{External Interface Requirements}
 \subsection{User Interfaces}
-p
+The Students\&Companies's User interface will be a website, developed to be used
+both by STs and COMs, available to everybody who has a device with an Internet Browser
+and a reliable Internet connection.
+
 \subsection{Hardware Interfaces}
+The system will be accessible from every device with an Internet Browser to access the
+website and a reliable Internet connection.  The User is free to choose his device like a computer, a tablet, or a smartphone.
+
 \subsection{Software Interfaces}
+The system requires an API to send emails. These emails can be for instance account 2FA confirmation or general notification by email
+ 
 \subsection{Communication Interfaces}
+The communication Interfaces needed by the system are the HTTPS Protocol and the
+Mail System Transfer Protocol (SMTP).
 
 \section{Functional Requirements}
-[R1] When students want to look for an internship the system allows them to go through the available ones
+\textbf{[R1]} The system allows students to go through the available internships
 
-[R2] When companies want to offer an internship the system allows them to publish its description on the platform
+\textbf{[R2]} The system allows students to upload their CV
 
-[R3] When an interesting internship for certain students becomes available the system informs them
+\textbf{[R3]} The system allows companies to publish new internships
 
-[R4] When a student's CV corresponding to a company's need becomes available the system informs them
+\textbf{[R4]} The system allows companies to add a description to their internships
 
-[R5] When a student receives a recommendation the system allows them to accept it 
+\textbf{[R5]} The system allows to filter internships by a key
 
-[R6] When a company receives a recommendation the system allows them to accept it 
+\textbf{[R6]} The system informs students when a new internship becomes available
 
-[R7] When both parties accept a recommendation the system allows them to establish contact
+\textbf{[R7]} The system informs students when an internship matches their requirements 
 
-[R8] During the interview the system supports the company with the selection process \textit{(si puo ampliare)}
+\textbf{[R8]} The system informs companies When a student's CV becomes available
 
-[R9] The system allows students and companies to provide feedback and suggestions to improve the recommendation process
+\textbf{[R9]} The system informs companies When a student's CV matches  their requirements
 
-[R10] The system provides suggestions to students regarding how to make their CVs more appealing
+\textbf{[R10]} The system allows students to see the recommendations
 
-[R11] The system provides suggestions to companies regarding how to make their project descriptions more appealing
+\textbf{[R10]} The system allows students to accept a recommendation
 
-[R12] The system allows all users to keep track of and monitor the matchmaking process
+\textbf{[R11]} The system allows companies to see the recommendations
 
-[R12] The system allows all users to keep track of and monitor the internships
+\textbf{[R12]} The system allows companies to accept a recommendation 
 
-[R13] The system allows all users to complain, communicate problems, and provide information on the status of the internship
+\textbf{[R13] } The system allows companies to establish contact When the student have accepted a recommendation
 
-[R14] The system allows universities to handle complaints
+\textbf{[R14]} the system supports the company with the selection process during the interview \textit{(si puo ampliare)}
 
+\textbf{[R15]} The system allows students and companies to provide feedback and suggestions on the interview
+
+\textbf{[R16] }The system provides suggestions to students regarding how to make their CVs more appealing
+
+\textbf{[R17]} The system provides suggestions to companies regarding how to make their project descriptions more appealing
+
+\textbf{[R18]} The system allows all users to keep track of and monitor the matchmaking process after the interview
+
+\textbf{[R19]} The system allows all users to keep track of and monitor the status of the internship after the interview
+
+\textbf{[R20]} The system allows all users to complain 
+
+\textbf{[R21]} The system allows all users to communicate problems
+
+\textbf{[R22]} The system allows universities to see complaints and problems
+
+\textbf{[R23]} The system allows universities to answer to complaints and problems
 
 
 \subsection{Mapping}
 
+\textbf{[G1]} Companies should be able to advertise the internships they want to offer 
+\begin{itemize}
+    \item \textbf{[R3]} The system allows companies to publish new internships
+    \item \textbf{[R4]} The system allows companies to add a description to their internships
+    
+    \item \textbf{[DA1]} Students and companies need to have a device and an internet connection
+    \item \textbf{[DA2]}Companies need to have detailed internship descriptions
+    \item \textbf{[DA5]} Companies need to have an account on S\&C
+\end{itemize}
 
+\textbf{[G2]} Students should be able to look for internships
+\begin{itemize}
+    \item \textbf{[R1]} The system allows students to go through the available internships
+    \item \textbf{[R2]} The system allows students to upload their CV
+    \item \textbf{[R5]} The system allows to filter internships by a key
+    
+    \item \textbf{[DA1]} Students and companies need to have a device and an internet connection
+    \item \textbf{[DA3]} Students need to have a CV
+    \item \textbf{[DA4]} Students need to have an account on S\&C
+    \item \textbf{[DA6]} Students need to be enrolled at a university
+\end{itemize}
+
+\textbf{[G3]} Students should be able to be informed about internships that can be interesting
+\begin{itemize}
+    
+    \item \textbf{[R6]} The system informs students when a new internship becomes available
+    \item \textbf{[R7]} The system informs students when an internship matches their requirements
+
+    \item \textbf{[DA1]} Students and companies need to have a device and an internet
+    connection
+    \item \textbf{[DA4]} Students need to have an account on S\&C
+\end{itemize}
+
+\textbf{[G4]} Companies should be able to be informed about the availability of a student's CVs
+\begin{itemize}
+    \item \textbf{[R8]} The system informs companies When a student’s CV becomes available
+    \item \textbf{[R9]} The system informs companies When a student’s CV matches their requirements
+
+    \item \textbf{[DA1]} Students and companies need to have a device and an internet connection
+    \item \textbf{[DA5]} Companies need to have an account on S\&C
+\end{itemize}
+
+\textbf{[G5]} Students and Companies should be able to accept a recommendation of a possible match
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\textbf{[G6]} Students and Companies should be able to establish contact and participate in an interview
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\textbf{[G7]} Students and Companies should be able to provide feedback and suggestions on the provided recommendations
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\textbf{[G8]} Students and companies should be able to receive suggestions regarding how to make their submissions (project descriptions for companies and CVs for students)
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\textbf{[G9]} Students and companies should be able to keep track of the matchmaking and internship processes
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\textbf{[G10]} Students and Companies should be able to complain and communicate problems
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\textbf{[G11]} Universities should be able to monitor internships
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\textbf{[G12]} Universities should be able to handle complaints
+\begin{itemize}
+    \item 
+\end{itemize}
 
 
 \section{Performance Requirements}
+\begin{itemize}
+    \item \textbf{Number of concurrent Users}: According to recent research, websites with a similar goal of S\&C, have about 1.8 million Users. We want our website to attract at least 25\% of those Users, which means S\&C should be able to handle up to 500,000 Users simultaneously. This is important for making sure our website works well for a good number of people, giving them a smooth and enjoyable 
+    experience.
+
+    \item \textbf{Data storage}: S\&C needs to save and manage all the details about both STs and COMs which are a large amount of data. Additionally, it has to store information about all the Interviews, complaints, problems, data analytics, and other information.
+
+    \item \textbf{Time response}: Every operation that is directly executed by S\&C, i.e. register, login, upload, and evaluate, should be in the domain of milliseconds. 
+
+    \item \textbf{Availability}: S\&C should have high availability, aiming 24h 7 on 7. This is essential to provide continuous access to users without unexpected interruptions, ensuring they can reliably access services whenever needed. Techniques such as load balancing, failover systems, and regular backups should be implemented to meet this requirement.
+    
+\end{itemize}
+ 
 
 \section{Design Constraints}
 \subsection{Standards Comliance}
