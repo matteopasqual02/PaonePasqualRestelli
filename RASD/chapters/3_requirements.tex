@@ -26,9 +26,7 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 
 \section{Functional Requirements}
 
-\textbf{[R1]} When students want to do a proactive research, the system allows them to go through the available internships
-
-\textbf{[R]} The system allows unregistered users to create an account
+\textbf{[R1]} The system allows unregistered users to create an account
 
 \textbf{[R2]} The system allows students to upload their CV
 
@@ -36,45 +34,49 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 
 \textbf{[R4]} The system allows companies to add a description to their internships
 
-\textbf{[R5]} When doing a search the system allows users to filter internships by a key (?)
+\textbf{[R5]} When students want to do a proactive research, the system allows them to go through the available internships
 
-\textbf{[R6]} When a new internship that might interest some students becomes avaible, the system notifies them.
+\textbf{[R6]} When doing a search the system allows users to filter internships by a key (?)
 
-(?? students contact a company without recomendations)
+\textbf{[R7]} When finding an internship that suits their interests, the system allows students to apply for it. 
 
-\textbf{[R7]} When a student's CV that corresponds to a company's needs becomes available the system informs them. 
+\textbf{[R8]} When a new internship that might interest some students becomes avaible, the system notifies them.
 
-\textbf{[R8]} The system allows students to accept a recommendation
+\textbf{[R9]} When a student's CV that corresponds to a company's needs becomes available the system informs them. 
 
-\textbf{[R9]} The system allows companies to accept a recommendation 
+\textbf{[R10]} The system allows students to accept a recommendation, applying for that particular internship. 
 
-\textbf{[R10]}  When the two parties have accepted a recommendation the system allows them to establish a contact
+\textbf{[R11]} The system allows companies to accept a recommendation, inviting the candidate that was proposed.
 
-\textbf{[R11]} When conducting an interview, the system supports the companies with the interview process
+\textbf{[R12]} The system allows students to accept an invitation of a company for a particular internship, applying for it.
 
-\textbf{[R12]} When conducting an interview, the system supports the companis with the finalization of the selection
+\textbf{[R13]}  When the two parties have accepted a recommendation, or when the company has accepted an application received, the system allows them to establish a contact
 
-\textbf{[R13]} The system allows students and companies to provide feedback and suggestions to feed statistical analysis.
+\textbf{[R14]} When conducting an interview, the system supports the companies with the interview process
 
-\textbf{[R14] }The system provides suggestions to students regarding how to make their CVs more appealing
+\textbf{[R15]} When conducting an interview, the system supports the companis with the finalization of the selection
 
-\textbf{[R15]} The system provides suggestions to companies regarding how to make their project descriptions more appealing
+\textbf{[R16]} The system allows students and companies to provide feedback and suggestions to feed statistical analysis.
 
-\textbf{[R16]} During the matchmaking process, the system allows all users to keep track of its execution and outcome
+\textbf{[R17] }The system provides suggestions to students regarding how to make their CVs more appealing
 
-\textbf{[R17]} During the internship the system allows all interested parties to monitor it
+\textbf{[R18]} The system provides suggestions to companies regarding how to make their project descriptions more appealing
 
-\textbf{[R18]} During and ongoing internship, the system allows all users to complain 
+\textbf{[R19]} During the matchmaking process, the system allows all users to keep track of its execution and outcome
 
-\textbf{[R19]} During and ongoing internship, the system allows all users to communicate problems 
+\textbf{[R20]} During the internship the system allows all interested parties to monitor it
 
-\textbf{[R20]} During and ongoing internship, the system allows all users to provide information on its status
+\textbf{[R21]} During and ongoing internship, the system allows all users to complain 
 
-\textbf{[R21]} When reports or complaints about the status of an ongoing internship are made, the system allows Universities to see them.
+\textbf{[R22]} During and ongoing internship, the system allows all users to communicate problems 
 
-\textbf{[R22]} When complaints about the status of an ongoing internship are made, the system allows Universities to handle them.
+\textbf{[R23]} During and ongoing internship, the system allows all users to provide information on its status
 
+\textbf{[R24]} When reports or complaints about the status of an ongoing internship are made, the system allows Universities to see them.
 
+\textbf{[R25]} When complaints about the status of an ongoing internship are made, the system allows Universities to handle them.
+
+\pagebreak
 
 \subsection{Mapping}
 
@@ -88,6 +90,7 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 & 
 \textbf{Requirements:}
 \begin{itemize}
+     \item \textbf{[R1]} The system allows unregistered users to create an account
     \item \textbf{[R3]} The system allows companies to publish new internships
     \item \textbf{[R4]} The system allows companies to add a description to their internships
 \end{itemize}
@@ -95,100 +98,155 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 \begin{itemize}
     \item \textbf{[DA1]} Students and companies need to have a device and an internet connection
     \item \textbf{[DA2]} Companies need to have detailed internship descriptions
-    \item \textbf{[DA5]} Companies need to have an account on S\&C
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
 \end{itemize} \\
 \hline
 \textbf{[G2]} Students should be able to look for internships 
 & 
 \textbf{Requirements:}
 \begin{itemize}
-    \item \textbf{[R1]} When students want to do a proactive research, the system allows them to go through the available internships
+     \item \textbf{[R1]} The system allows unregistered users to create an account
     \item \textbf{[R2]} The system allows students to upload their CV
     \item \textbf{[R3]} The system allows companies to publish new internships
-    \item \textbf{[R5]} When doing a search the system allows users to filter internships by a key
+    \item \textbf{[R5]} When students want to do a proactive research, the system allows them to go through the available internships
+    \item \textbf{[R6]} When doing a search the system allows users to filter internships by a key
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
     \item \textbf{[DA1]} Students and companies need a device and internet connection
     \item \textbf{[DA3]} Students need to have a CV
-    \item \textbf{[DA4]} Students need to have an account on S\&C
-    \item \textbf{[DA6]} Students need to be enrolled at a university
+     \item \textbf{[DA4]} Students need to be enrolled at a university
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
 \end{itemize} \\
 \hline
 \textbf{[G3]} Students should be able to be informed about internships that can be interesting 
 & 
 \textbf{Requirements:}
 \begin{itemize}
-    \item \textbf{[R2]} The system allows students to upload their CV (?)
+    \item \textbf{[R1]} The system allows unregistered users to create an account
+    \item \textbf{[R2]} The system allows students to upload their CV
     \item \textbf{[R3]} The system allows companies to publish new internships
-    \item \textbf{[R6]} When a new intership that might interest some students becomes avaible, the system notifies them
+    \item \textbf{[R8]} When a new internship that might interest some students becomes avaible, the system notifies them
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
+      \item \textbf{[DA1]} Students and companies need a device and internet connection
     \item \textbf{[DA3]} Students need to have a CV
-    \item \textbf{[DA1]} Students and companies need a device and internet connection
-    \item \textbf{[DA4]} Students need to have an account on S\&C
-    \item \textbf{[DA5]} Companies need an account on S\&C
+     \item \textbf{[DA4]} Students need to be enrolled at a university
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
 \end{itemize} \\
 \hline
 \textbf{[G4]} Companies should be able to be informed about the availability of a student's CV that its interesting to them
 & 
 \textbf{Requirements:}
 \begin{itemize}
+    \item \textbf{[R1]} The system allows unregistered users to create an account
     \item \textbf{[R2]} The system allows students to upload their CV
     \item \textbf{[R3]} The system allows companies to publish new internships
-    \item \textbf{[R7]} When a student’s CV that corresponds to a company’s needs becomes available the system informs them.
+    \item \textbf{[R9]} When a student’s CV that corresponds to a company’s needs becomes available the system informs them.
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
     \item \textbf{[DA1]} Students and companies need a device and internet connection
-    \item \textbf{[DA4]} Students need to have an account on S\&C
-    \item \textbf{[DA5]} Companies need an account on S\&C
+    \item \textbf{[DA3]} Students need to have a CV
+     \item \textbf{[DA4]} Students need to be enrolled at a university
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
 \end{itemize} \\
 \hline
 \textbf{[G5]} Students and Companies should be able to accept a recommendation of a possible match
 & 
 \textbf{Requirements:}
 \begin{itemize}
-    \item  \textbf{[R6]} When a new intership that might interest some students becomes avaible, the system notifies them
-    \item  \textbf{[R7]} When a student’s CV that corresponds to a company’s needs becomes available the system informs them.
-    \item  \textbf{[R9]} The system allows companies to accept recommendations
-    \item  \textbf{[R8]} The system allows students to accept recommendations
+    \item \textbf{[R1]} The system allows unregistered users to create an account
+    \item \textbf{[R2]} The system allows students to upload their CV
+    \item \textbf{[R3]} The system allows companies to publish new internships
+    \item  \textbf{[R8]} When a new intership that might interest some students becomes avaible, the system notifies them
+    \item  \textbf{[R9]} When a student’s CV that corresponds to a company’s needs becomes available the system informs them.
+    \item  \textbf{[R10]} The system allows students to accept a recommendation, applying for that particular internship.
+    \item  \textbf{R11]} The system allows companies to accept a recommendation, inviting the candidate that was proposed.
+\end{itemize}
+\textbf{Domain Assumptions:}
+\begin{itemize}
+     \item \textbf{[DA1]} Students and companies need a device and internet connection
+     \item \textbf{[DA3]} Students need to have a CV
+     \item \textbf{[DA4]} Students need to be enrolled at a university
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
+\end{itemize} \\
+\hline
+\hline
+\textbf{[G6]}  Students should be able to apply for an internship
+& 
+\textbf{Requirements:}
+\begin{itemize}
+    \item \textbf{[R1]} The system allows unregistered users to create an account
+    \item \textbf{[R2]} The system allows students to upload their CV
+    \item \textbf{[R3]} The system allows companies to publish new internships
+    \item \textbf{[R5]} When students want to do a proactive research, the system allows them to go through the available internships
+    \item \textbf{[R7]} When finding an internship that suits their interests, the system allows students to apply for it
+    \item  \textbf{[R8]} When a new intership that might interest some students becomes avaible, the system notifies them
+    \item  \textbf{[R10]} The system allows students to accept a recommendation, applying for that particular internship.
+    \item  \textbf{R11]} The system allows companies to accept a recommendation, inviting the candidate that was proposed.
+    \item \textbf{[R12]} The system allows students to accept an invitation of a company for a particular internship, applying for it.
+\end{itemize}
+\textbf{Domain Assumptions:}
+\begin{itemize}
+     \item \textbf{[DA1]} Students and companies need a device and internet connection
+     \item \textbf{[DA3]} Students need to have a CV
+     \item \textbf{[DA4]} Students need to be enrolled at a university
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
+\end{itemize} \\
+\hline
+
+\textbf{[G7]} Students and Companies should be able to establish contact and participate in an interview 
+& 
+\textbf{Requirements:}
+\begin{itemize}
+    \item \textbf{[R1]} The system allows unregistered users to create an account
+    \item \textbf{[R2]} The system allows students to upload their CV
+    \item \textbf{[R3]} The system allows companies to publish new internships
+    \item \textbf{[R7]} When finding an internship that suits their interests, the system allows students to apply for it
+    \item  \textbf{[R10]} The system allows students to accept a recommendation, applying for that particular internship.
+    \item  \textbf{R11]} The system allows companies to accept a recommendation, inviting the candidate that was proposed.
+    \item \textbf{[R12]} The system allows students to accept an invitation of a company for a particular internship, applying for it.
+    \item \textbf{[R13]} When the two parties have accepted a recommendation, or when the company has accepted an application received, the system allows them to establish a contact
+    \item \textbf{[R14]} When conducting an interview, the system supports the companies with the interview process 
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
     \item \textbf{[DA1]} Students and companies need a device and internet connection
-    \item \textbf{[DA2]} Companies need an account on S\&C
-    \item \textbf{[DA4]} Students need an account on S\&C
+     \item \textbf{[DA3]} Students need to have a CV
+     \item \textbf{[DA4]} Students need to be enrolled at a university
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
+    \item \textbf{[DA8]} Companies need to be able to conduct an interview
 \end{itemize} \\
 \hline
-\textbf{[G6]} Students and Companies should be able to establish contact and participate in an interview 
+\textbf{[G8]} Companies should be able to finalize the selection. 
 & 
 \textbf{Requirements:}
 \begin{itemize}
-    \item \textbf{[R10]} When the two parties have accepted a recommendation the system allows them to establish a contact
-    \item \textbf{[R11]} When conducting an interview, the system supports the companies with the interview process 
+    \item \textbf{[R1]} The system allows unregistered users to create an account
+    \item \textbf{[R2]} The system allows students to upload their CV
+    \item \textbf{[R3]} The system allows companies to publish new internships
+    \item \textbf{[R7]} When finding an internship that suits their interests, the system allows students to apply for it
+    \item  \textbf{[R10]} The system allows students to accept a recommendation, applying for that particular internship.
+    \item  \textbf{R11]} The system allows companies to accept a recommendation, inviting the candidate that was proposed.
+    \item \textbf{[R12]} The system allows students to accept an invitation of a company for a particular internship, applying for it.
+    \item \textbf{[R13]} When the two parties have accepted a recommendation, or when the company has accepted an application received, the system allows them to establish a contact
+    \item \textbf{[R14]} When conducting an interview, the system supports the companies with the interview process 
+    \item \textbf{[R15]} When conducting an interview, the system supports the companis with the finalization of the selection
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
     \item \textbf{[DA1]} Students and companies need a device and internet connection
     \item \textbf{[DA5]} Companies need an account on S\&C
     \item \textbf{[DA4]} Students need an account on S\&C
-    \item \textbf{[DA7]} Companies need to be able to conduct an interview
-\end{itemize} \\
-\hline
-\textbf{[G7]} Companies should be able to finalize the selection. 
-& 
-\textbf{Requirements:}
-\begin{itemize}
-    \item \textbf{[R12]} When conducting an interview, the system supports the companis with the finalization of the selection
-\end{itemize}
-\textbf{Domain Assumptions:}
-\begin{itemize}
-    \item \textbf{[DA1]} Students and companies need a device and internet connection
-    \item \textbf{[DA5]} Companies need an account on S\&C
-    \item \textbf{[DA4]} Students need an account on S\&C
-    \item \textbf{[DA8]} Companies need to be able to evaluate an interview
+    \item \textbf{[DA9]} Companies need to be able to evaluate an interview
 \end{itemize} \\
 \hline
 \textbf{[G8]} Students and Companies should be able to provide feedback and suggestions on the provided recommendations
@@ -200,89 +258,117 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 \textbf{Domain Assumptions:}
 \begin{itemize}
     \item \textbf{[DA1]} Students and companies need a device and internet connection
-    \item \textbf{[DA5]} Companies need an account on S\&C
-    \item \textbf{[DA4]} Students need an account on S\&C
+     \item \textbf{[DA3]} Students need to have a CV
+     \item \textbf{[DA4]} Students need to be enrolled at a university
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
 \end{itemize} \\
 \hline
-\textbf{[G9]} Students and companies should be able to receive suggestions regarding how to make their submissions (project descriptions for companies and CVs for students)
+\textbf{[G10]} Students and companies should be able to receive suggestions regarding how to make their submissions (project descriptions for companies and CVs for students)
 & 
 \textbf{Requirements:}
 \begin{itemize}
-    \item \textbf{[R14]} The system provides suggestions to students regarding how to make their CVs more appealing
-    \item \textbf{[R15]} The system provides suggestions to companies regarding how to make their project descriptions more appealing
+    \item \textbf{[R1]} The system allows unregistered users to create an account
+    \item \textbf{[R2]} The system allows students to upload their CV
+    \item \textbf{[R3]} The system allows companies to publish new internships
+    \item \textbf{[R17]} The system provides suggestions to students regarding how to make their CVs more appealing
+    \item \textbf{[R18]} The system provides suggestions to companies regarding how to make their project descriptions more appealing
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
-    \item \textbf{[DA1]} Students and companies need to have a device and an internet connection
-    \item \textbf{[DA5]} Companies need an account on S\&C
-    \item \textbf{[DA4]} Students need an account on S\&C
+    \item \textbf{[DA1]} Students and companies need a device and internet connection
+     \item \textbf{[DA3]} Students need to have a CV
+     \item \textbf{[DA4]} Students need to be enrolled at a university
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
 \end{itemize} \\
 \hline
-\textbf{[G10]} Students and companies should be able to keep track of the matchmaking and internship processes
+\textbf{[G11]} Students and companies should be able to keep track of the matchmaking and internship processes
 & 
 \textbf{Requirements:}
 \begin{itemize}
-    \item \textbf{[R16]} During the matchmaking process, the system allows all users to keep track of its execution and outcome
-    \item \textbf{[R17]} During the internship the system allows all interested parties to monitor it
+    \item \textbf{[R1]} The system allows unregistered users to create an account
+    \item \textbf{[R2]} The system allows students to upload their CV
+    \item \textbf{[R3]} The system allows companies to publish new internships
+    \item \textbf{[R13]} When the two parties have accepted a recommendation, or when the company has accepted an application received, the system allows them to establish a contact
+    \item \textbf{[R19]} During the matchmaking process, the system allows all users to keep track of its execution and outcome
+    \item \textbf{[R20]} During the internship the system allows all interested parties to monitor it
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
-    \item \textbf{[DA1]} Students and companies need to have a device and an internet connection
-    \item \textbf{[DA5]} Companies need an account on S\&C
-    \item \textbf{[DA4]} Students need an account on S\&C
+     \item \textbf{[DA1]} Students and companies need a device and internet connection
+     \item \textbf{[DA3]} Students need to have a CV
+     \item \textbf{[DA4]} Students need to be enrolled at a university
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
 \end{itemize} \\
 \hline
-\textbf{[G11]} Students and Companies should be able to complain and communicate problems
+\textbf{[G12]} Students and Companies should be able to complain and communicate problems
 & 
 \textbf{Requirements:}
 \begin{itemize}
-    \item \textbf{[R18]} During and ongoing internship, the system allows all users to complain
-    \item \textbf{[R19]} During and ongoing internship, the system allows all users to communicate problems
-    \item \textbf{[R20]} During and ongoing internship, the system allows all users to provide information on its status
+    \item \textbf{[R1]} The system allows unregistered users to create an account
+    \item \textbf{[R21]} During and ongoing internship, the system allows all users to complain
+    \item \textbf{[R22]} During and ongoing internship, the system allows all users to communicate problems
+    \item \textbf{[R23]} During and ongoing internship, the system allows all users to provide information on its status
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
-    \item \textbf{[DA1]} Students and companies need to have a device and an internet connection
-    \item \textbf{[DA5]} Companies need an account on S\&C
-    \item \textbf{[DA4]} Students need an account on S\&C
+    \item \textbf{[DA1]} Students and companies need a device and internet connection
+     \item \textbf{[DA3]} Students need to have a CV
+     \item \textbf{[DA4]} Students need to be enrolled at a university
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
 \end{itemize} \\
 \hline
-\textbf{[G12]} Universities should be able to monitor internships
+\textbf{[G13]} Universities should be able to monitor internships
 & 
 \textbf{Requirements:}
 \begin{itemize}
-    % \item \textbf{[R18]} During and ongoing internship, the system allows all users to complain 
-
-    % \item \textbf{[R19]} During and ongoing internship, the system allows all users to communicate problems 
-
-    % \item \textbf{[R20]} During and ongoing internship, the system allows all users to provide information on its status
-
-    \item \textbf{[R21]} When reports or complaints about the status of an ongoing internship are made, the system allows Universities to see them.
+    \item \textbf{[R1]} The system allows unregistered users to create an account
+    \item \textbf{[R21]} During and ongoing internship, the system allows all users to complain
+    \item \textbf{[R22]} During and ongoing internship, the system allows all users to communicate problems
+    \item \textbf{[R23]} During and ongoing internship, the system allows all users to provide information on its status
+    \item \textbf{[R24]} When reports or complaints about the status of an ongoing internship are made, the system allows Universities to see them.
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
-    \item \textbf{[DA9]} Universities need to be informed about a current student’s internship
-    \item \textbf{[DA10]} Universities need to be able to communicate with Students and Companies
-    \item \textbf{[DA6]} Students need to be enrolled at a university
+    \item \textbf{[DA1]} Students and companies need a device and internet connection
+     \item \textbf{[DA3]} Students need to have a CV
+     \item \textbf{[DA4]} Students need to be enrolled at a university
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
+    \item \textbf{[DA7]} Universities need to create an account on S\&C as Universities
+    \item \textbf{[DA10]} Universities need to be informed about a current student’s internship
 \end{itemize} \\
 \hline
-\textbf{[G13]} Universities should be able to handle complaints
+\textbf{[G14]} Universities should be able to handle complaints
 & 
 \textbf{Requirements:}
 \begin{itemize}
-    \item \textbf{[R21]} When reports or complaints about the status of an ongoing internship are made, the system allows Universities to see them.
-    \item \textbf{[R22]} When complaints about the status of an ongoing internship are made, the system allows Universities to handle them.
+    \item \textbf{[R1]} The system allows unregistered users to create an account
+    \item \textbf{[R21]} During and ongoing internship, the system allows all users to complain
+    \item \textbf{[R22]} During and ongoing internship, the system allows all users to communicate problems
+    \item \textbf{[R23]} During and ongoing internship, the system allows all users to provide information on its status
+    \item \textbf{[R24]} When reports or complaints about the status of an ongoing internship are made, the system allows Universities to see them.
+    \item \textbf{[R25]} When complaints about the status of an ongoing internship are made, the system allows Universities to handle them.
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
-    \item \textbf{[DA9]} Universities need to be informed about a current student’s internship
-    \item \textbf{[DA10]} Universities need to be able to communicate with Students and Companies
-    \item \textbf{[DA6]} Students need to be enrolled at a university
+    \item \textbf{[DA1]} Students and companies need a device and internet connection
+     \item \textbf{[DA3]} Students need to have a CV
+     \item \textbf{[DA4]} Students need to be enrolled at a university
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
+    \item \textbf{[DA7]} Universities need to create an account on S\&C as Universities
+    \item \textbf{[DA10]} Universities need to be informed about a current student’s internshi
+    \item \textbf{[DA11]} Universities need to be able to communicate with Students and Companies
 
 \end{itemize} \\
 \hline
 \end{longtable}
 
+\pagebreak
 
 \section{Performance Requirements}
 \begin{itemize}

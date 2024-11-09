@@ -70,6 +70,29 @@
 \usepackage{fancyhdr} % For the headers
 \fancyhf{}
 
+\usepackage{listings}
+\usepackage{xcolor}
+\lstdefinelanguage{Alloy}{
+    keywords={sig, module, abstract, extends, fact, fun, pred, all, some, one, disj, let, set, implies, in, and, or, not, no, sum},
+    keywordstyle=\color{blue}\bfseries,
+    sensitive=true,
+    comment=[l]//,
+    morecomment=[s]{/*}{*/},
+    commentstyle=\color{green}\itshape,
+    stringstyle=\color{red}\ttfamily,
+    morestring=[b]",
+}
+
+\lstset{
+    language=Alloy,
+    basicstyle=\ttfamily\small,
+    %backgroundcolor=\color{lightgray}, % Optional background color
+    numbers=left, % Line numbers on the left
+    numberstyle=\tiny\color{gray},
+    frame=single, % Frame around the code block
+    breaklines=true, % Automatically break long lines
+}
+
 \input{Configuration_Files/config}
 
 %------------------------
@@ -134,7 +157,6 @@
                              Overall description   & $2h$ \\
                              Specific requirements & $5h$ \\
                              Formal analysis       & $0h$ \\
-                             Reasoning             & $0h$ \\
                              Homework              & $3h$ \\
             \end{tabular} \\
             \hline
@@ -142,8 +164,7 @@
                              Introduction          & $6h$  \\
                              Overall description   & $2h$ \\
                              Specific requirements & $3h$ \\
-                             Formal analysis       & $0h$  \\
-                             Reasoning             & $0h$ \\
+                             Formal analysis       & $3h$  \\
                              Homework              & $3h$ \\
             \end{tabular} \\
             \hline
@@ -152,7 +173,6 @@
                             Overall description   & $1h$ \\
                             Specific requirements & $5h$ \\
                             Formal analysis       & $0h$ \\
-                            Reasoning             & $0h$ \\
                             Homework              & $3h$ \\
             \end{tabular} \\
             \hline
