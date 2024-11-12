@@ -5,8 +5,10 @@ open util/boolean
 // User's role: it can be a student or a company
 abstract sig Role {}
 sig Student extends Role {
-    applications: some Application
+    applications: some Application,
+    cv: one CV
 }
+sig CV{}
 sig Company extends Role {
     postings: some Internship
 }
@@ -23,7 +25,7 @@ sig PersonalData{}
 // Internship
 sig Internship {
     postedBy: one Company,
-     applicants: some Application,
+    applicants: some Application,
     description: one Description,
 }
 sig Description{}
@@ -55,20 +57,17 @@ fact UniqueUsersEmailsAndPersonalInfo {
 
 // A role can only be associated with one User
 fact OneUserPerStudentAndCompany{
-    all s: Student | one u: User | u.role = s and
-    all c: Company |  one u: User | u.role = c
+    all s: Student | one u: User | s in u.role and
+    all c: Company |  one u: User | c in u.role 
 }
 
 //DoubleArrowConstraint
 fact DoubleAssociation {
-    //An interview can only be associated with an application
-    all i: Interview | one a: Application | 
-    i in a.interviews
-   //An application can only be associated with a student
-   all a: Application | one s: Student | 
-   s in a.submittedBy and a in s.applications and
-   s.applications.submittedBy=s
-   //An application can only be associated with a Intenship
+    //An application can only be associated with a student
+    all a: Application | one s: Student | 
+    s in a.submittedBy and a in s.applications and
+    s.applications.submittedBy=s 
+    //An application can only be associated with a Intenship
     all a: Application | one i: Internship | 
     a in i.applicants and  i in a.relatedTo and
     i.applicants.relatedTo = i
@@ -78,33 +77,35 @@ fact DoubleAssociation {
     c.postings.postedBy = c  
 }
 
+//Unique Description, CV, and Interview 
+fact UniqueItems {
+    //description
+    all i1, i2: Internship | i1 != i2 implies
+    i1.description != i2.description
+    all dd: Description | one ii:Internship | dd in ii.description
+    //CV
+    all s1,s2: Student| s1 != s2 implies s1.cv != s2.cv
+    all ccvv:CV | one ss: Student |  ccvv in ss.cv
+    //interview
+    all a1,a2: Application | a1!=a2 implies 
+    a1.interviews != a2.interviews
+    all i: Interview | one a: Application | i in a.interviews
+}
+
+//Unique Application
+fact UniqueApplications{
+    all i1, i2: Internship | i1 != i2 implies 
+    #(i1.applicants & i2.applicants) <= 0
+    all c1, c2: Company | c1 != c2 implies 
+    #(c1.postings & c2.postings) <= 0
+    all s1,s2: Student | s1 !=s2 implies 
+    #(s1.applications & s2.applications) <=0
+}
+
 // A student can make only an application for one internship
 fact UniqueApplicationsPerStudent {
     all s: Student | all i: Internship | 
     #(s.applications & i.applicants) <= 1
-}
-
-// All applications are related to real posted Internship
-fact ApplicationLinkedToValidInternship {
-    all a: Application | a.relatedTo.postedBy in Company
-}
-
-//Two internships cannot have the same description 
-fact UniqueInternshipsPerCompany {
-    all i1, i2: Internship | i1 != i2 implies 
-    i1.description != i2.description
-}
-
-//Two students cannot have the same application
-fact UniqueApplicationsPerStudent {
-    all s1,s2: Student | s1!=s2 implies 
-    s1.applications != s2.applications
-}
-
-// All applications that are scheduled are applications that are really submitted by a student
-fact InterviewApplicationRelation {
-    all a: Application | a.interviews.schedule != none 
-    implies a.submittedBy in Student
 }
 
 //A role cannot have a mettengs the same day
@@ -112,10 +113,11 @@ fact SameDayMeetings {
    all ss1,ss2: Student | all cc1,cc2: Company |
    all a1,a2: Application | a1!=a2 and
    ((ss1 in a1.submittedBy and ss2 in a2.submittedBy and
-   cc1 in a1.relatedTo.postedBy and cc1 in a1.relatedTo.postedBy)or
-  (ss1 in a1.submittedBy and ss1 in a2.submittedBy and
-  cc1 in a1.relatedTo.postedBy and cc2 in a1.relatedTo.postedBy))
-  implies a1.interviews.schedule != a2.interviews.schedule
+   cc1 in a1.relatedTo.postedBy and cc1 in a1.relatedTo.postedBy)
+   or
+   (ss1 in a1.submittedBy and ss1 in a2.submittedBy and
+   cc1 in a1.relatedTo.postedBy and cc2 in a1.relatedTo.postedBy))
+   implies a1.interviews.schedule != a2.interviews.schedule
 }
 
 fact InitialApplicationStatus {
@@ -139,14 +141,11 @@ check VerifyUserStructure
 
 //Assertion to verify DoubleArrowConstraint
 assert VerifyDoubleAssociation {
-     //An interview can only be associated with an application
-    all i: Interview | one a: Application | 
-    i in a.interviews
-   //An application can only be associated with a student
-   all a: Application | one s: Student | 
-   s in a.submittedBy and a in s.applications and
-   s.applications.submittedBy=s
-   //An application can only be associated with a Intenship
+    //An application can only be associated with a student
+    all a: Application | one s: Student | 
+    s in a.submittedBy and a in s.applications and
+    s.applications.submittedBy=s
+    //An application can only be associated with a Intenship
     all a: Application | one i: Internship | 
     a in i.applicants and  i in a.relatedTo and
     i.applicants.relatedTo = i
@@ -159,33 +158,50 @@ check VerifyDoubleAssociation
 
 // Assertion to verify all Internship application structure
 assert VerifyInternshipStructures {
-    // Students can make only one application for each internship
+    //Unique Description, CV, and Interview 
+    all i1, i2: Internship | i1 != i2 implies  i1.description != i2.description
+    all dd: Description | one ii:Internship | dd in ii.description
+    all s1,s2: Student| s1 != s2 implies s1.cv != s2.cv
+    all ccvv:CV | one ss: Student |  ccvv in ss.cv
+    all a1,a2: Application | a1!=a2 implies a1.interviews != a2.interviews
+    all i: Interview | one a: Application | i in a.interviews
+    //Unique Application
+    all i1, i2: Internship | i1 != i2 implies 
+   #(i1.applicants & i2.applicants) <= 0
+   all c1, c2: Company | c1 != c2 implies 
+   #(c1.postings & c2.postings) <= 0
+   all s1,s2: Student | s1 !=s2 implies 
+    #(s1.applications & s2.applications) <=0
+   // A student can make only an application for one internship
     all s: Student | all i: Internship | 
     #(s.applications & i.applicants) <= 1
-    //All applications are related to valid posted internships
-    all a: Application | a.relatedTo.postedBy in Company
-    // A company can't publish two equal internships 
-    all i1, i2: Internship | i1 != i2 implies i1.description != i2.description
-    //All scheduled interviews are actually submitted 
-    all a: Application | a.interviews.schedule != none implies a.submittedBy in Student
-   //Two students cannot have the same application
-    all s1,s2: Student | s1!=s2 implies s1.applications != s2.applications
-    // meetings strudent side
-    all ss1,ss2: Student | all cc1,cc2: Company |
-    all a1,a2: Application | a1!=a2 and
-   ((ss1 in a1.submittedBy and ss2 in a2.submittedBy and
-    cc1 in a1.relatedTo.postedBy and cc1 in a1.relatedTo.postedBy)or
-   (ss1 in a1.submittedBy and ss1 in a2.submittedBy and
-   cc1 in a1.relatedTo.postedBy and cc2 in a1.relatedTo.postedBy))
-   implies a1.interviews.schedule != a2.interviews.schedule
 }
 check VerifyInternshipStructures
 
+//Two meetings cannot be in the same day if:
+assert VerifyInterviewStructures {
+   all ss1,ss2: Student | all cc1,cc2: Company |
+   all a1,a2: Application | a1!=a2 and
+   //are carried by the same company
+   ((ss1 in a1.submittedBy and ss2 in a2.submittedBy and
+   cc1 in a1.relatedTo.postedBy and cc1 in a1.relatedTo.postedBy)or
+  //are carried by the same student
+  (ss1 in a1.submittedBy and ss1 in a2.submittedBy and
+  cc1 in a1.relatedTo.postedBy and cc2 in a1.relatedTo.postedBy))
+  implies a1.interviews.schedule != a2.interviews.schedule
+  //meetings have a schedule if they are submitted by a student
+   all a: Application | a.interviews.schedule != none 
+    implies a.submittedBy in Student
+}
+check VerifyInternshipStructures
+
+//----MODELS----
 //one student and one company
 run {} for 2 but exactly 1 Student, exactly 1 Company, exactly 1  Internship
 
 //two students and one company
-run {} for 3 but exactly 2 Student, exactly 1 Company, exactly 1  Internship, exactly 1 Description
+run {} for 3 but exactly 2 Student, exactly 1 Company, exactly 1  Internship
 
 //one student and one company
-run {} for 3 but exactly 1 Student, exactly 2 Company, exactly 3  Application
+run {} for 3 but exactly 1 Student, exactly 2 Company, exactly 3  Internship
+
