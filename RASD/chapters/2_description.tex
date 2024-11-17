@@ -112,15 +112,27 @@ This section is devoted to an overall description of every part of the system.
 a
 
 \subsection{State diagrams}
+We will include some state diagrams to model processes driven by events or conditions, we chose a few example that we illustrate below.
 \begin{enumerate}
 
-\item \textbf{login}
+\item \textbf{Recomendation process}
+The recommendation process begins when a company publishes an internship's project description on the platform. From here, the process can follow one of two paths. In the first path, the platform’s analysis tool evaluates the project description and identifies if it matches the preferences of any subscribed student. If a match is found, the system notifies the student about the opportunity. The student then reviews the recommendation and decides whether to accept it.
 
-\item \textbf{upload CV}
+Alternatively, the process can follow a second path, where the student actively browses the list of available internships on the platform. Upon finding a suitable project, the student directly clicks on the "Apply" button, initiating an application.
 
-\item \textbf{Recomendation}
+Regardless of the path taken, both scenarios converge at the same state: waiting for the company to review the application. The company can then either accept the application, resulting in contact being established between the two parties, or reject it, ending the process.
 
-\item \textbf{University handles complaint}
+\item \textbf{Selection process}
+The selection process begins once both the student and the company have accepted the recommendation, and contact has been established. Initially, the company uses tools provided by S\&C to evaluate the candidate, such as sending a structured questionnaire. The student responds to the questionnaire, and if the company is satisfied with the answers, they proceed to schedule an interview. Both parties agree on a time and place for the interview, which then takes place. After the interview, the company makes a final decision on whether to offer the position to the student and communicates their choice to them.
+
+\item \textbf{Internship monitoring}
+
+\item \textbf{CV suggestion}
+When a student adds their CV to the platform, the analysis tool automatically reviews it for potential areas of improvement. If the tool determines that the CV meets the necessary standards and does not require any changes, the process ends. However, if the analysis identifies areas that could be improved, the system sends a notification to the student with the suggested improvements.
+
+\item \textbf{University handlling complaints}
+When a student raises a complaint on the platform, the university receives an automatic notification. The university then reviews the complaint and evaluates its severity. If the issue is considered mild, the university reaches out to both the student and the company to clarify and resolve the situation. However, if the complaint is deemed serious, the university directly contacts the company and takes the necessary steps to terminate the internship.
+
 \end{enumerate}
 \section{Product Functions}
 
@@ -132,27 +144,25 @@ Here we will include the most important categories of use cases, so the main fun
 
 \item \textbf{User log in}
 
-\item \textbf{CV uploading}
+\item \textbf{Internship posting}
 
-\item \textbf{Project uploading}
+\item \textbf{CV analysis}
+
+\item \textbf{Project description analysis}
 
 \item \textbf{Recomendation system and statistical analysis}
 
 One of the key features of Students\&Companies is its recommendation system, which acts like a career matching service by connecting students with suitable internship opportunities and informing companies of potential candidates. This system operates through advanced statistical analysis methods, implementing a recommender system that uses data-driven algorithms within its system to optimize the matching process, making it easier for students and companies to connect over mutually beneficial opportunities. (? troppo specifico?)
 
-\item \textbf{Notification of students and companies}
+\item \textbf{Interview management}
 
-\item \textbf{Interview managing}
+\item \textbf{Selection management}
 
-\item \textbf{Selection finalization}
+\item \textbf{Feedback management}
 
-\item \textbf{Providing feedback}
+\item \textbf{Complaint management}
 
-\item \textbf{Providing suggestions}
-
-\item \textbf{Execution monitoring}
-
-\item \textbf{Complaining}
+\item \textbf{Internship evolution monitoring}
 
 \item \textbf{Complaints handling}
 
