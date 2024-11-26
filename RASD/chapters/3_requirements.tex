@@ -83,12 +83,23 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 
 \subsection{Use cases}
 tabella per ogni uc e poi aggiungi i sequence diagrams
+\item Students create an account
+\item Companies create an account
+\item Student searches and applies for an internship
+\item Student recieves an internship recomendation (accept / decline)
+\item Company recieves a student’s recomendation (invite students + accept)
+\item Interview Process
+\item Student receives suggestions on CV
+\item Company receives suggestions on Add
+\item User leaves feedback
+\item User leaves comments on ongoing internship
+\item University monitors and handles complaints
 
 \textbf{UC1}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
-\textbf{Name} & Students create an account \\
+\textbf{Name} & Students creates an account \\
 \hline
 \textbf{Actor} & Students who want to have access and use the S\&C platform \\
 \hline
@@ -127,13 +138,26 @@ tabella per ogni uc e poi aggiungi i sequence diagrams
 \hline
 \textbf{Name} &  Student searchs and applies for an internship\\
 \hline
-\textbf{Actor} &  \\
+\textbf{Actor} &  Student\\
 \hline
-\textbf{Entry Condition} &  \\
+\textbf{Entry Condition} &  The student is correctly logged in and has decided he wants to look for an internship. He is on the home page of S\&C.\\
 \hline
-\textbf{Event Flow} &  \\
+\textbf{Event Flow} &  
+\begin{itemize}
+    \item The student clicks on "Available internships" button.
+    \item S\&C gives him the correct page.
+    \item The student scrolls and reads the list available internships.
+    \item If the student finds an internship that interests him, he clicks on its title.
+    \item S\&C opens the project description of that internship.
+    \item The student reads the description.
+    \item If the student is still interested he clicks on the apply button.
+    \item S\&C sends the application and the student's profile to the company associated to that internship.
+    \item If the student after reading the project description is no longer intersted, he goes back to the previous page by clicking on an arrow button.
+    \item S\&C shows him the correct page.
+    \item if the student does not find any interesting projects he closes the browser.
+\end{itemize} \\
 \hline
-\textbf{Exit Codition} &  \\
+\textbf{Exit Codition} &  The application is sent and a confirmation message is shown to the student, or the student exits the system.\\
 \hline
 \textbf{Exception} &  \\
 \hline
@@ -146,15 +170,32 @@ tabella per ogni uc e poi aggiungi i sequence diagrams
 \hline
 \textbf{Name} &  Student recieves an internship recomendation\\
 \hline
-\textbf{Actor} &  \\
+\textbf{Actor} &  Student\\
 \hline
-\textbf{Entry Condition} &  \\
+\textbf{Entry Condition} &  The student has a valid email account and is able to log into the system. The student has uploaded a CV on his profile.\\
 \hline
-\textbf{Event Flow} &  \\
+\textbf{Event Flow} &  
+\begin{itemize}
+\item S\&C finds a match between a student and a company.
+\item S\&C sends an email to the student with the recomendation.
+\item The student recieves an email stating he has a new recomendation.
+\item The student clicks on the button "Go to recomendation".
+\item S\&C opens his profile page with the recomendation message.
+\item The student reads the project description of the internship recomended, if he is happy with it he clicks on the apply button.
+\item S\&C sends a notification to the company that a student recommended by the system has applied.
+\item If the student is unhappy with the recomendation he clicks on the button "reject recomendation".
+\item S\&C removes the match from the system
+\item S\&C notifies the company they matched with that the recomendation has been rejected by the student. 
+\end{itemize}
+\\
 \hline
-\textbf{Exit Codition} &  \\
+\textbf{Exit Codition} & The application is sent and a confirmation message is shown to the student, or the student exits the system.\\
 \hline
-\textbf{Exception} &  \\
+\textbf{Exception} &  
+\begin{itemize}
+    \item The student does not see the email in time, and when he goes to apply the application window has already closed.
+    \item 
+\end{itemize}\\
 \hline
 \end{longtable}
 
@@ -166,15 +207,37 @@ tabella per ogni uc e poi aggiungi i sequence diagrams
 \hline
 \textbf{Name} &  Company recieves a student's recomendation\\
 \hline
-\textbf{Actor} &  \\
+\textbf{Actor} &  Company\\
 \hline
-\textbf{Entry Condition} &  \\
+\textbf{Entry Condition} &  The company has a valid email account and is able to log into the system. The company has uploaded at least one project description on their profile.\\
 \hline
-\textbf{Event Flow} &  \\
+\textbf{Event Flow} &  
+\begin{itemize}
+\item S\&C finds a match between a student and a company.
+\item S\&C sends an email to the company with the recomendation.
+\item The company recieves an email stating they have a new recomendation.
+\item A company's employee clicks on the button "Go to recomendation".
+\item S\&C opens their profile page with the recomendation message.
+\item The company's employee reads the CV of the student recomended, if they are intrested in the student CV:
+\item If the student has already applied they click on the "accept application" button and begin contact with the client.
+\item S\&C sends a notification to the student that a company they sent an application to is requesting to contact them.
+\item If the student has not already applied there is no "accept application" button, so they click on the "request an application" button and initiate contact with the student.
+\item S\&C sends a notification to the student that a company is requesting to contact them.
+\item If they are not interested in the student CV:
+\item If the student has already applied they click on the button "reject application"
+\item S\&C notifies the student they have been rejected.
+\item Else, they click on the button "reject recomendation".
+\item S\&C removes the match from the system.
+\item S\&C notifies the student they matched with that the recomendation has been rejected by the company. 
+\end{itemize}\\
 \hline
-\textbf{Exit Codition} &  \\
+\textbf{Exit Codition} &  Contact is established or the student recieves a notification of the failed match.\\
 \hline
-\textbf{Exception} &  \\
+\textbf{Exception} &  
+\begin{itemize}
+    \item 
+\end{itemize}
+\\
 \hline
 \end{longtable}
 
@@ -204,13 +267,16 @@ tabella per ogni uc e poi aggiungi i sequence diagrams
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
-\textbf{Name} &  University handles a complaint\\
+\textbf{Name} &  User leaves feedback\\
 \hline
-\textbf{Actor} &  \\
+\textbf{Actor} &  User\\
 \hline
-\textbf{Entry Condition} &  \\
+\textbf{Entry Condition} &  The user has an valid email account. The user has an account on S\&C.\\
 \hline
-\textbf{Event Flow} &  \\
+\textbf{Event Flow} &  
+\begin{itemize}
+    \item 
+\end{itemize}\\
 \hline
 \textbf{Exit Codition} &  \\
 \hline
@@ -224,11 +290,11 @@ tabella per ogni uc e poi aggiungi i sequence diagrams
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
-\textbf{Name} &  Student leaves feedback\\
+\textbf{Name} &  Student recieves suggestion on CV\\
 \hline
-\textbf{Actor} &  \\
+\textbf{Actor} &  Student\\
 \hline
-\textbf{Entry Condition} &  \\
+\textbf{Entry Condition} &  The student has an valid email account. The student has an account on S\&C.\\
 \hline
 \textbf{Event Flow} &  \\
 \hline
@@ -244,11 +310,33 @@ tabella per ogni uc e poi aggiungi i sequence diagrams
 \hline
 \textbf{Name} &  Company recieves suggestion on project description\\
 \hline
-\textbf{Actor} &  \\
+\textbf{Actor} &  Company\\
 \hline
-\textbf{Entry Condition} &  \\
+\textbf{Entry Condition} &  The company has an valid email account. The company has an account on S\&C.\\
 \hline
 \textbf{Event Flow} &  \\
+\hline
+\textbf{Exit Codition} &  \\
+\hline
+\textbf{Exception} &  \\
+\hline
+\end{longtable}
+
+\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\hline
+\textbf{Name} &  User makes a complaint\\
+\hline
+\textbf{Actor} &  User\\
+\hline
+\textbf{Entry Condition} &  The user is logged into their S\&C account.\\
+\hline
+\textbf{Event Flow} &  
+\begin{itemize}
+    \item The user goes on their profile page (qui ci va che S\&C gli da la pagina?)
+    \item The user clicks on the button "leave a comment" (come vogliamo fare? si puo anche fare che c'è una sezione relativa all'internship in corso)
+    \item The user writes a comment or a complaint regarding ??
+\end{itemize}
+\\
 \hline
 \textbf{Exit Codition} &  \\
 \hline
