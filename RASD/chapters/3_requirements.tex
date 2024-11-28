@@ -119,7 +119,7 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \textbf{Event Flow} & 
 \begin{enumerate}
     \item The student opens the platform homepage.
-    \item The student selects the "Create Account" option.
+    \item The student selects the "Sign up" in the "Student's Account" option.
     \item The platform displays a registration form.
     \item The student inputs the following details:	institutional email address. legal name, birth date, location of residence.
     \item The student clicks the "Sign-Up" button
@@ -161,7 +161,7 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \textbf{Event Flow} & 
 \begin{enumerate}
     \item The company opens the platform homepage.
-    \item The company selects the "Create Account" option.
+    \item The company selects the "Sign up" in the "Company's Account" option.
     \item The platform displays a registration form.
     \item The company inputs the following attributes: email address, company name, location.
     \item The company clicks the "Sign-Up" button.
@@ -202,8 +202,8 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \textbf{Event Flow} &  
 \begin{enumerate}
-    \item  The student clicks on the "Available Internships" button on the homepage.
-    \item S\&C displays the "Available Internships" page with a list of projects.
+    \item  The student clicks on the "Global" button on the homepage.
+    \item S\&C displays the "Global" page with a list of internships available.
     \item The student scrolls through and reads the list of available internships.
     \item If the student identifies an internship of interest they click on the internship's title.
     \item S\&C displays the project description page for that internship.
@@ -222,7 +222,7 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 2. The student exits without applying for an internship.\\
 \hline
 \textbf{Exception} &  
-1. The "Available Internships" page fails to load due to a technical error.	
+1. The "Global" page fails to load due to a technical error.	
 
 2. The internship project description fails to display after the student clicks on a title.
 
@@ -292,16 +292,16 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \item S\&C identifies a match between a student and a company based on the uploaded project description and student CV.	
 \item S\&C sends an email to the company notifying them of the recommendation.
 \item  The company’s employee receives the email and clicks on the "Go to Recommendation" button.
-\item  The system redirects them to their profile page, displaying the recommendation details, including the student’s CV.
+\item  The system redirects them to their profile page, displaying the recommendation details, including a link to the student's profile.
 \item The company’s employee reviews the student’s CV, If the employee is interested in the student:
-\item  If the student has already applied, the company clicks the "Accept Application" button.
+\item  If the student has already applied, the company clicks the "Accept" button.
 \item S\&C notifies the student that their application has been accepted, and contact between the two parties is established.
-\item  If the student has not applied, the company clicks the "Request an Application" button.
+\item  If the student has not applied, the company clicks the "Invite" button.
 \item S\&C sends a notification to the student requesting that they submit an application.
 \item If the employee is not interested in the student:
 \item If the student has already applied, the company clicks the "Reject Application" button.
 \item S\&C notifies the student that their application has been rejected.
-\item  If the student has not applied, the company clicks the "Reject Recommendation" button.
+\item  If the student has not applied, the company clicks the "Reject Recommendation" button. (Lo mettiamo o semplicemente ignora?)
 \item S\&C removes the match from the system.
 \item S\&C notifies the student they matched with that the recomendation has been rejected by the company. 
 \end{enumerate}\\
@@ -397,8 +397,8 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
     \item The system sends an email to the user requesting feedback about their internship experience.
     \item The user reads the email and decides whether to provide feedback.
     \item If the user chooses to provide feedback, they click the "Leave Feedback" button in the email.
-    \item The system redirects them to the S\&C platform, displaying an empty feedback form with questions about the internship.	
-    \item The user completes the questionnaire with their feedback.
+    \item The system redirects them to the S\&C platform, displaying the "Internships to Monitor" page on their profile and an empty space to fill out with the feedback.	
+    \item The user writes the feedback.
     \item  If the user does not wish to provide feedback, they ignore the email.
 \end{enumerate}\\
 \hline
@@ -433,9 +433,9 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \begin{enumerate}
     \item The student receives an email notification from the system about a new suggestion for their CV.
     \item The student clicks the "See Suggestion" button in the email.
-    \item  The system redirects the student to the platform, displaying the full suggestion.
+    \item  The system redirects the student to the platform, displaying the page in their profile with the new suggestions.
     \item The student reads the suggestion.
-    \item If the student finds the suggestion useful: they navigate to their profile and click the "Modify CV" button.
+    \item If the student finds the suggestion useful: they navigate to their profile and click the "Change File" button underneath their CV.
     \item The platform opens a page where they can upload a new CV.
     \item The student revises their CV according to the suggestion and reuploads the updated CV to the platform.
     \item If the student does not find the suggestion useful, they ignore the email.
@@ -471,9 +471,9 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \begin{enumerate}
     \item The company receives an email notification from the system about a new suggestion.
     \item The company clicks the "See Suggestion" button in the email.
-    \item The system redirects the company to the platform, displaying the full suggestion.
+    \item The system redirects the company to the platform, displaying the suggestions in their profile page.
     \item The company reads the suggestion.
-    \item  If the company finds the suggestion useful: They navigate to their profile and click the "Modify Project Description" button.
+    \item  If the company finds the suggestion useful: They navigate to their profile and click the modify button next to the project description they wish to update.
     \item The platform opens an editor page where they can update the project description.
     \item The company writes a new description following the system’s instructions and submits it.
     \item If the company does not find the suggestion useful, they ignore the email.
@@ -497,30 +497,36 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \textbf{Name} &  User makes a complaint\\
 \hline
-\textbf{Actor} &  User\\
+\textbf{Actor} &  Student, Company, University\\
 \hline
-\textbf{Entry Condition} &  The user is logged into their S\&C account. The user is partecipating in an ongoing internship\\
+\textbf{Entry Condition} &  The user is logged into their S\&C account. The user is partecipating in an ongoing internship (the user can be either the company or the student)\\
 \hline
 \textbf{Event Flow} &  
 \begin{enumerate}
     \item The user navigates to their profile page.
+    \item The user clicks the "Internships to Monitor" button which brings them to a space in which they can leave comments and complaints.
     \item The user clicks the "Leave a Comment" button.
     \item The system opens a comment form.
     \item The user writes their comment or complaint about the ongoing internship.
     \item The user submits the complaint.
+    \item The system publishes the complaint on the "Internship to Monitor" page of all parties involved (student, company and university).
     \item The university is notified of the new complaint.
     \item The university reviews the complaint.
-    \item If the complaint is deemed important, the university handles the issue.
-    \item After handling, the university clicks the "Handled" button on the complaint record.
-    \item The system updates the status of the complaint to "Resolved" or removes it if fully addressed.
-    \item If the university does not act on the complaint, the complaint remains visible until manually dismissed.
+    \item If the complaint is deemed important, the university handles the issue by clicking the "Contact to Manage" button.
+    \item After handling, the university clicks the "Resolved" button on the complaint record.
+    \item The system updates the status of the complaint to "Resolved".
+    \item If the university does not act on the complaint, the complaint remains visible until manually deleted.
+    \item If the university deems the complaint too critical they can terminate the internship by clicking the "Therminate the internship" button.
+    \item The system notifies all parties involved of the termination of the internship.
 \end{enumerate}
 \\
 \hline
 \textbf{Exit Codition} & 
-1. The complaint has been handled and resolved (removed or marked as handled).
+1. The complaint has been handled and resolved (marked as resolved).
 
-2. The complaint remains unresolved but visible.\\
+2. The complaint remains unresolved but visible.
+
+3. The internship has been terminated\\
 \hline
 \textbf{Exception} &
 1. The user submits an incomplete or empty complaint.
