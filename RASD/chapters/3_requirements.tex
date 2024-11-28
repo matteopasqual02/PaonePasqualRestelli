@@ -80,6 +80,13 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 
 \subsection{Use case diagrams}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{RASD//Images/usecase.png}
+    \caption{Use case diagrams}
+    \label{fig:enter-label}
+\end{figure}
+
 
 \subsection{Use cases}
 tabella per ogni uc e poi aggiungi i sequence diagrams
@@ -103,194 +110,311 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
-\textbf{Name} & Students creates an account \\
+\textbf{Name} & Student creates an account \\
 \hline
-\textbf{Actor} & Students who want to have access and use the S\&C platform \\
+\textbf{Actor} & Student\\
 \hline
-\textbf{Entry Condition} & 
-\begin{itemize}
-    \item Student has a valid institutional email
-    \item Student has a CV
-\end{itemize} \\
+\textbf{Entry Condition} & The Student has a valid institutional email, the student enters the platform for the first time.\\
 \hline
 \textbf{Event Flow} & 
 \begin{enumerate}
-    \item The student opens the platform
-    \item The student selects the option of creating a new account
-    \item The student inserts his personal attributes: institutional email address, legal name, birth date, and location of residence
-    \item The student inserts his CV
-    \item The student is assigned a valid username related to his legal name
-    \item The student receives a verification email to validate his identity
-    \item The student confirms his identity
-    \item The student account is created and activated
+    \item The student opens the platform homepage.
+    \item The student selects the "Create Account" option.
+    \item The platform displays a registration form.
+    \item The student inputs the following details:	institutional email address. legal name, birth date, location of residence.
+    \item The student clicks the "Sign-Up" button
+    \item The system verifies the email address format, and checks for duplicate email addresses in existing accounts.
+    \item  If validations pass the system generates a username based on the student’s legal name.
+    \item The platform sends a verification email to the provided email address.
+    \item The student opens the verification email and clicks the provided link to validate their identity.
+    \item Upon successful verification, the system creates and activates the account.
+    \item The system sends a welcome message, inviting the student to upload their CV if desired.
+    \item  If the student decides to upload a CV they click on the message, which redirects them to the CV upload page.
+    \item The student uploads their CV and confirms the upload.
+    \item If the student chooses not to upload a CV, they dismiss the message by clicking the "X" button.
 \end{enumerate} \\
 \hline
-\textbf{Exit Condition} & The new account is created \\
+\textbf{Exit Condition} & 
+1. The student’s account is created, verified, and activated.
+
+2. Optional: The student’s CV is uploaded.\\
 \hline
 \textbf{Exception} & 
-\begin{itemize}
-    \item The student's email address has already been connected to an existing account. In that case, the system returns an error and redirects the student to the login page.
-    \item The student's email address is incorrect or not valid. In this case, the system returns an error, and the flow won't continue until the student inserts a valid email address.
-\end{itemize} \\
+1. If the email address is already associated with an existing account, the system displays an error message, the student is redirected to the login page to access their existing account.	
+
+2. If the email address is invalid, the system displays an error message and requires the student to re-enter the email address.	
+
+3. If the student fails to confirm their identity within a set time (e.g., 24 hours), the account creation process is canceled.\\
 \hline
 \end{longtable}
 
+\textbf{UC2}
 
-\textbf{UC\#}
+\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\hline
+\textbf{Name} & Company creates an account \\
+\hline
+\textbf{Actor} & Company\\
+\hline
+\textbf{Entry Condition} & The Company has a valid email addess, the company enters the platform for the first time. \\
+\hline
+\textbf{Event Flow} & 
+\begin{enumerate}
+    \item The company opens the platform homepage.
+    \item The company selects the "Create Account" option.
+    \item The platform displays a registration form.
+    \item The company inputs the following attributes: email address, company name, location.
+    \item The company clicks the "Sign-Up" button.
+    \item The system verifies the email address format and checks for duplicate email addresses in existing accounts.
+    \item If validations pass, the system generates a username based on the company name.	
+    \item The platform sends a verification email to the provided email address.
+    \item The company opens the verification email and clicks the provided link to validate their identity.
+    \item Upon successful verification, the system creates and activates the account.
+    \item The system sends a welcome message inviting the company to upload project descriptions.
+    \item  The company clicks the message.
+    \item The system redirects them to a page to upload project descriptions.
+    \item  The company writes and publishes project descriptions using the provided form.
+\end{enumerate} \\
+\hline
+\textbf{Exit Condition} & 
+1. A new account is created, verified, and activated.
+
+2. The company has uploaded their first project descriptions.\\
+\hline
+\textbf{Exception} & 
+1. If the email address is already associated with an existing account, the system displays an error message and the company is redirected to the login page to access their existing account.	
+
+2. If the email address is invalid, the system displays an error message and requires the company to re-enter the email address.	
+
+3. If the company fails to confirm their identity within a set time (e.g., 24 hours), the account creation process is canceled.\\
+\hline
+\end{longtable}
+
+\textbf{UC3}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
 \textbf{Name} &  Student searchs and applies for an internship\\
 \hline
-\textbf{Actor} &  Student\\
+\textbf{Actor} &  Student, Company\\
 \hline
 \textbf{Entry Condition} &  The student is correctly logged in and has decided he wants to look for an internship. He is on the home page of S\&C.\\
 \hline
 \textbf{Event Flow} &  
-\begin{itemize}
-    \item The student clicks on "Available internships" button.
-    \item S\&C gives him the correct page.
-    \item The student scrolls and reads the list available internships.
-    \item If the student finds an internship that interests him, he clicks on its title.
-    \item S\&C opens the project description of that internship.
+\begin{enumerate}
+    \item  The student clicks on the "Available Internships" button on the homepage.
+    \item S\&C displays the "Available Internships" page with a list of projects.
+    \item The student scrolls through and reads the list of available internships.
+    \item If the student identifies an internship of interest they click on the internship's title.
+    \item S\&C displays the project description page for that internship.
     \item The student reads the description.
-    \item If the student is still interested he clicks on the apply button.
-    \item S\&C sends the application and the student's profile to the company associated to that internship.
-    \item If the student after reading the project description is no longer intersted, he goes back to the previous page by clicking on an arrow button.
-    \item S\&C shows him the correct page.
-    \item if the student does not find any interesting projects he closes the browser.
-\end{itemize} \\
+    \item If the student is still interested in applying they click on the "Apply" button.
+    \item S\&C sends the application, along with the student's profile, to the company managing the internship.
+    \item The system displays a confirmation message to the student, confirming the application has been sent.
+    \item If the student is not interested after reading the description, they click the "Back" button to return to the list of available internships.
+    \item S\&C redirects the student to the correct page.
+    \item  If the student does not find any interesting internships in the list they close the browser, ending the session.
+\end{enumerate} \\
 \hline
-\textbf{Exit Codition} &  The application is sent and a confirmation message is shown to the student, or the student exits the system.\\
+\textbf{Exit Codition} &  
+1. The student successfully submits an application and receives confirmation.
+
+2. The student exits without applying for an internship.\\
 \hline
-\textbf{Exception} &  \\
+\textbf{Exception} &  
+1. The "Available Internships" page fails to load due to a technical error.	
+
+2. The internship project description fails to display after the student clicks on a title.
+
+3. The application submission fails due to an error, and the system provides an appropriate error message.	
+
+4. The student encounters internet connectivity issues, preventing them from completing the process.\\
 \hline
 \end{longtable}
 
 
-\textbf{UC\#}
+\textbf{UC4}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
 \textbf{Name} &  Student recieves an internship recomendation\\
 \hline
-\textbf{Actor} &  Student\\
+\textbf{Actor} &  Student, Company\\
 \hline
 \textbf{Entry Condition} &  The student has a valid email account and is able to log into the system. The student has uploaded a CV on his profile.\\
 \hline
 \textbf{Event Flow} &  
-\begin{itemize}
-\item S\&C finds a match between a student and a company.
-\item S\&C sends an email to the student with the recomendation.
-\item The student recieves an email stating he has a new recomendation.
-\item The student clicks on the button "Go to recomendation".
-\item S\&C opens his profile page with the recomendation message.
-\item The student reads the project description of the internship recomended, if he is happy with it he clicks on the apply button.
-\item S\&C sends a notification to the company that a student recommended by the system has applied.
-\item If the student is unhappy with the recomendation he clicks on the button "reject recomendation".
-\item S\&C removes the match from the system
+\begin{enumerate}
+\item S\&C finds a match between a student and a company based on the student's CV and the company’s project description..
+\item S\&C sends an email to the student notifying them of the internship recommendation..
+\item The student recieves an email and clicks on the "Go to Recommendation" button.
+\item S\&C redirects the student to their profile page, displaying the recommendation details, including the project description.
+\item The student reviews the project description, if the student accepts the recommendation they click the "Apply" button.
+\item S\&C notifies the company that the recommended student has applied for the position.
+\item The system confirms the application to the student.
+\item If the student rejects the recommendation, they click the "Reject Recommendation" button.
+\item S\&C removes the match from its database.
 \item S\&C notifies the company they matched with that the recomendation has been rejected by the student. 
-\end{itemize}
+\end{enumerate}
 \\
 \hline
-\textbf{Exit Codition} & The application is sent and a confirmation message is shown to the student, or the student exits the system.\\
+\textbf{Exit Codition} & 
+1. The student has successfully applied to the internship and received confirmation.
+
+2. The student has exited the process without applying.\\
 \hline
 \textbf{Exception} &  
-\begin{itemize}
-    \item The student does not see the email in time, and when he goes to apply the application window has already closed.
-    \item 
-\end{itemize}\\
+    1. The student does not see the email in time, and the internship application window has already closed when they attempt to apply.	
+    
+    2. The email fails to reach the student due to a technical issue.	
+    
+    3. The link in the email to the recommendation page is broken or inaccessible.\\
 \hline
 \end{longtable}
 
 
 
-\textbf{UC\#}
+\textbf{UC5}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
 \textbf{Name} &  Company recieves a student's recomendation\\
 \hline
-\textbf{Actor} &  Company\\
+\textbf{Actor} &  Company, Student\\
 \hline
-\textbf{Entry Condition} &  The company has a valid email account and is able to log into the system. The company has uploaded at least one project description on their profile.\\
+\textbf{Entry Condition} &  
+1. The company has a valid email account and is able to log into the system.
+
+2. The company has uploaded at least one project description on their profile.\\
 \hline
 \textbf{Event Flow} &  
-\begin{itemize}
-\item S\&C finds a match between a student and a company.
-\item S\&C sends an email to the company with the recomendation.
-\item The company recieves an email stating they have a new recomendation.
-\item A company's employee clicks on the button "Go to recomendation".
-\item S\&C opens their profile page with the recomendation message.
-\item The company's employee reads the CV of the student recomended, if they are intrested in the student CV:
-\item If the student has already applied they click on the "accept application" button and begin contact with the client.
-\item S\&C sends a notification to the student that a company they sent an application to is requesting to contact them.
-\item If the student has not already applied there is no "accept application" button, so they click on the "request an application" button and initiate contact with the student.
-\item S\&C sends a notification to the student that a company is requesting to contact them.
-\item If they are not interested in the student CV:
-\item If the student has already applied they click on the button "reject application"
-\item S\&C notifies the student they have been rejected.
-\item Else, they click on the button "reject recomendation".
+\begin{enumerate}
+\item S\&C identifies a match between a student and a company based on the uploaded project description and student CV.	
+\item S\&C sends an email to the company notifying them of the recommendation.
+\item  The company’s employee receives the email and clicks on the "Go to Recommendation" button.
+\item  The system redirects them to their profile page, displaying the recommendation details, including the student’s CV.
+\item The company’s employee reviews the student’s CV, If the employee is interested in the student:
+\item  If the student has already applied, the company clicks the "Accept Application" button.
+\item S\&C notifies the student that their application has been accepted, and contact between the two parties is established.
+\item  If the student has not applied, the company clicks the "Request an Application" button.
+\item S\&C sends a notification to the student requesting that they submit an application.
+\item If the employee is not interested in the student:
+\item If the student has already applied, the company clicks the "Reject Application" button.
+\item S\&C notifies the student that their application has been rejected.
+\item  If the student has not applied, the company clicks the "Reject Recommendation" button.
 \item S\&C removes the match from the system.
 \item S\&C notifies the student they matched with that the recomendation has been rejected by the company. 
-\end{itemize}\\
+\end{enumerate}\\
 \hline
-\textbf{Exit Codition} &  Contact is established or the student recieves a notification of the failed match.\\
+\textbf{Exit Codition} &  
+1. Contact is successfully established between the student and the company.
+
+2. The student is notified of a rejected match.\\
 \hline
 \textbf{Exception} &  
-\begin{itemize}
-    \item 
-\end{itemize}
+1. The email fails to reach the company due to a technical issue.
+
+2. The link in the email to the recommendation page is broken or inaccessible.	
+
+3. The company’s employee does not respond to the email or does not review the recommendation on the platform.	\\
 \\
 \hline
 \end{longtable}
 
 
 
-\textbf{UC\#}
+\textbf{UC6}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
 \textbf{Name} &  Interview\\
 \hline
-\textbf{Actor} &  \\
+\textbf{Actor} &  Student, Company\\
 \hline
-\textbf{Entry Condition} &  \\
+\textbf{Entry Condition} &  
+\begin{itemize}
+    \item A student has been matched with a company.
+    \item The company and student have been notified of the match.
+    \item The company has initiated contact by either accepting the student's application or requesting an interview.
+\end{itemize} 
+\\
 \hline
-\textbf{Event Flow} &  \\
+\textbf{Event Flow} &  
+\begin{enumerate}
+    \item The company contacts the student through the platform..
+    \item The student receives a notification from the platform that a company is requesting to initiate contact.
+    \item The student accepts, and they begin the interview process.
+    \item The company may use platform tools, such as questionnaires, to pre-assess the student's qualifications before scheduling the interview.
+    \item The student completes the pre-assessment through the system, providing relevant information and responses.
+    \item Upon reviewing the pre-assessment, the company decides whether to move forward with the interview process. If they decide to proceed, the company proposes an interview date and time for the student to consider.
+    \item The student reviews the proposed interview details and, if they are available, accepts the scheduled date and time.
+    \item If the student is unavailable at the proposed time, they request the company to reschedule the interview.
+    \item This process repeats until both parties agree on a time for the interview.
+    \item Once a suitable time has been found, the system confirms the interview date and time with both the student and the company.
+    \item The student and company receive a reminder notification prior to the interview.
+    \item The company and student conduct the interview (this could be through the platform or an external tool as specified).
+    \item After the interview, the company uses some tools offered by the system to help with the selection process.
+    \item Once they have made a choice, they send a notification to the student with thier choice.
+    \item The student is notified whether they have been selected for the internship or not.
+    \item If the student is selected, they receive a final confirmation message about joining the internship.
+    \item If the student is not selected, they are notified of the rejection and may seek other opportunities.
+\end{enumerate} \\
 \hline
-\textbf{Exit Codition} &  \\
+\textbf{Exit Codition} &  
+\begin{enumerate}
+    \item The student has either been selected or rejected for the internship.
+    \item The company has completed the interview process and provided feedback.
+\end{enumerate}\\
 \hline
-\textbf{Exception} &  \\
+\textbf{Exception} &  
+\begin{enumerate}
+    \item If the interview cannot be scheduled due to technical issues (e.g., platform or communication failures), the system alerts both parties to reschedule.
+    \item If the student fails to respond to the interview request within a set period (e.g., 48 hours), the system sends a reminder, and after another 24 hours, the interview is canceled.
+    \item If the company fails to provide feedback or confirmation post-interview, the system will remind the company to complete the process.
+\end{enumerate} \\
 \hline
 \end{longtable}
 
 
 
-\textbf{UC\#}
+\textbf{UC7}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
 \textbf{Name} &  User leaves feedback\\
 \hline
-\textbf{Actor} &  User\\
+\textbf{Actor} &  User (either student or company representative)\\
 \hline
-\textbf{Entry Condition} &  The user has an valid email account. The user has an account on S\&C.\\
+\textbf{Entry Condition} &  
+1. The user has a valid email account.
+
+2. The user has an account on S\&C.
+
+3. The user has participated in an internship through S\&C.\\
 \hline
 \textbf{Event Flow} &  
-\begin{itemize}
-    \item 
-\end{itemize}\\
+\begin{enumerate}
+    \item The system sends an email to the user requesting feedback about their internship experience.
+    \item The user reads the email and decides whether to provide feedback.
+    \item If the user chooses to provide feedback, they click the "Leave Feedback" button in the email.
+    \item The system redirects them to the S\&C platform, displaying an empty feedback form with questions about the internship.	
+    \item The user completes the questionnaire with their feedback.
+    \item  If the user does not wish to provide feedback, they ignore the email.
+\end{enumerate}\\
 \hline
-\textbf{Exit Codition} &  \\
+\textbf{Exit Codition} & 
+1. The system successfully collects and stores the feedback for analysis.
+
+2. No feedback is received if the user ignores the email.\\
 \hline
-\textbf{Exception} &  \\
+\textbf{Exception} &  
+1. The email fails to reach the user due to a technical issue.	
+
+2. The link to the feedback form in the email is broken or inaccessible.\\
 \hline
 \end{longtable}
 
-
-
-\textbf{UC\#}
+\textbf{UC8}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
@@ -298,33 +422,76 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \textbf{Actor} &  Student\\
 \hline
-\textbf{Entry Condition} &  The student has an valid email account. The student has an account on S\&C.\\
+\textbf{Entry Condition} &  
+1. The student has an valid email account.
+
+2. The student has an account on S\&C. 
+
+3. The student has uploaded a CV\\
 \hline
-\textbf{Event Flow} &  \\
+\textbf{Event Flow} &  
+\begin{enumerate}
+    \item The student receives an email notification from the system about a new suggestion for their CV.
+    \item The student clicks the "See Suggestion" button in the email.
+    \item  The system redirects the student to the platform, displaying the full suggestion.
+    \item The student reads the suggestion.
+    \item If the student finds the suggestion useful: they navigate to their profile and click the "Modify CV" button.
+    \item The platform opens a page where they can upload a new CV.
+    \item The student revises their CV according to the suggestion and reuploads the updated CV to the platform.
+    \item If the student does not find the suggestion useful, they ignore the email.
+\end{enumerate}\\
 \hline
-\textbf{Exit Codition} &  \\
+\textbf{Exit Codition} &  
+1. The system has a new CV to analyze.
+
+2. The system retains the original CV if no updates are made.\\
 \hline
-\textbf{Exception} &  \\
+\textbf{Exception} &  
+1. The email fails to send.
+
+2. The link to the platform is broken.\\
 \hline
 \end{longtable}
 
-\textbf{UC\#}
-
+\textbf{UC9}
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
 \textbf{Name} &  Company recieves suggestion on project description\\
 \hline
 \textbf{Actor} &  Company\\
 \hline
-\textbf{Entry Condition} &  The company has an valid email account. The company has an account on S\&C.\\
+\textbf{Entry Condition} &  
+1. The company has a valid email account.
+
+2. The company has an S\&C account.
+
+3. The company has uploaded a project description.\\
 \hline
-\textbf{Event Flow} &  \\
+\textbf{Event Flow} &  
+\begin{enumerate}
+    \item The company receives an email notification from the system about a new suggestion.
+    \item The company clicks the "See Suggestion" button in the email.
+    \item The system redirects the company to the platform, displaying the full suggestion.
+    \item The company reads the suggestion.
+    \item  If the company finds the suggestion useful: They navigate to their profile and click the "Modify Project Description" button.
+    \item The platform opens an editor page where they can update the project description.
+    \item The company writes a new description following the system’s instructions and submits it.
+    \item If the company does not find the suggestion useful, they ignore the email.
+\end{enumerate}\\
 \hline
-\textbf{Exit Codition} &  \\
+\textbf{Exit Codition} &  
+1. The system has a new project description to analyze.
+
+2. The system retains the original project description if no changes are made.\\
 \hline
-\textbf{Exception} &  \\
+\textbf{Exception} &  
+1. The email fails to send
+
+2. The link to the platform is broken.\\
 \hline
 \end{longtable}
+
+\textbf{UC10}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
@@ -332,19 +499,35 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \textbf{Actor} &  User\\
 \hline
-\textbf{Entry Condition} &  The user is logged into their S\&C account.\\
+\textbf{Entry Condition} &  The user is logged into their S\&C account. The user is partecipating in an ongoing internship\\
 \hline
 \textbf{Event Flow} &  
-\begin{itemize}
-    \item The user goes on their profile page (qui ci va che S\&C gli da la pagina?)
-    \item The user clicks on the button "leave a comment" (come vogliamo fare? si puo anche fare che c'è una sezione relativa all'internship in corso)
-    \item The user writes a comment or a complaint regarding ??
-\end{itemize}
+\begin{enumerate}
+    \item The user navigates to their profile page.
+    \item The user clicks the "Leave a Comment" button.
+    \item The system opens a comment form.
+    \item The user writes their comment or complaint about the ongoing internship.
+    \item The user submits the complaint.
+    \item The university is notified of the new complaint.
+    \item The university reviews the complaint.
+    \item If the complaint is deemed important, the university handles the issue.
+    \item After handling, the university clicks the "Handled" button on the complaint record.
+    \item The system updates the status of the complaint to "Resolved" or removes it if fully addressed.
+    \item If the university does not act on the complaint, the complaint remains visible until manually dismissed.
+\end{enumerate}
 \\
 \hline
-\textbf{Exit Codition} &  \\
+\textbf{Exit Codition} & 
+1. The complaint has been handled and resolved (removed or marked as handled).
+
+2. The complaint remains unresolved but visible.\\
 \hline
-\textbf{Exception} &  \\
+\textbf{Exception} &
+1. The user submits an incomplete or empty complaint.
+
+2. The system fails to notify the university.
+
+3. The university overlooks the complaint unintentionally.\\
 \hline
 \end{longtable}
 

@@ -72,26 +72,6 @@
 
 \usepackage{listings}
 \usepackage{xcolor}
-\lstdefinelanguage{Alloy}{
-    keywords={sig, module, abstract, extends, fact, fun, pred, all, some, one, disj, let, set, implies, in, and, or, not, no, sum},
-    keywordstyle=\color{blue}\bfseries,
-    sensitive=true,
-    comment=[l]//,
-    morecomment=[s]{/*}{*/},
-    commentstyle=\color{green}\itshape,
-    stringstyle=\color{red}\ttfamily,
-    morestring=[b]",
-}
-
-\lstset{
-    language=Alloy,
-    basicstyle=\ttfamily\small,
-    %backgroundcolor=\color{lightgray}, % Optional background color
-    numbers=left, % Line numbers on the left
-    numberstyle=\tiny\color{gray},
-    frame=single, % Frame around the code block
-    breaklines=true, % Automatically break long lines
-}
 
 \input{Configuration_Files/config}
 
@@ -139,10 +119,11 @@
 % -----------------------
 % INTRODUCTION SECTION
 % -----------------------
-\input{RASD/chapters/1_introduction}
-\input{RASD/chapters/2_description}
-\input{RASD/chapters/3_requirements}
-\input{RASD/chapters/4_Alloy}
+\input{DD/chapters/inroduction}
+\input{DD/chapters/architectural_design}
+\input{DD/chapters/requirements_traceability}
+\input{DD/chapters/user_interface_design}
+\input{DD/chapters/IIT}
 
 \chapter{Effort Spent}
 
@@ -153,18 +134,18 @@
             Member of group & Effort spent \\
             \hline
             Arianna Paone & \begin{tabular}{p{0.25\linewidth}|c}
-                             Introduction          & $6h$  \\
-                             Overall description   & $9h$ \\
-                             Specific requirements & $6h$ \\
+                             Introduction          & $0h$  \\
+                             Overall description   & $0h$ \\
+                             Specific requirements & $0h$ \\
                              Formal analysis       & $0h$ \\
                              Homework              & $3h$ \\
             \end{tabular} \\
             \hline
             Matteo Pasqual & \begin{tabular}{p{0.25\linewidth}|c}
-                             Introduction          & $6h$  \\
-                             Overall description   & $3h$ \\
-                             Specific requirements & $3h$ \\
-                             Formal analysis       & $9h$  \\
+                             Introduction          & $0h$  \\
+                             Overall description   & $0h$ \\
+                             Specific requirements & $0h$ \\
+                             Formal analysis       & $0h$  \\
                              Homework              & $3h$ \\
             \end{tabular} \\
             \hline
