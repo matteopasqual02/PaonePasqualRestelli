@@ -6,6 +6,30 @@ This section provides a detailed description of the various types of requirement
 \subsection{User Interfaces}
 The Students\&Companies (S\&C) user interface will be a web app developed to be used by both STs and COMs. It will be accessible to anyone with a device equipped with an internet browser and a reliable internet connection. The platform will provide an intuitive and user-friendly experience, ensuring that users can easily navigate and access its features regardless of their device or operating system.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{RASD//Images/UI-Login Page.png}
+    \caption{UI - Login Page}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{RASD//Images/UI - Student's Profile.png}
+    \caption{UI - Student's Profile}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{RASD//Images/UI - Company's Profile.png}
+    \caption{UI - Company's Profile}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{RASD//Images/UC3.png}
+    \caption{UC3}
+\end{figure}
+
 \subsection{Hardware Interfaces}
 The system will be accessible from every device with an Internet Browser to access the website and a reliable Internet connection. The User is free to choose his device like a computer, a tablet, or a smartphone.
 
@@ -24,6 +48,7 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 
 \end{itemize}
 
+\pagebreak
 \section{Functional Requirements}
 
 \textbf{[R1]} The system allows unregistered users to create an account
@@ -87,27 +112,10 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
     \label{fig:enter-label}
 \end{figure}
 
-
+\pagebreak
 \subsection{Use cases}
-tabella per ogni uc e poi aggiungi i sequence diagrams
-\begin{itemize}
-\item Students create an account
-\item Companies create an account
-\item Student searches and applies for an internship
-\item Student recieves an internship recomendation (accept / decline)
-\item Company recieves a student’s recomendation (invite students + accept)
-\item Interview Process
-\item Student receives suggestions on CV
-\item Company receives suggestions on Add
-\item User leaves feedback
-\item User leaves comments on ongoing internship
-\item University monitors and handles complaints
-\end{itemize}
-
-Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema cambia pagina? (ci vuole la freccia tratteggiata di ritorno ogni volta che facciamo un operazione per segnalare l'azione del sistema in risposta a quell'operazione.)
 
 \textbf{UC1}
-
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
 \textbf{Name} & Student creates an account \\
@@ -148,6 +156,13 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \end{longtable}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{RASD//Images/UC1.png}
+    \caption{UC1}
+\end{figure}
+
+\pagebreak
 \textbf{UC2}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
@@ -190,6 +205,12 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \end{longtable}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{RASD//Images/UC2.png}
+    \caption{UC2}
+\end{figure}
+\pagebreak
 \textbf{UC3}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
@@ -232,7 +253,13 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \end{longtable}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{RASD//Images/UC3.png}
+    \caption{UC3}
+\end{figure}
 
+\pagebreak
 \textbf{UC4}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
@@ -272,8 +299,13 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \end{longtable}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{RASD//Images/UC4.png}
+    \caption{UC4}
+\end{figure}
 
-
+\pagebreak
 \textbf{UC5}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
@@ -301,7 +333,7 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \item If the employee is not interested in the student:
 \item If the student has already applied, the company clicks the "Reject Application" button.
 \item S\&C notifies the student that their application has been rejected.
-\item  If the student has not applied, the company clicks the "Reject Recommendation" button. (Lo mettiamo o semplicemente ignora?)
+\item  If the student has not applied, the company clicks the "Reject Recommendation" button.
 \item S\&C removes the match from the system.
 \item S\&C notifies the student they matched with that the recomendation has been rejected by the company. 
 \end{enumerate}\\
@@ -321,8 +353,13 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \end{longtable}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{RASD//Images/UC5.png}
+    \caption{UC5}
+\end{figure}
 
-
+\pagebreak
 \textbf{UC6}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
@@ -375,8 +412,12 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \end{longtable}
 
-
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{RASD//Images/UC6.png}
+    \caption{UC6}
+\end{figure}
+\pagebreak
 \textbf{UC7}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
@@ -414,6 +455,13 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \end{longtable}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{RASD//Images/UC7.png}
+    \caption{UC7}
+\end{figure}
+
+\pagebreak
 \textbf{UC8}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
@@ -453,6 +501,13 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \end{longtable}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{RASD//Images/UC8.png}
+    \caption{UC8}
+\end{figure}
+
+\pagebreak
 \textbf{UC9}
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
@@ -491,6 +546,13 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \end{longtable}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{RASD//Images/UC8.png}
+    \caption{UC9}
+\end{figure}
+
+\pagebreak
 \textbf{UC10}
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
@@ -537,9 +599,14 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
 \hline
 \end{longtable}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{RASD//Images/UC10.png}
+    \caption{UC10}
+\end{figure}
+
+\pagebreak
 \subsection{Mapping}
-
-
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
@@ -839,7 +906,7 @@ Come gestiamo i reply messages? mettiamo il ritorno ogni volta che il sistema ca
    
 \end{itemize}
 
-
+\pagebreak
 \section{Design Constraints}
 \subsection{Standards Compliance}
 The S\&C platform is designed to strictly follow several standards to ensure quality, security, and interoperability. 
@@ -872,6 +939,7 @@ To access the S\&C platform, both students and companies must have an electronic
 Both types of users must have devices that enable them to receive notifications from the platform, ensuring they stay informed about important updates and actions required. The devices should be able to support modern web browsers to access the S\&C platform effectively.
 
 
+\pagebreak
 \section{Software System Attributes}
 \subsection{Reliability}
 
