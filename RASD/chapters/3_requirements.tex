@@ -4,11 +4,11 @@ This section provides a detailed description of the various types of requirement
 
 \section{External Interface Requirements}
 \subsection{User Interfaces}
-The Students\&Companies (S\&C) user interface will be a web app developed to be used by both STs and COMs. It will be accessible to anyone with a device equipped with an internet browser and a reliable internet connection. The platform will provide an intuitive and user-friendly experience, ensuring that users can easily navigate and access its features regardless of their device or operating system.
+The Students\&Companies (S\&C) user interface will be a web app developed to be used by STs, COMs, and UNs. It will be accessible to anyone with a device equipped with an internet browser and a reliable internet connection. The platform will provide an intuitive and user-friendly experience, ensuring that users can easily navigate and access its features regardless of their device or operating system.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{RASD//Images/UI-Login Page.png}
+    \includegraphics[width=0.8\linewidth]{RASD//Images/UI - Login Page.png}
     \caption{UI - Login Page}
 \end{figure}
 
@@ -24,12 +24,7 @@ The Students\&Companies (S\&C) user interface will be a web app developed to be 
     \caption{UI - Company's Profile}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{RASD//Images/UC3.png}
-    \caption{UC3}
-\end{figure}
-
+\pagebreak
 \subsection{Hardware Interfaces}
 The system will be accessible from every device with an Internet Browser to access the website and a reliable Internet connection. The User is free to choose his device like a computer, a tablet, or a smartphone.
 
@@ -103,7 +98,9 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 
 \pagebreak
 
-\subsection{Use case diagrams}
+\subsection{Use case diagram}
+
+The following image shows the system use case diagram.
 
 \begin{figure}[H]
     \centering
@@ -114,6 +111,7 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 
 \pagebreak
 \subsection{Use cases}
+
 
 \textbf{UC1}
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
@@ -393,9 +391,12 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
     \item After the interview, the company uses some tools offered by the system to help with the selection process.
     \item Once they have made a choice, they send a notification to the student with thier choice.
     \item The student is notified whether they have been selected for the internship or not.
-    \item If the student is selected, they receive a final confirmation message about joining the internship.
-    \item If the student is not selected, they are notified of the rejection and may seek other opportunities.
 \end{enumerate} \\
+\hline
+  &  
+    16. If the student is selected, they receive a final confirmation message about joining the internship.
+    17. If the student is not selected, they are notified of the rejection and may seek other opportunities.
+\\
 \hline
 \textbf{Exit Codition} &  
 \begin{enumerate}
@@ -607,6 +608,7 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 
 \pagebreak
 \subsection{Mapping}
+Mapping to prove that requirements and domains lead to goals.
 
 \begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
 \hline
@@ -926,17 +928,20 @@ The S\&C platform is designed to strictly follow several standards to ensure qua
     
 \end{itemize}
 
+\pagebreak
 \subsection{Hardware Limitations}
 
-To access the S\&C platform, both students and companies must have an electronic device, such as a computer, tablet, or smartphone, with a reliable internet connection. 
+To access the S\&C platform, students, companies, and universities must have an electronic device, such as a computer, tablet, or smartphone, with a reliable internet connection. 
 
 \begin{itemize}
-    \item \textbf{STs}: Students need a device that allows them to access the platform, upload applications, attend interviews, and perform other required activities. They must also have the ability to upload and download files, such as resumes or application documents.
+    \item \textbf{STs}: Students need a device that allows them to access the platform, upload applications, attend interviews, and perform other required activities. They must also have the ability to upload and download files, such as CVs or application documents. 
 
-    \item \textbf{COMs}: Companies also need a device with internet access to view applications, schedule interviews, and manage internship postings.
+    \item \textbf{COMs}: Companies also need a device with internet access to view applications, schedule interviews, and manage internship postings. They must also have the ability to upload and download files, such as application descriptions or received applications.
+
+    \item \textbf{UNs}: Universities also need a device with internet access to view application status, handle complaints, and manage them. 
 \end{itemize}
 
-Both types of users must have devices that enable them to receive notifications from the platform, ensuring they stay informed about important updates and actions required. The devices should be able to support modern web browsers to access the S\&C platform effectively.
+Students, companies, and universities must have devices that enable them to receive notifications from the platform, ensuring they stay informed about important updates and actions required. The devices should be able to support modern web browsers to access the S\&C platform effectively.
 
 
 \pagebreak
@@ -956,7 +961,8 @@ To achieve this, techniques such as load balancing to distribute traffic evenly,
 Communication between the user and the S\&C platform is encrypted to avoid data breaches, and unauthorized access, and to ensure the confidentiality and integrity of information shared on the platform.
 
 Furthermore, users must only be able to perform operations that they are authorized to do. For example, a student must not be able to publish an internship, as this function should be restricted to users with specific permissions, such as platform administrators or authorized representatives. Proper access controls and role-based permissions must be implemented to ensure that only authorized users can perform specific actions within the platform
- 
+
+ \pagebreak
 \subsection{Maintainability}
 
 The system should be divided into scalable and reusable modules, making it easier to maintain and replace components in case of failure. This modular approach enhances the platform's flexibility and simplifies the process of updating or scaling specific parts without affecting the entire system. 

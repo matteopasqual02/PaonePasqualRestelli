@@ -1,8 +1,9 @@
 \chapter{Overall Description}
-This section is devoted to give an overall description of every part of the system.
+This section is devoted to giving an overall description of every part of the system.
 
 \section{Product Perspective}
 \subsection{Scenarios}
+The following scenarios are devoted to providing a set of possible user usages of the system.
 \begin{enumerate} 
     \item \textbf{A student creates an account}
 
@@ -10,7 +11,7 @@ This section is devoted to give an overall description of every part of the syst
     
     After learning about Students\&Companies, he decides to explore the platform and create an account. Searching for the site in his browser, Mario arrives at a login page, where he sees an option to create a new account if he is not yet registered. He clicks on this option and follows the account creation steps: entering his email, first name, last name, and date of birth.
     
-    Upon completing these basic details, Mario is presented with additional options to enhance his profile, such as uploading a CV and adding a brief personal description. However, he decides to skip this step for now, intending to add these details later, as he is currently focused on just exploring what the platform looks like.
+    Upon completing these basic details, Mario is presented with additional options to enhance his profile, such as uploading a CV and adding a brief personal description. However, he decided to skip this step for now, intending to add these details later, as he is currently focused on just exploring what the platform looks like.
     \item \textbf{A student uploads their CV}
 
     After exploring the site and deciding he would like to be contacted by companies, Mario decides it’s time to enhance his profile by uploading his CV. To do this, he follows a series of steps:
@@ -178,8 +179,9 @@ This section is devoted to give an overall description of every part of the syst
       
 \end{enumerate}
 
-
+\pagebreak
 \subsection{Class diagram}
+The following image shows the system class diagram.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{RASD//Images/UML.drawio.png}
@@ -257,34 +259,33 @@ The entity modeled is a complaint submitted by a student or company. The complai
 \pagebreak
 \section{Product Functions}
 
-Here we will include the most important categories of use cases, so the main functions that the system should provide to its users (cose che fa il sistema)
-
--> dodici diagrammi da fare non sono un po' tanti????
+Here we will include the most important categories of use cases, so the main functions that the system should provide to its users.
 
 \begin{enumerate}
 
 \item \textbf{Account creation and User login}
+The platform supports secure account creation for both students and company representatives. This feature ensures that only authenticated users can access the system, safeguarding personal and professional information. Students and companies can maintain personalized profiles, which serve as the foundation for interactions on the platform. The user management system enables role-based access to different features.
 
 \item \textbf{Internship posting}
-
+Companies can post detailed descriptions of internship opportunities, including the tasks involved, required skills, application procedures, and associated benefits (e.g., mentorship, training, or compensation). The system allows companies to categorize internships by domain, location, and duration, ensuring that postings are discoverable by the most relevant candidates. By providing a structured template for submissions, the platform standardizes postings and enhances their clarity for prospective applicants.
 \item \textbf{CV analysis}
-
+A key functionality of the platform is its automated analysis of student CVs. Using natural language processing and pattern recognition techniques, the system extracts and evaluates relevant details such as skills, academic achievements, extracurricular activities, and prior experience. This analysis facilitates the matching process by identifying the most suitable candidates for specific internships and offering students insights into how their CVs align with industry expectations.
 \item \textbf{Project description analysis}
-
+Similarly, the platform analyzes project descriptions provided by companies. This feature evaluates the scope, required skills, and potential learning outcomes of each internship project. By standardizing and comparing these descriptions, the system enhances compatibility with student profiles and ensures that companies present opportunities in ways that attract the best talent.
 \item \textbf{Recomendation system and statistical analysis}
 
-One of the key features of Students\&Companies is its recommendation system, which acts like a career matching service by connecting students with suitable internship opportunities and informing companies of potential candidates. This system operates through advanced statistical analysis methods, implementing a recommender system that uses data-driven algorithms within its system to optimize the matching process, making it easier for students and companies to connect over mutually beneficial opportunities. (? troppo specifico?)
+One of the key features of Students\&Companies is its recommendation system, which acts like a career matching service by connecting students with suitable internship opportunities and informing companies of potential candidates. This system operates through advanced statistical analysis methods, implementing a recommender system that uses data-driven algorithms within its system to optimize the matching process, making it easier for students and companies to connect over mutually beneficial opportunities. 
 
 \item \textbf{Interview and Selection management}
-
+The platform supports the organization and management of the selection process. Companies can schedule interviews, send invitations, and manage applicant responses directly through the system. Structured tools, such as pre-defined questionnaires and assessment templates, allow companies to evaluate candidates systematically. This feature reduces administrative overhead and ensures that the selection process remains efficient and transparent.
 \item \textbf{Feedback collection and analysis}
-
+To foster continuous improvement, the platform enables users to provide feedback at various stages. Students can evaluate their internship experiences, while companies can assess the quality of applicants and their performance. This feedback is aggregated and analyzed to identify areas for improvement in the matching process, project design, and internship management.
 \item \textbf{Complaint collection}
-
+The platform includes mechanisms for students and companies to submit complaints regarding internships. Complaints may address issues such as mismatched expectations, workplace conditions, or performance concerns. By providing a structured avenue for grievance reporting, the system ensures that all parties can voice their concerns constructively.
 \item \textbf{Internship evolution monitoring}
-
+During the internship period, the platform facilitates the monitoring of progress. Students, companies, and universities can access tools to track milestones, evaluate performance, and identify potential issues early. This feature promotes accountability and helps ensure that internships deliver meaningful outcomes for all stakeholders.
 \item \textbf{Complaints handling}
-
+Universities, as key stakeholders, are responsible for resolving complaints that require intervention. The platform supports this process by providing access to all relevant data, enabling universities to make informed decisions. This feature ensures that internships adhere to agreed-upon standards and that issues are addressed promptly to protect the interests of students and companies alike.
 \end{enumerate}
 
 \pagebreak
@@ -303,11 +304,11 @@ There are three types of registered users in S\&C: Students (STs) and Companies 
     
 \end{itemize}
 
-Both STs and COMs must register with the platform to access its services, enabling seamless communication between students seeking internships and companies offering opportunities.
+All STs, COMs, and UNs must register with the platform to access its services. This enables seamless communication between students seeking internships, companies offering opportunities, and universities to monitor.
 
 \pagebreak
 \section{Assumptions, dependencies, constraints}
-\textbf{[DA1] }Students and companies need to have a device and an internet connection (?)
+\textbf{[DA1] }Students and companies need to have a device and an internet connection 
 
 \textbf{[DA2]} Companies need to have detailed internship descriptions
 
