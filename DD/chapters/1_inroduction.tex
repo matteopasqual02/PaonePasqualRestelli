@@ -1,0 +1,71 @@
+\chapter{Introduction}
+
+\section{Purpose}
+This document represents the Design Document (DD). The purpose of the DD is to provide overall guidance to the architecture of the software product discussed in the RASD.
+
+It contains the description of the architecture chosen to design the Students\&Companies. Furthermore, it describes how the UI has to look like, and the map from the requirements defined in the RASD and the architectural components defined in this document.
+It also includes a set of design characteristics required for the implementations by introducing constraints and quality attributes, and it gives a presentation of the implementation, integration, and testing plan.
+
+DD is addressed to the software development team who will have to implement the described system and it has the purpose to guide them through the development process.
+
+
+\section{Scope}
+Students\& Companies (S\&C) is a platform connecting students seeking internships with corporations offering them. Companies can advertise roles, receive tailored candidate recommendations, and send invitations when recommendations are accepted. 
+
+Students can search proactively by exploring roles and applying or passively by receiving system alerts for matching offers. When both parties express interest, the platform supports the selection process, including interviews, and allows users to leave feedback, which is used to enhance recommendations and improve user profiles.
+
+During internships, the platform collects feedback and handles complaints from both sides, involving universities when necessary to resolve issues.
+
+More detailed information can be found on the RASD.
+
+\pagebreak
+\section{Definitions, Acronymous, Abbreviations}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Abbreviation} & \textbf{Description} \\ \hline
+RASD & Requirements Analysis \& Specification Document \\ \hline
+DD & Design Document \\ \hline
+G* & Goal \\ \hline
+D* & Domain assumption \\ \hline
+R* & Functional requirement \\ \hline
+S\&C & Students \& Companies \\ \hline
+STs & Students \\ \hline
+COMs & Companies \\ \hline
+UNs & Universities \\ \hline
+UML & Unified Modelling Language \\ \hline
+UI & User Interface \\ \hline
+\end{tabular}
+\caption{List of Definitions, Acronymous, and Abbreviations}
+\label{table:abbreviations}
+\end{table}
+
+\section{Revision History}
+
+\begin{itemize}
+    \item Version 1.0 (07/01/2025)
+\end{itemize}
+
+\section{Reference Documents}
+
+The document is based on the following materials:
+
+\begin{itemize}
+    \item IEEE Standard Documentation For DD
+    \item The specification of the RASD and DD assignment of the Software Engineering II course a.a. 2024/25 
+    \item Slides of the course on WeBeep
+\end{itemize}
+
+\pagebreak
+\section{Document structure}
+This document is composed of six chapters:
+\begin{enumerate}
+    \item \textbf{ Introduction:} This chapter describes the scope and purpose of this DD. It also includes the structure of the document and a set of definitions, acronyms, and abbreviations used.
+    \item \textbf{ Architectural Design:} This chapter presents the architectural design choices. It includes an overview of the designed architecture, all the components, the interfaces, and the technologies used for designing the application. It also details the main functions of the interfaces and the processes in which they are utilized (Runtime view and component interfaces). Finally, it explains the design pattern chosen and recommended for system development.
+    \item \textbf{User Interface Design:} This chapter illustrates how the UI should look. It complements and expands upon the User Interfaces subsection in the RASD.
+    \item \textbf{Requirements Traceability.} This chapter explains how the requirements defined in the RASD are mapped to the design elements defined in this document.
+    \item \textbf{Implementation, Integration, and Test Plan.} This chapter outlines the planned order for implementing the system's subcomponents, integrating them, and testing the integration.
+    \item \textbf{Effort Spent.} This chapter provides information on the number of hours each group member has worked on this document.
+\end{enumerate}
+
