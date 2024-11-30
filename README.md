@@ -1,3 +1,7 @@
+Here’s the updated README with the effort spent represented as a table:
+
+---
+
 # Students&Companies (S&C) - Software Engineering 2 Project
 
 ## Authors:
@@ -12,10 +16,23 @@ The Students&Companies (S&C) platform aims to streamline the process of matching
 This project involves the creation of two major documents:
 1. **Requirement Analysis and Specification Document (RASD)**
    - Provide a formal description of Goals, Phenomena (World and Shared), Domain Assumptions, and Requirements.
-   - Describes also use cases and and formal analysis with the Alloy 6 tools
+   - Describes also use cases and possible scenarios
+   - Make a formal analysis with the Alloy 6 tools
    
-3. **Design Document (DD)**  
+2. **Design Document (DD)**  
    - Provides detailed design decisions, architecture, and the user interface of the S&C platform.
    - Includes UML diagrams, component views, and an implementation plan.
    - Includes Validation, Verification, and Testing plan.
+
+## Effort Spent
+
+| Member              | RASD         |
+|-------------------   |-------------|
+| **Arianna Paone** | 35 hours    |
+| **Matteo Pasqual**| 35 hours    |
+| **Matilde Restelli**| 36 hours   |
+| **Total**         | **101 hours** |
+
+
+
 
