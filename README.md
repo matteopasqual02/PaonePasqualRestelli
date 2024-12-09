@@ -1,6 +1,3 @@
-Here’s the updated README with the effort spent represented as a table:
-
----
 
 # Students&Companies (S&C) - Software Engineering 2 Project
 
