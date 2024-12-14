@@ -1,1 +1,56 @@
 \chapter{Implementation, Integration, and Testing}
+
+This chapter explains how the platform described will be implemented and tested. The primary aim of testing is to identify and address the majority of the bugs in the code produced by the development team. Additionally, a detailed description of the integration of components within the code is provided in Section~\ref{sec:integration}. Section~\ref{sec:implementation_plan} presents an overview of the most important implementation strategies used in the project.
+
+\section{Implementation Plan\label{sec:implementation_plan}}
+
+This section describes the strategies for implementing, integrating, and testing the various components of the system. The implementation approach combines the advantages of both bottom-up and thread-based strategies.
+
+A thread-based strategy is functional because it makes progress visible to users and stakeholders. It allows for fewer drivers than expected but introduces greater complexity during integration. 
+
+The top-down methodology will be employed by first designing a basic sketch of the system. Then, more complex functionalities will be added incrementally as validated thread units. This strategy enables different teams to work in parallel, accomplishing tasks independently. Once validated, these units will be integrated into the overall software architecture.
+
+\subsection{Features Identification\label{sec:features_identification}}
+
+The implementation process begins with identifying the key features required for the system. These features align with the goals specified in the RASD document and correspond to the primary system components outlined in Figure 2.2. The key features include:
+
+\textcolor{red}{write features}
+
+These components collectively form the core features and capabilities of the platform.
+
+\section{Component Integration and Testing\label{sec:integration}}
+
+Integrating the components of the system is a critical phase that ensures all modules work together seamlessly. The integration process follows these steps:
+
+\begin{enumerate}
+    \item \textbf{Unit Validation:} Each component is tested individually to ensure it performs as intended. Stubs and drivers are employed to simulate missing parts during testing.
+    \item \textbf{Thread Integration:} Components validated in isolation are integrated incrementally. Threads representing functional workflows (e.g., user registration, internship posting) are built and tested sequentially.
+    \item \textbf{System Assembly:} Once all threads are validated, they are integrated into the overall system. Compatibility and interactions between threads are thoroughly tested to ensure no conflicts arise.
+    \item \textbf{Final Testing:} After the entire system is assembled, it undergoes a full round of testing, including functional, performance, usability, load, and stress testing, to verify its readiness for deployment.
+\end{enumerate}
+
+This systematic approach to integration and testing minimizes errors and ensures that the platform meets its specified requirements.
+
+\section{System Testing\label{sec:system_testing}}
+
+The CKB platform must be thoroughly tested to ensure that the implemented functionalities align with expectations. During development, each component will be tested individually. However, not all components can be tested in isolation from the entire architecture; therefore, stubs and drivers will be used to replace missing components as needed. Once a thread unit is tested and validated, it will be integrated into the software architecture. When the entire architecture is complete, comprehensive testing will be conducted.
+
+The primary objective of system testing is to verify that the platform meets the functional and non-functional requirements specified in the RASD document. In this process, participation from all stakeholders, including developers and end-users, is essential. The testing steps include:
+
+\begin{itemize}
+    \item \textbf{Functional Testing:} This test verifies whether the functional requirements are fulfilled. The most effective way to conduct functional testing is to execute the software as described in the RASD use cases and ensure they are satisfied.
+
+    \item \textbf{Performance Testing:} The goal of this test is to identify bottlenecks that may affect response time, utilization, and throughput. It can also detect inefficient algorithms, hardware/network issues, and optimization opportunities. This test involves loading the system with the expected workload, measuring performance, and comparing results to identify areas for improvement.
+
+    \item \textbf{Usability Testing:} This method evaluates the usability of a website, application, or other digital product by observing real users as they attempt to complete tasks.
+
+    \item \textbf{Load Testing:} Load testing is conducted to identify potential issues such as memory leaks, buffer overflows, or memory mismanagement. This test determines the upper limits of the system's components by increasing the workload until the system can no longer sustain it for a pre-established duration.
+
+    \item \textbf{Stress Testing:} This test ensures that the system can recover gracefully after failure. For stress testing, system resources may be increased or decreased to evaluate the system's resilience.
+\end{itemize}
+
+\subsection{Extra:}
+
+Continuous feedback from users and stakeholders is crucial throughout the development process. Feedback should be solicited each time a new feature is implemented. During alpha testing, it is important to assess user satisfaction. Psychologists or other experts may be consulted to design appropriate questionnaires for the testers involved. Alpha testing helps identify malfunctions before beta testing.
+
+Beta testing, conducted in a production environment, allows real users to uncover any bugs or issues before the general release. Even after release, it is vital to collect logs from the application to assist developers in debugging and improving the system.
