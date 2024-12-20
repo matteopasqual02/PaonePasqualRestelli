@@ -123,7 +123,7 @@ fact UniqueApplicationsPerStudent {
     		#(s.applications & i.applicants) <= 1
 }
 
-//A role cannot have a mettengs the same day
+//A student or a company cannot have an interview the same day
 fact SameDayMeetings {
 	all ss1,ss2: Student | all cc1,cc2: Company |
    	all a1,a2: Application | a1!=a2 and
@@ -140,7 +140,7 @@ fact SameDayMeetings {
 }
 
 // Interview process
-fact InterviewProess{ 
+fact InterviewProcess{ 
 	all a: Application | 
         	always( a.interviews.outcome = InProgress 
 			implies a.status = Pending)
@@ -174,6 +174,7 @@ run oneStudentOneCompanyOneInternship for 2
     \label{fig:enter-label}
 \end{figure}
 
+\pagebreak
 \textbf{[MS2]} The model shows a scenario where two students are applying for an internship at a company with pending status and an in-progress interview.
 \begin{lstlisting}
 //two students and one company
@@ -192,6 +193,7 @@ run twoStudentOneCompanyOneInternship for 3
     \label{fig:enter-label}
 \end{figure}
 
+\pagebreak
 \textbf{[MS3]} The model shows a scenario where one student is applying for three internships 2 at company A and one at company B with pending status and an in-progress interview.
 \begin{lstlisting}
 //one student and one two companies
@@ -216,6 +218,7 @@ run oneStudentTwoCompanyThreeInternship for 3
     \label{fig:enter-label}
 \end{figure}
 
+\pagebreak
 \subsection{Dynamic Analysis}
 \textbf{[MD1]}The model shows the basic scenario where one student applies for an internship
 at a company. The dynamic analysis shows how the positive interview status influences the application outcome.
@@ -240,6 +243,7 @@ run interviewPassed for 2
     \label{fig:enter-label}
 \end{figure}
 
+\pagebreak
 \textbf{[MD2]}The model shows the basic scenario where one student applies for an internship
 at a company. The dynamic analysis shows how the negative interview status influences the application outcome.
 
@@ -286,11 +290,11 @@ check VerifyUserStructure
 \end{lstlisting}
 \textit{\#1: VerifyUserStructure may be valid.}
 
-
+\pagebreak
 \textbf{[A2]} Assertion to verify DoubleArrowConstraint:
 \begin{itemize}
     \item An application can only be associated with a student
-    \item An application can only be associated with a Intenship
+    \item An application can only be associated with an Internship
     \item An internship can only be associated with a Company
 \end{itemize}
 \begin{lstlisting}
@@ -313,7 +317,7 @@ check VerifyDoubleAssociation
 \end{lstlisting}
 \textit{\#2: VerifyDoubleAssociation may be valid.}
 
-
+\pagebreak
 \textbf{[A3]} Assertion to verify all Internship application structure
 \begin{itemize}
     \item Unique Description, CV, and Interview 
@@ -349,7 +353,7 @@ check VerifyInternshipStructures
 \end{lstlisting}
 \textit{\#3: VerifyInternshipStructures may be valid}
 
-
+\pagebreak
 \textbf{[A4]} Assertion to verify all Internship meeting schedules. Two meetings cannot be on the same day if:
 \begin{itemize}
     \item are carried by the same company
@@ -381,6 +385,7 @@ check VerifyInternshipStructures
 \end{lstlisting}
 \textit{\#4: VerifyInterviewStructures may be valid}
 
+\pagebreak
 \textbf{[A5]} Assertion to verify if the interview process is correctly related to the application process. Three cases are considered:
 \begin{itemize}
     \item Failed $=>$ Rejected

@@ -54,9 +54,9 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 
 \textbf{[R4]} The system allows companies to add a description to their internships
 
-\textbf{[R5]} When students want to do a proactive research, the system allows them to go through the available internships
+\textbf{[R5]} When students want to do proactive research, the system allows them to go through the available internships
 
-\textbf{[R6]} When doing a search the system allows users to filter internships by a key (?)
+\textbf{[R6]} When doing a search the system allows users to filter internships
 
 \textbf{[R7]} When finding an internship that suits their interests, the system allows students to apply for it. 
 
@@ -66,7 +66,7 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 
 \textbf{[R10]} When a student's CV that corresponds to a company's needs becomes available the system informs them. 
 
-\textbf{[R11]} The system allows students to accept a recommendation, and apply for that particular internship. 
+\textbf{[R11]} The system allows students to accept a recommendation, applying for that particular internship. 
 
 \textbf{[R12]} The system allows companies to accept a recommendation, inviting the candidate that was proposed.
 
@@ -76,9 +76,9 @@ The communication interfaces needed by the system are the HTTPS (Hypertext Trans
 
 \textbf{[R15]} When conducting an interview, the system supports the companies with the interview process
 
-\textbf{[R16]} When conducting an interview, the system supports the companis with the finalization of the selection
+\textbf{[R16]} When conducting an interview, the system supports the companies with the finalization of the selection
 
-\textbf{[R17]} The system allows students and companies to provide feedback and suggestions to feed statistical analysis.
+\textbf{[R17]} The system allows students and companies to provide feedback and suggestions to perform statistical analysis.
 
 \textbf{[R18] }The system provides suggestions to students regarding how to make their CVs more appealing
 
@@ -116,7 +116,7 @@ The following image shows the system use case diagram.
 
 
 \textbf{UC1}
-\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\begin{longtable}{|p{0.25\textwidth}|p{0.7\textwidth}|}
 \hline
 \textbf{Name} & Student creates an account \\
 \hline
@@ -129,9 +129,9 @@ The following image shows the system use case diagram.
     \item The student opens the platform homepage.
     \item The student selects the "Sign up" in the "Student's Account" option.
     \item The platform displays a registration form.
-    \item The student inputs the following details:	institutional email address. legal name, birth date, location of residence.
+    \item The student inputs the following details:	institutional email address. legal name, birth date, and location of residence.
     \item The student clicks the "Sign-Up" button
-    \item The system verifies the email address format, and checks for duplicate email addresses in existing accounts.
+    \item The system verifies the email address format and checks for duplicate email addresses in existing accounts.
     \item  If validations pass the system generates a username based on the student’s legal name.
     \item The platform sends a verification email to the provided email address.
     \item The student opens the verification email and clicks the provided link to validate their identity.
@@ -143,47 +143,52 @@ The following image shows the system use case diagram.
 \end{enumerate} \\
 \hline
 \textbf{Exit Condition} & 
-1. The student’s account is created, verified, and activated.
-
-2. Optional: The student’s CV is uploaded.\\
+\begin{enumerate}
+    \item  The student’s account is created, verified, and activated.
+    
+    \item  Optional: The student’s CV is uploaded.
+\end{enumerate}\\
 \hline
 \textbf{Exception} & 
-1. If the email address is already associated with an existing account, the system displays an error message, the student is redirected to the login page to access their existing account.	
+\begin{enumerate}
+    \item If the email address is already associated with an existing account, the system displays an error message, the student is redirected to the login page to access their existing account.
 
-2. If the email address is invalid, the system displays an error message and requires the student to re-enter the email address.	
+    \item If the email address is invalid, the system displays an error message and requires the student to re-enter the email address.
 
-3. If the student fails to confirm their identity within a set time (e.g., 24 hours), the account creation process is canceled.\\
+    \item If the student fails to confirm their identity within a set time (e.g., 24 hours), the account creation process is canceled.
+\end{enumerate}
+\\
 \hline
 \end{longtable}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{RASD//Images/UC1.png}
+    \includegraphics[width=0.6\linewidth]{RASD//Images/UC1.png}
     \caption{UC1}
 \end{figure}
 
 \pagebreak
 \textbf{UC2}
 
-\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\begin{longtable}{|p{0.25\textwidth}|p{0.7\textwidth}|}
 \hline
 \textbf{Name} & Company creates an account \\
 \hline
 \textbf{Actor} & Company\\
 \hline
-\textbf{Entry Condition} & The Company has a valid email addess, the company enters the platform for the first time. \\
+\textbf{Entry Condition} & The Company has a valid email address, the company enters the platform for the first time. \\
 \hline
 \textbf{Event Flow} & 
 \begin{enumerate}
     \item The company opens the platform homepage.
     \item The company selects the "Sign up" in the "Company's Account" option.
     \item The platform displays a registration form.
-    \item The company inputs the following attributes: email address, company name, location.
+    \item The company inputs the following attributes: email address, company name, and location.
     \item The company clicks the "Sign-Up" button.
     \item The system verifies the email address format and checks for duplicate email addresses in existing accounts.
     \item If validations pass, the system generates a username based on the company name.	
     \item The platform sends a verification email to the provided email address.
-    \item The company opens the verification email and clicks the provided link to validate their identity.
+    \item The company opens the verification email and clicks the provided link to validate its identity.
     \item Upon successful verification, the system creates and activates the account.
     \item The system sends a welcome message inviting the company to upload project descriptions.
     \item  The company clicks the message.
@@ -192,28 +197,29 @@ The following image shows the system use case diagram.
 \end{enumerate} \\
 \hline
 \textbf{Exit Condition} & 
-1. A new account is created, verified, and activated.
-
-2. The company has uploaded their first project descriptions.\\
+\begin{enumerate}
+    \item  A new account is created, verified, and activated. 
+    \item  The company has uploaded their first project descriptions.
+\end{enumerate}\\
 \hline
 \textbf{Exception} & 
-1. If the email address is already associated with an existing account, the system displays an error message and the company is redirected to the login page to access their existing account.	
-
-2. If the email address is invalid, the system displays an error message and requires the company to re-enter the email address.	
-
-3. If the company fails to confirm their identity within a set time (e.g., 24 hours), the account creation process is canceled.\\
+\begin{enumerate}
+    \item If the email address is already associated with an existing account, the system displays an error message and the company is redirected to the login page to access their existing account. 
+    \item If the email address is invalid, the system displays an error message and requires the company to re-enter the email address.
+    \item If the company fails to confirm its identity within a set time (e.g., 24 hours), the account creation process is canceled.
+\end{enumerate}\\
 \hline
 \end{longtable}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{RASD//Images/UC2.png}
+    \includegraphics[width=0.65\linewidth]{RASD//Images/UC2.png}
     \caption{UC2}
 \end{figure}
 \pagebreak
 \textbf{UC3}
 
-\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\begin{longtable}{|p{0.25\textwidth}|p{0.7\textwidth}|}
 \hline
 \textbf{Name} &  Student searches and applies for an internship\\
 \hline
@@ -237,87 +243,88 @@ The following image shows the system use case diagram.
     \item  If the student does not find any interesting internships in the list they close the browser, ending the session.
 \end{enumerate} \\
 \hline
-\textbf{Exit Codition} &  
-1. The student successfully submits an application and receives confirmation.
-
-2. The student exits without applying for an internship.\\
+\textbf{Exit Condition} &  
+\begin{enumerate}
+    \item  The student successfully applies and receives confirmation.
+    \item The student exits without applying for an internship.
+\end{enumerate}\\
 \hline
 \textbf{Exception} &  
-1. The "Global" page fails to load due to a technical error.	
-
-2. The internship project description fails to display after the student clicks on a title.
-
-3. The application submission fails due to an error, and the system provides an appropriate error message.	
-
-4. The student encounters internet connectivity issues, preventing them from completing the process.\\
+\begin{enumerate}
+    \item  The "Global" page fails to load due to a technical error.
+    \item  The internship project description fails to display after the student clicks on a title.
+    \item  The application submission fails due to an error, and the system provides an appropriate error message.
+    \item  The student encounters internet connectivity issues, preventing them from completing the process.
+\end{enumerate}\\
 \hline
 \end{longtable}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{RASD//Images/UC3.png}
+    \includegraphics[width=0.7\linewidth]{RASD//Images/UC3.png}
     \caption{UC3}
 \end{figure}
 
 \pagebreak
 \textbf{UC4}
 
-\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\begin{longtable}{|p{0.25\textwidth}|p{0.7\textwidth}|}
 \hline
-\textbf{Name} &  Student recieves an internship recomendation\\
+\textbf{Name} &  Student receives an internship recommendation\\
 \hline
 \textbf{Actor} &  Student, Company\\
 \hline
-\textbf{Entry Condition} &  The student has a valid email account and is able to log into the system. The student has uploaded a CV on his profile.\\
+\textbf{Entry Condition} &  The student has a valid email account and can log into the system. The student has uploaded a CV on his profile.\\
 \hline
 \textbf{Event Flow} &  
 \begin{enumerate}
-\item S\&C finds a match between a student and a company based on the student's CV and the company’s project description..
-\item S\&C sends an email to the student notifying them of the internship recommendation..
-\item The student recieves an email and clicks on the "Go to Recommendation" button.
+\item S\&C finds a match between a student and a company based on the student's CV and the company’s project description.
+\item S\&C sends an email to the student notifying them of the internship recommendation.
+\item The student receives an email and clicks on the "Go to Recommendation" button.
 \item S\&C redirects the student to their profile page, displaying the recommendation details, including the project description.
 \item The student reviews the project description, if the student accepts the recommendation they click the "Apply" button.
 \item S\&C notifies the company that the recommended student has applied for the position.
 \item The system confirms the application to the student.
 \item If the student rejects the recommendation, they click the "Reject Recommendation" button.
 \item S\&C removes the match from its database.
-\item S\&C notifies the company they matched with that the recomendation has been rejected by the student. 
+\item S\&C notifies the company they matched with that the recommendation has been rejected by the student. 
 \end{enumerate}
 \\
 \hline
-\textbf{Exit Codition} & 
-1. The student has successfully applied to the internship and received confirmation.
-
-2. The student has exited the process without applying.\\
+\textbf{Exit Condition} & 
+\begin{enumerate}
+    \item  The student has successfully applied to the internship and received confirmation.
+    \item The student has exited the process without applying.
+\end{enumerate}\\
 \hline
 \textbf{Exception} &  
-    1. The student does not see the email in time, and the internship application window has already closed when they attempt to apply.	
-    
-    2. The email fails to reach the student due to a technical issue.	
-    
-    3. The link in the email to the recommendation page is broken or inaccessible.\\
+    \begin{enumerate}
+        \item  The student does not see the email in time, and the internship application window has already closed when they attempt to apply.
+        \item  The email fails to reach the student due to a technical issue.
+        \item  The link in the email to the recommendation page is broken or inaccessible.
+    \end{enumerate}\\
 \hline
 \end{longtable}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{RASD//Images/UC4.png}
+    \includegraphics[width=0.8\linewidth]{RASD//Images/UC4.png}
     \caption{UC4}
 \end{figure}
 
 \pagebreak
 \textbf{UC5}
 
-\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\begin{longtable}{|p{0.25\textwidth}|p{0.7\textwidth}|}
 \hline
-\textbf{Name} &  Company recieves a student's recomendation\\
+\textbf{Name} &  Company receives a student's recommendation\\
 \hline
 \textbf{Actor} &  Company, Student\\
 \hline
 \textbf{Entry Condition} &  
 1. The company has a valid email account and is able to log into the system.
 
-2. The company has uploaded at least one project description on their profile.\\
+2. The company has uploaded at least one project description on its profile.\\
 \hline
 \textbf{Event Flow} &  
 \begin{enumerate}
@@ -329,40 +336,41 @@ The following image shows the system use case diagram.
 \item  If the student has already applied, the company clicks the "Accept" button.
 \item S\&C notifies the student that their application has been accepted, and contact between the two parties is established.
 \item  If the student has not applied, the company clicks the "Invite" button.
-\item S\&C sends a notification to the student requesting that they submit an application.
+\item S\&C sends a notification to the student requesting that they apply.
 \item If the employee is not interested in the student:
 \item If the student has already applied, the company clicks the "Reject Application" button.
 \item S\&C notifies the student that their application has been rejected.
 \item  If the student has not applied, the company clicks the "Reject Recommendation" button.
 \item S\&C removes the match from the system.
-\item S\&C notifies the student they matched with that the recomendation has been rejected by the company. 
+\item S\&C notifies the student they matched with that the recommendation has been rejected by the company. 
 \end{enumerate}\\
 \hline
-\textbf{Exit Codition} &  
-1. Contact is successfully established between the student and the company.
-
-2. The student is notified of a rejected match.\\
+\textbf{Exit Condition} &  
+\begin{enumerate}
+    \item  Contact is successfully established between the student and the company.
+    \item  The student is notified of a rejected match.
+\end{enumerate} \\
 \hline
 \textbf{Exception} &  
-1. The email fails to reach the company due to a technical issue.
-
-2. The link in the email to the recommendation page is broken or inaccessible.	
-
-3. The company’s employee does not respond to the email or does not review the recommendation on the platform.	\\
+\begin{enumerate}
+    \item  The email fails to reach the company due to a technical issue.
+    \item  The link in the email to the recommendation page is broken or inaccessible.
+    \item  The company’s employee does not respond to the email or does not review the recommendation on the platform.	
+\end{enumerate}
 \\
 \hline
 \end{longtable}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{RASD//Images/UC5.png}
+    \includegraphics[width=0.65\linewidth]{RASD//Images/UC5.png}
     \caption{UC5}
 \end{figure}
 
 \pagebreak
 \textbf{UC6}
 
-\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\begin{longtable}{|p{0.25\textwidth}|p{0.7\textwidth}|}
 \hline
 \textbf{Name} &  Interview\\
 \hline
@@ -378,7 +386,7 @@ The following image shows the system use case diagram.
 \hline
 \textbf{Event Flow} &  
 \begin{enumerate}
-    \item The company contacts the student through the platform..
+    \item The company contacts the student through the platform.
     \item The student receives a notification from the platform that a company is requesting to initiate contact.
     \item The student accepts, and they begin the interview process.
     \item The company may use platform tools, such as questionnaires, to pre-assess the student's qualifications before scheduling the interview.
@@ -388,19 +396,20 @@ The following image shows the system use case diagram.
     \item If the student is unavailable at the proposed time, they request the company to reschedule the interview.
     \item This process repeats until both parties agree on a time for the interview.
     \item Once a suitable time has been found, the system confirms the interview date and time with both the student and the company.
-    \item The student and company receive a reminder notification prior to the interview.
+    \item The student and company receive a reminder notification before the interview.
     \item The company and student conduct the interview (this could be through the platform or an external tool as specified).
     \item After the interview, the company uses some tools offered by the system to help with the selection process.
-    \item Once they have made a choice, they send a notification to the student with thier choice.
+    \item Once they have made a choice, they send a notification to the student with their choice.
     \item The student is notified whether they have been selected for the internship or not.
 \end{enumerate} \\
 \hline
   &  
     16. If the student is selected, they receive a final confirmation message about joining the internship.
+    
     17. If the student is not selected, they are notified of the rejection and may seek other opportunities.
 \\
 \hline
-\textbf{Exit Codition} &  
+\textbf{Exit Condition} &  
 \begin{enumerate}
     \item The student has either been selected or rejected for the internship.
     \item The company has completed the interview process and provided feedback.
@@ -423,62 +432,64 @@ The following image shows the system use case diagram.
 \pagebreak
 \textbf{UC7}
 
-\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\begin{longtable}{|p{0.25\textwidth}|p{0.7\textwidth}|}
 \hline
 \textbf{Name} &  User leaves feedback\\
 \hline
 \textbf{Actor} &  User (either student or company representative)\\
 \hline
 \textbf{Entry Condition} &  
-1. The user has a valid email account.
-
-2. The user has an account on S\&C.
-
-3. The user has participated in an internship through S\&C.\\
+\begin{itemize}
+    \item The user has a valid email account.
+    \item  The user has an account on S\&C.
+    \item  The user has participated in an internship through S\&C.
+\end{itemize}\\
 \hline
 \textbf{Event Flow} &  
 \begin{enumerate}
     \item The system sends an email to the user requesting feedback about their internship experience.
     \item The user reads the email and decides whether to provide feedback.
     \item If the user chooses to provide feedback, they click the "Leave Feedback" button in the email.
-    \item The system redirects them to the S\&C platform, displaying the "Internships to Monitor" page on their profile and an empty space to fill out with the feedback.	
+    \item The system redirects them to the S\&C platform, displaying the "Internships to Monitor" page on their profile and a space to fill out the feedback.	
     \item The user writes the feedback.
     \item  If the user does not wish to provide feedback, they ignore the email.
 \end{enumerate}\\
 \hline
-\textbf{Exit Codition} & 
-1. The system successfully collects and stores the feedback for analysis.
-
-2. No feedback is received if the user ignores the email.\\
+\textbf{Exit Condition} & 
+\begin{enumerate}
+    \item  The system successfully collects and stores the feedback for analysis.
+    \item  No feedback is received if the user ignores the email.
+\end{enumerate}\\
 \hline
 \textbf{Exception} &  
-1. The email fails to reach the user due to a technical issue.	
-
-2. The link to the feedback form in the email is broken or inaccessible.\\
+\begin{enumerate}
+    \item  The email fails to reach the user due to a technical issue.
+    \item  The link to the feedback form in the email is broken or inaccessible.
+\end{enumerate}\\
 \hline
 \end{longtable}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{RASD//Images/UC7.png}
+    \includegraphics[width=0.8\linewidth]{RASD//Images/UC7.png}
     \caption{UC7}
 \end{figure}
 
 \pagebreak
 \textbf{UC8}
 
-\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\begin{longtable}{|p{0.25\textwidth}|p{0.7\textwidth}|}
 \hline
-\textbf{Name} &  Student recieves suggestion on CV\\
+\textbf{Name} &  Student receives suggestion on CV\\
 \hline
 \textbf{Actor} &  Student\\
 \hline
 \textbf{Entry Condition} &  
-1. The student has an valid email account.
-
-2. The student has an account on S\&C. 
-
-3. The student has uploaded a CV\\
+\begin{itemize}
+    \item  The student has a valid email account.
+    \item  The student has an account on S\&C.
+    \item  The student has uploaded a CV
+\end{itemize}\\
 \hline
 \textbf{Event Flow} &  
 \begin{enumerate}
@@ -488,42 +499,44 @@ The following image shows the system use case diagram.
     \item The student reads the suggestion.
     \item If the student finds the suggestion useful: they navigate to their profile and click the "Change File" button underneath their CV.
     \item The platform opens a page where they can upload a new CV.
-    \item The student revises their CV according to the suggestion and reuploads the updated CV to the platform.
+    \item The student revises their CV according to the suggestion and re-uploads the updated CV to the platform.
     \item If the student does not find the suggestion useful, they ignore the email.
 \end{enumerate}\\
 \hline
-\textbf{Exit Codition} &  
-1. The system has a new CV to analyze.
-
-2. The system retains the original CV if no updates are made.\\
+\textbf{Exit Condition} &  
+\begin{enumerate}
+    \item  The system has a new CV to analyze.
+    \item  The system retains the original CV if no updates are made.
+\end{enumerate}\\
 \hline
 \textbf{Exception} &  
-1. The email fails to send.
-
-2. The link to the platform is broken.\\
+\begin{enumerate}
+    \item  The email fails to send.
+    \item  The link to the platform is broken.
+\end{enumerate}\\
 \hline
 \end{longtable}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{RASD//Images/UC8.png}
+    \includegraphics[width=0.7\linewidth]{RASD//Images/UC8.png}
     \caption{UC8}
 \end{figure}
 
 \pagebreak
 \textbf{UC9}
-\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\begin{longtable}{|p{0.25\textwidth}|p{0.7\textwidth}|}
 \hline
-\textbf{Name} &  Company recieves suggestion on project description\\
+\textbf{Name} &  Company receives suggestion on project description\\
 \hline
 \textbf{Actor} &  Company\\
 \hline
 \textbf{Entry Condition} &  
-1. The company has a valid email account.
-
-2. The company has an S\&C account.
-
-3. The company has uploaded a project description.\\
+\begin{itemize}
+    \item  The company has a valid email account.
+    \item  The company has an S\&C account.
+    \item  The company has uploaded a project description.
+\end{itemize}\\
 \hline
 \textbf{Event Flow} &  
 \begin{enumerate}
@@ -537,34 +550,36 @@ The following image shows the system use case diagram.
     \item If the company does not find the suggestion useful, they ignore the email.
 \end{enumerate}\\
 \hline
-\textbf{Exit Codition} &  
-1. The system has a new project description to analyze.
-
-2. The system retains the original project description if no changes are made.\\
+\textbf{Exit Condition} &  
+\begin{enumerate}
+    \item The system has a new project description to analyze.
+    \item  The system retains the original project description if no changes are made.
+\end{enumerate}\\
 \hline
 \textbf{Exception} &  
-1. The email fails to send
-
-2. The link to the platform is broken.\\
+\begin{enumerate}
+    \item The email fails to send
+    \item The link to the platform is broken.
+\end{enumerate}\\
 \hline
 \end{longtable}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{RASD//Images/UC8.png}
+    \includegraphics[width=0.7\linewidth]{RASD//Images/UC8.png}
     \caption{UC9}
 \end{figure}
 
 \pagebreak
 \textbf{UC10}
 
-\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\begin{longtable}{|p{0.25\textwidth}|p{0.7\textwidth}|}
 \hline
 \textbf{Name} &  User makes a complaint\\
 \hline
 \textbf{Actor} &  Student, Company, University\\
 \hline
-\textbf{Entry Condition} &  The user is logged into their S\&C account. The user is partecipating in an ongoing internship (the user can be either the company or the student)\\
+\textbf{Entry Condition} &  The user is logged into their S\&C account. The user is participating, in an ongoing internship (the user can be either the company or the student)\\
 \hline
 \textbf{Event Flow} &  
 \begin{enumerate}
@@ -574,37 +589,37 @@ The following image shows the system use case diagram.
     \item The system opens a comment form.
     \item The user writes their comment or complaint about the ongoing internship.
     \item The user submits the complaint.
-    \item The system publishes the complaint on the "Internship to Monitor" page of all parties involved (student, company and university).
+    \item The system publishes the complaint on the "Internship to Monitor" page of all parties involved (student, company, and university).
     \item The university is notified of the new complaint.
     \item The university reviews the complaint.
     \item If the complaint is deemed important, the university handles the issue by clicking the "Contact to Manage" button.
     \item After handling, the university clicks the "Resolved" button on the complaint record.
     \item The system updates the status of the complaint to "Resolved".
     \item If the university does not act on the complaint, the complaint remains visible until manually deleted.
-    \item If the university deems the complaint too critical they can terminate the internship by clicking the "Therminate the internship" button.
+    \item If the university deems the complaint too critical they can terminate the internship by clicking the "Terminate the internship" button.
     \item The system notifies all parties involved of the termination of the internship.
 \end{enumerate}
 \\
 \hline
-\textbf{Exit Codition} & 
-1. The complaint has been handled and resolved (marked as resolved).
-
-2. The complaint remains unresolved but visible.
-
-3. The internship has been terminated\\
+\textbf{Exit Condition} & 
+\begin{enumerate}
+    \item  The complaint has been handled and resolved (marked as resolved).
+    \item  The complaint remains unresolved but visible.
+    \item The internship has been terminated
+\end{enumerate}\\
 \hline
 \textbf{Exception} &
-1. The user submits an incomplete or empty complaint.
-
-2. The system fails to notify the university.
-
-3. The university overlooks the complaint unintentionally.\\
+\begin{enumerate}
+    \item 1. The user submits an incomplete or empty complaint.
+    \item  The system fails to notify the university.
+    \item  The university overlooks the complaint unintentionally.
+\end{enumerate}\\
 \hline
 \end{longtable}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{RASD//Images/UC10.png}
+    \includegraphics[width=0.55\linewidth]{RASD//Images/UC10.png}
     \caption{UC10}
 \end{figure}
 
@@ -639,8 +654,8 @@ Mapping to prove that requirements and domains lead to goals.
     \item \textbf{[R2]} The system allows students to upload their CV
     \item \textbf{[R3]} The system allows companies to publish new internships
     \item \textbf{[R4]} The system allows companies to add a description to their internships
-    \item \textbf{[R5]} When students want to do a proactive research, the system allows them to go through the available internships
-    \item \textbf{[R6]} When doing a search the system allows users to filter internships by a key
+    \item \textbf{[R5]} When students want to do proactive research, the system allows them to go through the available internships
+    \item \textbf{[R6]} When doing a search the system allows users to filter internships
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
@@ -659,7 +674,7 @@ Mapping to prove that requirements and domains lead to goals.
     \item \textbf{[R2]} The system allows students to upload their CV
     \item \textbf{[R3]} The system allows companies to publish new internships
     \item \textbf{[R4]} The system allows companies to add a description to their internships
-    \item \textbf{[R9]} When a new internship that might interest some students becomes avaible, the system notifies them
+    \item \textbf{[R9]} When a new internship that might interest some students becomes available, the system notifies them
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
@@ -670,7 +685,7 @@ Mapping to prove that requirements and domains lead to goals.
     \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
 \end{itemize} \\
 \hline
-\textbf{[G4]} Companies should be able to be informed about the availability of a student's CV that its interesting to them
+\textbf{[G4]} Companies should be able to be informed about the availability of a student's CV that is interesting to them
 & 
 \textbf{Requirements:}
 \begin{itemize}
@@ -697,7 +712,7 @@ Mapping to prove that requirements and domains lead to goals.
     \item \textbf{[R2]} The system allows students to upload their CV
     \item \textbf{[R3]} The system allows companies to publish new internships
     \item \textbf{[R4]} The system allows companies to add a description to their internships
-    \item  \textbf{[R9]} When a new intership that might interest some students becomes avaible, the system notifies them
+    \item  \textbf{[R9]} When a new internship that might interest some students becomes available, the system notifies them
     \item  \textbf{[R10]} When a student’s CV that corresponds to a company’s needs becomes available the system informs them.
     \item  \textbf{[R11]} The system allows students to accept a recommendation, applying for that particular internship.
     \item  \textbf{[R12]} The system allows companies to accept a recommendation, inviting the candidate that was proposed.
@@ -720,12 +735,12 @@ Mapping to prove that requirements and domains lead to goals.
     \item \textbf{[R2]} The system allows students to upload their CV
     \item \textbf{[R3]} The system allows companies to publish new internships
     \item \textbf{[R4]} The system allows companies to add a description to their internships
-    \item \textbf{[R5]} When students want to do a proactive research, the system allows them to go through the available internships
+    \item \textbf{[R5]} When students want to do proactive research, the system allows them to go through the available internships
     \item \textbf{[R7]} When finding an internship that suits their interests, the system allows students to apply for it
-    \item  \textbf{[R9]} When a new intership that might interest some students becomes avaible, the system notifies them
+    \item  \textbf{[R9]} When a new internship that might interest some students becomes available, the system notifies them
     \item  \textbf{[R11]} The system allows students to accept a recommendation, applying for that particular internship.
     \item  \textbf{[R12]} The system allows companies to accept a recommendation, inviting the candidate that was proposed.
-    \item \textbf{[R13]} The system allows students to accept an invitation of a company for a particular internship, applying for it.
+    \item \textbf{[R13]} The system allows students to accept an invitation from a company for a particular internship, applying for it.
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
@@ -738,7 +753,7 @@ Mapping to prove that requirements and domains lead to goals.
 \hline
 
 \hline
-\textbf{[G7]}  Companies should be able to request a studen't application if they're interested in their CV.
+\textbf{[G7]}  Companies should be able to request a student's application if they're interested in their CV.
 & 
 \textbf{Requirements:}
 \begin{itemize}
@@ -746,7 +761,7 @@ Mapping to prove that requirements and domains lead to goals.
     \item \textbf{[R2]} The system allows students to upload their CV
     \item \textbf{[R3]} The system allows companies to publish new internships
     \item \textbf{[R4]} The system allows companies to add a description to their internships
-    \item \textbf{[R5]} When students want to do a proactive research, the system allows them to go through the available internships
+    \item \textbf{[R5]} When students want to do proactive research, the system allows them to go through the available internships
     \item \textbf{[R8]} When finding a CV that suits their interest the system allows companies to request that student's application.
 \end{itemize}
 \textbf{Domain Assumptions:}
@@ -772,7 +787,7 @@ Mapping to prove that requirements and domains lead to goals.
     \item \textbf{[R8]} When finding a CV that suits their interests, the system allows companies to request that student's application.
     \item  \textbf{[R11]} The system allows students to accept a recommendation, applying for that particular internship.
     \item  \textbf{[R12]} The system allows companies to accept a recommendation, inviting the candidate that was proposed.
-    \item \textbf{[R13]} The system allows students to accept an invitation of a company for a particular internship, applying for it.
+    \item \textbf{[R13]} The system allows students to accept an invitation from a company for a particular internship, applying for it.
     \item \textbf{[R14]} When the two parties have accepted a recommendation, when the company has accepted an application received, or when the student has accepted a company's invitation the system allows them to establish a contact
     \item \textbf{[R15]} When conducting an interview, the system supports the companies with the interview process 
 \end{itemize}
@@ -798,7 +813,7 @@ Mapping to prove that requirements and domains lead to goals.
     \item \textbf{[R8]} When finding a CV that suits their interests, the system allows companies to request that student's application.
     \item  \textbf{[R11]} The system allows students to accept a recommendation, applying for that particular internship.
     \item  \textbf{[R12]} The system allows companies to accept a recommendation, inviting the candidate that was proposed.
-    \item \textbf{[R13]} The system allows students to accept an invitation of a company for a particular internship, applying for it.
+    \item \textbf{[R13]} The system allows students to accept an invitation from a company for a particular internship, applying for it.
     \item \textbf{[R14]} When the two parties have accepted a recommendation, when the company has accepted an application received, or when the student has accepted a company's invitation the system allows them to establish a contact
     \item \textbf{[R15]} When conducting an interview, the system supports the companies with the interview process
     \item \textbf{[R16]} When conducting an interview, the system supports the company with the finalization of the selection
@@ -806,8 +821,8 @@ Mapping to prove that requirements and domains lead to goals.
 \textbf{Domain Assumptions:}
 \begin{itemize}
     \item \textbf{[DA1]} Students and companies need a device and internet connection
-    \item \textbf{[DA5]} Companies need an account on S\&C
-    \item \textbf{[DA4]} Students need an account on S\&C
+    \item \textbf{[DA5]} Students need to create an account on S\&C as students.
+    \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
     \item \textbf{[DA9]} Companies need to be able to evaluate an interview
 \end{itemize} \\
 \hline
@@ -821,7 +836,7 @@ Mapping to prove that requirements and domains lead to goals.
     \item \textbf{[R4]} The system allows companies to add a description to their internships
     \item  \textbf{[R9]} When a new internship that might interest some students becomes available, the system notifies them
     \item  \textbf{[R10]} When a student’s CV that corresponds to a company’s needs becomes available the system informs them.
-    \item \textbf{[R17]} The system allows students and companies to provide feedback and suggestions to feed statistical analysis.
+    \item \textbf{[R17]} The system allows students and companies to provide feedback and suggestions to perform statistical analysis.
 \end{itemize}
 \textbf{Domain Assumptions:}
 \begin{itemize}
@@ -896,9 +911,9 @@ Mapping to prove that requirements and domains lead to goals.
 \textbf{Requirements:}
 \begin{itemize}
     \item \textbf{[R1]} The system allows unregistered users to create an account
-    \item \textbf{[R22]} During and ongoing internship, the system allows all users to complain
-    \item \textbf{[R23]} During and ongoing internship, the system allows all users to communicate problems
-    \item \textbf{[R24]} During and ongoing internship, the system allows all users to provide information on its status
+    \item \textbf{[R22]} During an ongoing internship, the system allows all users to complain
+    \item \textbf{[R23]} During an ongoing internship, the system allows all users to communicate problems
+    \item \textbf{[R24]} During an ongoing internship, the system allows all users to provide information on their status
     \item \textbf{[R25]} When reports or complaints about the status of an ongoing internship are made, the system allows Universities to see them.
 \end{itemize}
 \textbf{Domain Assumptions:}
@@ -917,9 +932,9 @@ Mapping to prove that requirements and domains lead to goals.
 \textbf{Requirements:}
 \begin{itemize}
     \item \textbf{[R1]} The system allows unregistered users to create an account
-    \item \textbf{[R22]} During and ongoing internship, the system allows all users to complain
-    \item \textbf{[R23]} During and ongoing internship, the system allows all users to communicate problems
-    \item \textbf{[R24]} During and ongoing internship, the system allows all users to provide information on its status
+    \item \textbf{[R22]} During an ongoing internship, the system allows all users to complain
+    \item \textbf{[R23]} During an ongoing internship, the system allows all users to communicate problems
+    \item \textbf{[R24]} During an ongoing internship, the system allows all users to provide information on their status
     \item \textbf{[R25]} When reports or complaints about the status of an ongoing internship are made, the system allows Universities to see them.
     \item \textbf{[R26]} When complaints about the status of an ongoing internship are made, the system allows Universities to handle them.
 \end{itemize}
@@ -931,7 +946,7 @@ Mapping to prove that requirements and domains lead to goals.
     \item \textbf{[DA5]} Students need to create an account on S\&C as students.
     \item \textbf{[DA6]} Companies need to create an account on S\&C as Companies.
     \item \textbf{[DA7]} Universities need to create an account on S\&C as Universities
-    \item \textbf{[DA10]} Universities need to be informed about a current student’s internshi
+    \item \textbf{[DA10]} Universities need to be informed about a current student’s internship
     \item \textbf{[DA11]} Universities need to be able to communicate with Students and Companies
 
 \end{itemize} \\
@@ -998,7 +1013,7 @@ The S\&C platform should have high availability, aiming for 24/7 uptime. This is
 
 To achieve this, techniques such as load balancing to distribute traffic evenly, failover systems to switch to backup resources during outages, and regular data backups to protect against data loss should be implemented. These measures help maintain seamless operation and ensure that the platform remains robust and dependable at all times.
 
-\subsection{Securuty}
+\subsection{Security}
 
 Communication between the user and the S\&C platform is encrypted to avoid data breaches, and unauthorized access, and to ensure the confidentiality and integrity of information shared on the platform.
 
@@ -1013,4 +1028,4 @@ Ordinary maintenance, including bug fixes and improvements, will be scheduled du
 
 \subsection{Portability}
 
-The S\&C platform does not require any specific hardware or software and must be accessible from any operating system with a modern web browser. This ensures broad compatibility and ease of use for all users. Additionally, a mobile application can be developed to allow users to view the state of battles and other platform activities. Since the mobile app does not require any specialized functions, a non-native approach can be used. This makes it feasible to leverage cross-platform development tools, which can accelerate the development process and reduce the resources needed for maintaining separate codebases for different platforms.
+The S\&C platform does not require any specific hardware or software and must be accessible from any operating system with a modern web browser. This ensures broad compatibility and ease of use for all users. Additionally, a mobile application can be developed to allow users to view the state of battles and other platform activities. Since the mobile app does not require any specialized functions, a non-native approach can be used. This makes it feasible to leverage cross-platform development tools, which can accelerate the development process and reduce the resources needed for maintaining separate code bases for different platforms.
