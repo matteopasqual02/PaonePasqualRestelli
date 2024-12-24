@@ -56,10 +56,22 @@ Here below we will include an explanation of how each application component cont
 Spiegazione su di cosa si occupa ogni component e poi tutti i sequence diagram..
 
 \textbf{UC1: Student creates an account}
-WebApp, AccountManager, Authentication manager, DataManager, DBMS, NotificationManager, EmailServiceProvider
+WebApp, AccountManager, Authentication manager, DataManager, DBMS, StatisticalAnalysisToolManager, NotificationManager, EmailServiceProvider
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{DD//Images/SequenceDiagrams/UC1.png}
+    \caption{UC1}
+\end{figure}
 
 \textbf{UC2: Company creates an account}
-WebApp, AccountManager, Authentication manager, DataManager, DBMS, NotificationManager, EmailServiceProvider
+WebApp, AccountManager, Authentication manager, DataManager, DBMS, NotificationManager, EmailServiceProvider, StatisticalAnalysisToolManager
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{DD//Images/SequenceDiagrams/UC2.png}
+    \caption{UC2}
+\end{figure}
 
 \textbf{UC3: Student searches and applies for an internship}
 WebApp, AccountManager, Authentication manager, ApplicationManager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
@@ -83,7 +95,13 @@ WebApp, AccountManager, Authentication manager, StatisticalAnalysisToolManager, 
 WebApp, AccountManager, Authentication manager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
 
 \textbf{UC10: User makes a complaint}
-WebApp, AccountManager, Authentication manager, OverviewManager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
+WebApp, AccountManager, Authentication manager, OverviewManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{DD//Images/SequenceDiagrams/UC10.png}
+    \caption{UC10}
+\end{figure}
 
 
 
@@ -134,8 +152,6 @@ are shown.
 
 \item \textbf{Authentication Manager Interface:}
 \begin{itemize}
-\item \textbf{authenticateUser(string Email, string Password) : boolean IsAuthenticated}  
-This method verifies the provided email and password against the stored credentials. If the credentials are valid, it returns `true`; otherwise, it returns `false`.
 
 \item \textbf{authorizeAction(string Email, string Action) : boolean IsAuthorized}  
 This method determines whether the specified user has the necessary permissions to perform the given action. It returns `true` if the action is allowed, otherwise `false`.
@@ -276,7 +292,11 @@ This method determines whether the specified user has the necessary permissions 
 
 \item \textbf{StatisticalAnalysisTool Manager Interface:}
 \begin{itemize}
-    \item \textbf{generateMatches(string StudentId, string ProjectId): list Matches}
+    \item \textbf{generateStudentMatches(string StudentId): list Matches}
+
+    This method generates a list of potential matches between students and internship projects based on student CVs and project descriptions using the recommendation system.
+
+    \item \textbf{generateCompanyMatches(string ProjectId): list Matches}
 
     This method generates a list of potential matches between students and internship projects based on student CVs and project descriptions using the recommendation system.
 
@@ -292,7 +312,7 @@ This method determines whether the specified user has the necessary permissions 
 
     This method processes feedback received from students and companies about previous recommendations to update and improve the recommendation algorithm.
 
-    \item \textbf{analyzeSelectionData(string SelectionData): boolean Analyzed}
+    \item \textbf{analyzeSelectionData(string SelectionData): boolean Analyzed} ???
 
     This method evaluates data on selected candidates to refine parameters and optimize future recommendations.
 
@@ -300,7 +320,7 @@ This method determines whether the specified user has the necessary permissions 
 
     This method interacts with the Data Manager to retrieve necessary data for analysis, ensuring access permissions are obtained through the Authentication Server.
 
-    \item \textbf{updateRecommendationParameters(string Parameters): boolean Updated}
+    \item \textbf{updateRecommendationParameters(string Parameters): boolean Updated} ???
 
     This method adjusts the recommendation system's parameters based on new data or trends observed during analysis.
 
@@ -350,6 +370,9 @@ This method determines whether the specified user has the necessary permissions 
 
 \item \textbf{Data Manager:}
 \begin{itemize}
+
+\item \textbf{checkDuplicates(string TableName, string Email) : boolean Duplicates}
+This method when called checks if the email inserted already exists in the database.
     
 \item \textbf{saveRecord(string TableName, map<string, string> Data) : boolean RecordSaved}  
 
