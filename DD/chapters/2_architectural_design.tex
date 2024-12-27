@@ -1,32 +1,32 @@
 \chapter{Architectural Design}
 
 \section{Overview}
-We chose to design the Students\&Companies (S\&C) web application using a three-tier architecture with remote presentation. These three tier correspond to a client tier, application tier and data tier. The client (presentation) tier serves the needs of both students, companies and universities using the S\&C platform. The application layer is the one that processes user request, performs statistical analysis and interacts with the internal data tier. The data tier is responsible for data management and storage. It handles all database operations, including data retrieval, updates, and management. To better improve and ensure load distribution and scalability, it was chosen to implement a load balancer between the client and application layer, in particular inside the web server.
+We chose to design the Students\&Companies (S\&C) web application using a three-tier architecture with remote presentation. These three tiers correspond to a client tier, application tier, and data tier. The client (presentation) tier serves the needs of students, companies, and universities using the S\&C platform. The application layer is the one that processes user requests, performs statistical analysis, and interacts with the internal data tier. The data tier is responsible for data management and storage. It handles all database operations, including data retrieval, updates, and management. To better improve and ensure load distribution and scalability, it was chosen to implement a load balancer between the client and application layer, in particular inside the web server.
 
-A 3-tier architecture is suitable for a career service application as it makes the system easier to manage and scale. It ensures reliability through load balancing, which helps handle high traffic during peak usage. This architecture supports advanced features like job matching and analytics, integrates well with cloud services, and provides flexibility for future updates, such as adding mobile apps or AI tools. Its structure also improves security by isolating sensitive data in the database layer.
-
-The S\&C architecture specializes in three different groups of components each with its own characteristics and responsibilities:
+A 3-tier architecture is suitable for a career service application as it makes the system easier to manage and scale. It ensures reliability through load balancing, which helps handle high traffic during peak usage. This architecture supports advanced features like job matching and analytics, integrates well with cloud services, and provides flexibility for future updates, such as adding mobile apps or AI tools. Its structure also improves security by isolating sensitive data in the database layer. The S\&C architecture specializes in three different groups of components each with its own characteristics and responsibilities:
 \begin{enumerate}
-    \item \textbf{Presentation layer:} The Presentation (client) Tier is the application's front end, managing the user interface and interactions for data input and display. Its goal is to display data, collect inputs and provide a seamless user experience. 
+    \item \textbf{Presentation layer:} The Presentation (client) Tier is the application's front end, managing the user interface and interactions for data input and display. Its goal is to display data, collect inputs,and provide a seamless user experience. 
     \item \textbf{Application layer:} It handles tasks like user authentication, recommendation matching algorithms, managing user accounts, handling notifications, and communication between the user interface and the database.
-    \item \textbf{Data layer}: Stores and manages critical data such as user profiles, student's CVs, project descriptions, and application history. It ensures data security and efficient retrieval for real-time use in the application.
+    \item \textbf{Data layer}: Stores and manages critical data such as user profiles, student CVs, project descriptions, and application history. It ensures data security and efficient retrieval for real-time use in the application.
 \end{enumerate}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{DD//Images/3tier.png}
+    \includegraphics[width=0.9\linewidth]{DD//Images/3tier.png}
     \caption{High level architecture }
 \end{figure}
 
 \section{Component view: Component diagram}
 
+Figure 2.2 presents a detailed diagram illustrating the components that constitute our application. Below is an explanation of each component and its purpose.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{DD//Images/ComponentDiagram.png}
+    \includegraphics[width=1.1\linewidth]{DD//Images/ComponentDiagram.png}
     \caption{Component Diagram }
 \end{figure}
 
-Figure 2.2 presents a detailed diagram illustrating the components that constitute our application. Below is an explanation of each component and its purpose.
+
 
 \begin{itemize}
     \item \textbf{WebApp:} The WebApp serves as the primary interface for all users: students, companies, and universities, allowing them to interact with the application via their web browser. User requests are processed and sent to the appropriate backend components through the defined interfaces.
@@ -46,6 +46,12 @@ Figure 2.2 presents a detailed diagram illustrating the components that constitu
 \end{itemize}
 
 \section{Deployment view}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{DD//Images/deployment.drawio.png}
+    \caption{Deployment view}
+    \label{fig:enter-label}
+\end{figure}
 
 \section{Runtime view}
 
@@ -53,53 +59,118 @@ All the sequence diagrams described in the Requirements Analysis and Specificati
 
 Here below we will include an explanation of how each application component contributes to the implementation of the corresponding functionality. By doing so, we hope to provide a clearer understanding of the interaction between various components and their roles in achieving the described features and requirements.
 
-Spiegazione su di cosa si occupa ogni component e poi tutti i sequence diagram..
-
+\newpage
 \textbf{UC1: Student creates an account}
 WebApp, AccountManager, Authentication manager, DataManager, DBMS, StatisticalAnalysisToolManager, NotificationManager, EmailServiceProvider
 
+%\begin{figure}[H]
+   % \centering
+    %\includegraphics[width=1\linewidth]%{DD//Images/SequenceDiagrams/UC1.png}
+    %\caption{UC1}
+%\end{figure}
+
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{DD//Images/SequenceDiagrams/UC1.png}
+    %\hspace{-3cm} % Adjust this value as needed to move the image lef
+    \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC1.pdf}
     \caption{UC1}
 \end{figure}
 
+\newpage
 \textbf{UC2: Company creates an account}
 WebApp, AccountManager, Authentication manager, DataManager, DBMS, NotificationManager, EmailServiceProvider, StatisticalAnalysisToolManager
 
+%\begin{figure}[H]
+  %  \centering
+   % \includegraphics[width=1\linewidth]%{DD//Images/SequenceDiagrams/UC2.png}
+  %  \caption{UC2}
+%\end{figure}
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{DD//Images/SequenceDiagrams/UC2.png}
+    \hspace{-1cm} % Adjust this value as needed to move the image lef
+    \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC2.pdf}
     \caption{UC2}
 \end{figure}
 
+\newpage
 \textbf{UC3: Student searches and applies for an internship}
 WebApp, AccountManager, Authentication manager, ApplicationManager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
 
+\begin{figure}[H]
+    \centering
+    %\hspace{-3cm} % Adjust this value as needed to move the image lef
+    \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC3.pdf}
+    \caption{UC3}
+\end{figure}
+
+\newpage
 \textbf{UC4: Student recieves an internship recommendation}
 WebApp, AccountManager, Authentication manager, RecommendationManager, ApplicationManager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
 
+\begin{figure}[H]
+    \centering
+    \hspace{-1cm} % Adjust this value as needed to move the image lef
+    \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC4.pdf}
+    \caption{UC4}
+\end{figure}
+
+\newpage
 \textbf{UC5: Company recieves a student's recommendation}
 WebApp, AccountManager, Authentication manager, RecommendationManager, ApplicationManager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
 
+\begin{figure}[H]
+    \centering
+    \hspace{-1 cm} % Adjust this value as needed to move the image left
+    \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC5.pdf}
+    \caption{UC5}
+\end{figure}
+
+\newpage
 \textbf{UC6: Interview}
 WebApp, AccountManager, Authentication manager, ApplicationManager, StatisticalAnalysisToolManager, InterviewManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
 
+\newpage
 \textbf{UC7: User leaves feedback}
 WebApp, AccountManager, Authentication manager, FeedbacknManager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
 
+\begin{figure}[H]
+    \centering
+    \hspace{-1 cm} % Adjust this value as needed to move the image left
+    \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC7.pdf}
+    \caption{UC7}
+\end{figure}
+
+\newpage
 \textbf{UC8: Student recieves suggestion on CV}
 WebApp, AccountManager, Authentication manager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
 
+\begin{figure}[H]
+    \centering
+    \hspace{-1 cm} % Adjust this value as needed to move the image left
+    \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC8.pdf}
+    \caption{UC8}
+\end{figure}
+
+\newpage
 \textbf{UC9: Company recieves suggestion on project description}
 WebApp, AccountManager, Authentication manager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
 
+\begin{figure}[H]
+    \centering
+    \hspace{-1 cm} % Adjust this value as needed to move the image left
+    \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC9.pdf}
+    \caption{UC9}
+\end{figure}
+
+\newpage
 \textbf{UC10: User makes a complaint}
 WebApp, AccountManager, Authentication manager, OverviewManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{DD//Images/SequenceDiagrams/UC10.png}
+    \includegraphics[width=0.9\linewidth]{DD//Images/SequenceDiagrams/UC10.pdf}
     \caption{UC10}
 \end{figure}
 
@@ -111,6 +182,10 @@ WebApp, AccountManager, Authentication manager, OverviewManager, DataManager, DB
 \section{Component interfaces}
 The Component Interfaces here described are the ones exposed in the components. Only the most relevant method parameters and methods
 are shown.
+
+
+?? Fare la webapp con metodo show message ??
+
 
 \begin{itemize}
 \item \textbf{Account Manager Interface}
@@ -153,7 +228,7 @@ are shown.
 \item \textbf{Authentication Manager Interface:}
 \begin{itemize}
 
-\item \textbf{authorizeAction(string Email, string Action) : boolean IsAuthorized}  
+\item \textbf{authorizeAction(string Email, string Action) : boolean IsAuthorized, string UserId}  
 This method determines whether the specified user has the necessary permissions to perform the given action. It returns `true` if the action is allowed, otherwise `false`.
 
 
@@ -161,9 +236,6 @@ This method determines whether the specified user has the necessary permissions 
 
 \item \textbf{Feedback Manager Interface}
     \begin{itemize}
-    \item \textbf{requestFeedback(string UserType, string FeedbackType): boolean Requested}
-
-    This method sends a request for feedback to the specified user type (e.g., student or company) using the Notification Manager. The FeedbackType determines the nature of the feedback requested.
 
     \item \textbf{submitFeedback(string UserId, string FeedbackContent): boolean Submitted}
 
@@ -172,16 +244,7 @@ This method determines whether the specified user has the necessary permissions 
     \item \textbf{getFeedbackHistory(string UserId): list FeedbackList}
 
     This method retrieves the history of feedback provided by a specific user for review or analysis purposes.
-
-    \item \textbf{updateStatisticalAnalysisTool(string FeedbackData): boolean Updated}
-
-    This method sends the collected feedback to the Statistical Analysis Tool, enabling continuous refinement of the recommendation system.
-
-    \item \textbf{notifyFeedbackUpdate(string UserId, string FeedbackStatus): boolean Notified}
-
-    This method communicates with the Notification Manager to inform users about the status or impact of their feedback submissions.
     \end{itemize}
-    
 \item \textbf{Application Manager Interface:}
 \begin{itemize}
     \item \textbf{submitApplication(string UserId, string InternshipId): boolean Submitted}
@@ -192,22 +255,22 @@ This method determines whether the specified user has the necessary permissions 
 
     This method processes a student's acceptance of a recommendation provided by the system and creates an application for the corresponding internship.
 
-     \item \textbf{acceptRecommendationCompany(string UserId, string RecommendationId): boolean Accepted}
+    \item \textbf{acceptRecommendationCompany(string UserId, string RecommendationId): boolean Accepted}
 
     This method processes a company's acceptance of a recommendation provided by the system and creates an invitation for the Student for the corresponding internship.
 
+    \item \textbf{acceptRecommendationCompanyWhenStudentAlreadyApplied(string UserId, string RecommendationId): boolean Accepted}
+
+    This method processes a company's acceptance of a recommendation provided by the system when the student has already applied to that position.
+    
+    \item \textbf{rejectRecommendationCompanyWhenStudentAlreadyApplied(string UserId, string RecommendationId): boolean Rejected}
+
+    This method processes a company's rejection of a recommendation provided by the system when the student has already applied to that position.
+    
     \item \textbf{respondToInvitation(string UserId, string InvitationId): boolean Responded}
 
     This method allows a student to respond to an invitation from a company and generates an application if the invitation is accepted.
-
-    \item \textbf{notifyApplicationUpdate(string UserId, string CompanyId, string ApplicationStatus): boolean Notified}
-
-    This method communicates with the Notification Manager to inform both the student and the company about updates or changes to the application status.
-
-    \item \textbf{sendDataToStatisticalAnalysisTool(string ApplicationData): boolean Sent}
-
-    This method sends processed application data to the Statistical Analysis Tool to assist in refining the recommendation system and improving future matches.
-    \end{itemize}
+\end{itemize}
 
 \item \textbf{Interview Manager Interface:}
 \begin{itemize}
@@ -234,18 +297,17 @@ This method determines whether the specified user has the necessary permissions 
     \item \textbf{finalizeSelection(string CompanyId, string UserId): boolean Finalized}
 
     This method records the final selection decision made by the company and updates the relevant data.
+\end{itemize}
+\item \textbf{Recommendation Manager Interface:}
+\begin{itemize}
+    \item \textbf{newMatchFount(studentId, companyId): Boolean matchRecieved}
 
-    \item \textbf{notifyInterviewUpdate(string UserId, string CompanyId, string NotificationMessage): boolean Notified}
+    This method is called by the StatisticalAnalysisTool when a new match is found and is used to notify both parties.
 
-    This method communicates with the Notification Manager to keep both the student and the company updated about any changes or developments in the interview process.
+    \item \textbf{deleteMatch(studentId, companyId): Boolean matchDeleted}
 
-    \item \textbf{sendSelectionDataToStatisticalAnalysisTool(string SelectionData): boolean Sent}
-
-    This method forwards data on the final selection process to the Statistical Analysis Tool to refine future recommendations and adjust job parameters.
-    \end{itemize}
-
-
-
+    This method is called by the WebApp when a student or a company rejects a match, it then calls operations from other managers to delete the match from the system and notify the parties involved.
+\end{itemize}
 \item \textbf{Overview Manager Interface:}
 \begin{itemize}
     \item \textbf{trackInternshipProgress(string InternshipId): map ProgressData}
@@ -280,18 +342,15 @@ This method determines whether the specified user has the necessary permissions 
 
     This method enables the university to directly contact a student or company involved in the internship by sending a message through the app.
 
-    \item \textbf{notifyProgressUpdate(string UserId, string NotificationMessage): boolean Notified}
-
-    This method interacts with the Notification Manager to inform universities, students, and companies about any new updates or changes in the internship.
-
-    \item \textbf{sendProgressDataToStatisticalAnalysisTool(string ProgressData): boolean Sent}
-
-    This method provides ongoing internship data to the Statistical Analysis Tool, enabling analysis and improvement of internship processes.
-    \end{itemize}
-    
+\end{itemize}
 
 \item \textbf{StatisticalAnalysisTool Manager Interface:}
 \begin{itemize}
+
+    \item \textbf{initiateContact(string StudentEmail, string CompanyEmail): boolean Contacted}
+
+    This method is used by the comoany to initiate the first contact with the student, it calls the NotificationManager to do so.
+    
     \item \textbf{generateStudentMatches(string StudentId): list Matches}
 
     This method generates a list of potential matches between students and internship projects based on student CVs and project descriptions using the recommendation system.
@@ -324,9 +383,17 @@ This method determines whether the specified user has the necessary permissions 
 
     This method adjusts the recommendation system's parameters based on new data or trends observed during analysis.
 
-    \item \textbf{notifyFeedbackProcessed(string UserId, string NotificationMessage): boolean Notified}
+    \item \textbf{newApplication(string ApplicationData): boolean Recieved}
 
-    This method interacts with the Notification Manager to inform users that their feedback has been processed and incorporated into system improvements.
+    This method is called when a new application is done by a student and the StatisticalAnalysisTool needs to know it. It then calls the data manager interface to update the database.
+
+    \item \textbf{deleteMatch(string StudentId, string CompanyId): boolean Deleted}
+
+    This method deletes a match that was found by this system if it was rejected by one or more parties.
+
+    \item \textbf{newFeedback(string UserTd, string Feedback): boolean Recieved}
+
+    This method is called by the FeedbackManager when there is new feedback given by a user to be analyzed. 
     \end{itemize}
 
 
@@ -339,8 +406,14 @@ This method determines whether the specified user has the necessary permissions 
     \item \textbf{sendFeedbackNotification(userEmail: String, feedbackType: String, message: String): String message
 }
 
-    This method is used to send notifications requesting or acknowledging user feedback, such as a prompt to review an internship or provide suggestions for improvement. It’s typically called by the Feedback Manager.
+    This method is used to send notifications requesting or acknowledging user feedback, such as a prompt to review an internship. It’s typically called by the Feedback Manager.
     The method takes the userEmail (the email of the user to notify), a feedbackType (like "InternshipFeedback"), and a message containing the notification content. The message is sent by email through the Notification Manager, and the Feedback Manager receives the formatted message through the backward chain and passes it along to the WebApp, where it is displayed to the user to encourage engagement.
+
+    \item \textbf{sendImprovementNotification(userEmail: String, improvementType: String, message: String): String message
+}
+
+    This method is used to send notifications on improvements on a student's CV or a company's project description that the StatisticalAnalysisTool found.
+    The method takes the userEmail (the email of the user to notify), a improvementType (like "CVFeedback"), and a message containing the notification content. The message is sent by email through the Notification Manager.
     \item \textbf{sendRecommendationNotification(userEmail: String, recommendationDetails: String): String message
 }
 
@@ -452,5 +525,42 @@ This method updates access control policies for a specific user by assigning or 
 \end{itemize}
 
 
+\pagebreak
 \section{Selected architectural styles and patterns}
+
+\subsection{Three Tier Architecture}
+In the Students \& Companies project, we chose a three-tier architecture as explained in Section 2.1. This architecture separates the system into three layers (or tiers) : the Presentation layer, the Application layer, and the Data layer. For this implementation, we opted for a remote presentation layer, where the graphical user interface (GUI) resides entirely on the client side, such as in a web browser or a mobile app. This decision brings several advantages: it reduces the server's workload by allowing it to focus on processing business logic and managing data, improves the responsiveness of the user interface since it is processed locally on the user’s device, and reduces bandwidth usage while improving network efficiency.
+
+The three-tier architecture distributes responsibilities effectively within the Students \& Companies application. The Presentation tier handles all user interactions, providing a seamless interface for students, companies, and universities to input and access data. The Application tier serves as the processing hub, managing tasks like user authentication, recommendation algorithms, and communication between the user interface and the database. Finally, the Data tier is responsible for securely storing and managing essential data, such as user profiles, CVs, project descriptions, and application histories, while performing all database operations to ensure reliability and data integrity.
+
+The primary benefit of using a three-tier architecture, and the reason it was chosen for the Students \& Companies system, is its modularity. Each tier can be developed, maintained, and operated independently on separate infrastructures. This separation simplifies updates and extensions by allowing modifications to be made to one tier without affecting the others. It enhances scalability and performance, making it easier to handle increased loads, and provides flexibility for evolving and adapting the system to future needs while maintaining its reliability and stability.
+
+\subsection{Component Based Development}
+Our approach is component-based, meaning the system is built using distinct, independent components that each handle specific functionalities. This approach offers significant advantages both in the short and long term. For example, by defining and developing components like the Application Manager or Feedback Manager, each responsible for a specific task, we can work on them independently without affecting the rest of the system. This modularity makes it easier to maintain, update, or even replace individual components without disrupting the entire system.  
+
+\subsection{REST Architecture}
+Our architecture is based on REST principles, meaning the web application is stateless. This allows the server to focus on processing requests without having to remember the client's state, which is managed by the client itself. One of the big advantages of this is cacheability. With caching, the application can load faster since the server doesn’t have to be contacted every time. Instead, cached data is used if it’s still valid, reducing the load and speeding things up.
+
+Another benefit is the uniform interface. This makes sure the application works consistently across different browsers and operating systems, so any user can access the platform easily, no matter what device or system they’re using.
+
+\subsection{Model View Controller}
+The Model-View-Controller (MVC) pattern is a great fit for our system and works well with the architecture choices we've made. It divides the application into three distinct layers: the Model manages the data (consistent with the Data Layer in our three-tier architecture), the View handles user interaction and display (aligned with the Presentation Layer), and the Controller connects both the data and the user interface (matching the Application Layer’s role of processing business logic).
+
+By using MVC, we maintain the modularity and separation of concerns we discussed earlier with the three-tier architecture. The MVC pattern enhances our ability to scale and maintain the system since each layer can evolve independently. For instance, we can modify the user interface (View) or improve the application logic (Controller) without impacting how the data is managed (Model). Additionally, MVC supports the RESTful principles we implemented, ensuring that each request is stateless and can be handled independently. This consistency between architectural choices ensures that the application remains flexible, maintainable, and easily adaptable to future changes.
+
 \section{Other design decisions }
+\subsection{MongoDB}
+
+We chose to implement our databases using a NoSQL model, specifically MongoDB, as it is well-suited for modern web applications that require scalability, flexibility, and fast development cycles. MongoDB’s schema-less design allows us to handle evolving data requirements effectively and simplifies integration with our architecture.
+
+ we divided the data into three distinct collections within separate MongoDB databases:
+
+\begin{itemize}
+    \item \textbf{User Database:} This database is responsible for managing user-related data, including profiles for both students and companies, login credentials, and session details. It is accessed during user authentication (login/registration) and session management. MongoDB’s document model allows us to store and query diverse user types efficiently while adapting to changing data requirements.
+    \item \textbf{Opportunities Database:}This database handles all data related to internship opportunities, including job postings, candidate recommendations, invitations, and match notifications. Each request involving the creation, update, or retrieval of internship-related data interacts with this database. MongoDB’s flexible schema is ideal for storing hierarchical data, such as job descriptions, candidate lists, and interview schedules, in a single, cohesive structure.
+    \item \textbf{Internship Feedback Database:}This database manages feedback and issue tracking during internships. It stores data related to feedback from students, companies, and universities, as well as complaint logs and resolution updates. The use of embedded documents ensures that related feedback and complaint data can be stored together for efficient access and analysis
+\end{itemize}
+
+MongoDB was chosen for its scalability, built-in sharding for distributing data across servers, and support for advanced aggregation pipelines, which are ideal for handling complex queries efficiently. Its flexibility also complements our microservices approach, allowing independent scaling and deployment of each service.
+
+By structuring our data in this way, we ensure modularity, scalability, and a seamless development process aligned with the principles of microservices architecture.

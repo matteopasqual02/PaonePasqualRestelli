@@ -1,1 +1,227 @@
 \chapter{Requirements Traceability}
+This chapter outlines the traceability framework implemented to maintain alignment between the project objectives, stakeholder needs, and the final deliverables. Establishing clear links between requirements, design, implementation, and testing minimizes the risk of unfulfilled specifications and promotes a transparent development process.
+
+\textbf{[R1]} The system allows unregistered users to create an account.  
+\begin{itemize}
+    \item \textbf{WebApp:} Provides the user interface for new users to enter their registration details.
+    \item \textbf{AccountManager:} Manages the account creation process, validates user details, and ensures proper storage of data.
+    \item \textbf{AuthenticationManager:} Verifies that the registration process complies with security protocols.
+    \item \textbf{DataManager:} Handles the storage of new user data in the database.
+    \item \textbf{NotificationManager:} Sends notifications to users about the successful creation of their accounts.
+    \item \textbf{EmailServiceProvider:} Sends email confirmation or verification messages to new users.
+    \item \textbf{DBMS:} Stores all account information securely in the database.
+\end{itemize}
+
+\textbf{[R2]} The system allows students to upload their CV.  
+\begin{itemize}
+    \item \textbf{WebApp:} Provides the interface for students to upload their CVs.
+    \item \textbf{AccountManager:} Ensures that only authenticated students can upload their CVs.
+    \item \textbf{AuthenticationManager:} Validates the session and permissions of the student uploading the CV.
+    \item \textbf{DataManager:} Stores the uploaded CV securely in the database.
+    \item \textbf{StatisticalAnalysisToolManager:} Analyzes the CV to improve recommendations and provide insights for better matching.
+    \item \textbf{DBMS:} Stores CV data for future reference and analysis.
+\end{itemize}
+
+\textbf{[R3]} The system allows companies to publish new internships.  
+\begin{itemize}
+    \item \textbf{WebApp:} Provides the interface for companies to add new internship postings.
+    \item \textbf{AccountManager:} Ensures only authenticated company representatives can post internships.
+    \item \textbf{AuthenticationManager:} Verifies that the company representative has the necessary permissions.
+    \item \textbf{DataManager:} Stores the internship postings in the database.
+    \item \textbf{StatisticalAnalysisToolManager:} Analyzes the internship postings to improve matching with student profiles.
+    \item \textbf{DBMS:} Safely stores internship data for future searches and recommendations.
+\end{itemize}
+
+\textbf{[R4]} The system allows companies to add a description to their internships.  
+\begin{itemize}
+    \item \textbf{WebApp:} Provides the interface for adding detailed descriptions to internships.
+    \item \textbf{AccountManager:} Verifies that authenticated companies can update internship details.
+    \item \textbf{AuthenticationManager:} Checks permissions for modifying internship descriptions.
+    \item \textbf{DataManager:} Updates and stores the descriptions in the database.
+    \item \textbf{StatisticalAnalysisToolManager:} Uses the descriptions to refine internship recommendations for students.
+    \item \textbf{DBMS:} Safely records the updated internship details.
+\end{itemize}
+
+\textbf{[R5]} When students want to do proactive research, the system allows them to go through the available internships.  
+\begin{itemize}
+    \item \textbf{WebApp:} Displays a list of internships for students to browse through.
+    \item \textbf{ApplicationManager:} Manages the search and retrieval of available internships.
+\end{itemize}
+
+\textbf{[R6]} When doing a search, the system allows users to filter internships.  
+\begin{itemize}
+    \item \textbf{WebApp:} Provides filtering options for criteria such as location, domain, and duration.
+    \item \textbf{ApplicationManager:} Processes search queries and applies filters to display relevant results.
+\end{itemize}
+
+\textbf{[R7]} When finding an internship that suits their interests, the system allows students to apply for it.  
+\begin{itemize}
+    \item \textbf{WebApp:} Enables students to submit their applications through the platform.
+    \item \textbf{ApplicationManager:} Manages the submission of applications and notifies the relevant company.
+    \item \textbf{StatisticalAnalysisToolManager:} Tracks application data to refine matching and recommendations.
+    \item \textbf{AuthenticationManager:} Verifies the permissions and authenticity of the student applying.
+    \item \textbf{NotificationManager:} Notifies both the student and the company about the application status.
+    \item \textbf{EmailServiceProvider:} Sends confirmation emails to both parties regarding the application.
+\end{itemize}
+
+\textbf{[R8]} When finding a CV that suits their interests, the system allows companies to request that student's application.  
+\begin{itemize}
+    \item \textbf{WebApp:} Allows companies to request applications from students through the interface.
+    \item \textbf{ApplicationManager:} Processes company requests and sends notifications to the respective students.
+    \item \textbf{StatisticalAnalysisToolManager:} Updates its data based on the company’s preferences and feedback.
+    \item \textbf{AuthenticationManager:} Verifies the company's permissions before granting access to student data.
+    \item \textbf{NotificationManager:} Notifies students about application requests from companies.
+    \item \textbf{EmailServiceProvider:} Sends email notifications to students regarding company interest.
+\end{itemize}
+
+\textbf{[R9]} When a new internship that might interest some students becomes available, the system notifies them.  
+\begin{itemize}
+    \item \textbf{WebApp:} Displays notification messages to students about new internships.
+    \item \textbf{RecommendationManager:} Identifies students who may be interested in the new internships.
+    \item \textbf{StatisticalAnalysisToolManager:} Analyzes new internships and matches them with student profiles.
+    \item \textbf{NotificationManager:} Sends real-time notifications about new opportunities.
+    \item \textbf{EmailServiceProvider:} Sends email alerts to students about new internships.
+\end{itemize}
+
+
+
+\textbf{[R10]} When a student's CV that corresponds to a company's needs becomes available the system informs them. 
+\begin{itemize}
+     \item \textbf{Statistical analysis tool manager}: Used to find possible match between a student's CV and internships descriptions posted by the Company.
+     \item \textbf{Data Manager}: Used to access to both the student's CV and the company's internship's project description.
+    \item \textbf{Recommendation Manager}: Compares the student's CV to the company's needs and identifies matches.
+    \item \textbf{Notification Manager}: Sends notifications to the company once a matching CV is found.
+    \item \textbf{Account Manager}: Lets the company visualize the before told CV.
+    \item \textbf{Authentication Manager}: Ensures that the company is logged in a company type of account and has the privileges to do this action. 
+\end{itemize}
+\textbf{[R11]} The system allows students to accept a recommendation, applying for that particular internship. 
+\begin{itemize}
+    \item \textbf{Recommendation Manager}: Used to start the process protocol of when a student accepts a recommendation.
+    \item \textbf{Data Manager}: Used to retrieve all the recommendation that were generated and linked to the student's profile.
+    \item \textbf{Application Manager}: Takes care of sending and managing the student's application after he accepted the recommendation. 
+    \item \textbf{Account Manager}: Shows possible recommendation and includes the student's details to the process of application.
+    \item \textbf{Authentication Manager}: Ensures that the user is logged in a student type of account and has the privileges to do this action. 
+    \item \textbf{Statistical analysis tool manager}: Register the acceptance feedback of the match it created to improve its effectiveness.
+\end{itemize}
+\textbf{[R12]} The system allows companies to accept a recommendation, inviting the candidate that was proposed.
+\begin{itemize}
+    \item \textbf{Recommendation Manager}: Manages the recommendation process and sends the company the proposed candidate's details
+    \item \textbf{Account Manager}: tracks and shows to the company hich recommendations have been reviewed.
+     \item \textbf{Data Manager}: Used to retrieve all the recommendation that were generated and linked to the company's profile.
+    \item \textbf{Notification Manager}: Sends notifications to the proposed candidate once the company accepts the recommendation and extends the invitation.
+    \item \textbf{Authentication Manager}: Ensures that the company is logged in a company type of account and has the privileges to do this action. 
+    \item \textbf{Statistical analysis tool manager}: Register the acceptance feedback of the match it created to improve its effectiveness.
+    
+\end{itemize}
+\textbf{[R13]} The system allows students to accept an invitation of a company for a particular internship, applying for it.
+\begin{itemize}
+    \item \textbf{Account Manager}: Handles the student’s action of accepting the invitation from a company and ensures their profile is up-to-date for the application while also linking the CV. 
+    \item \textbf{Application Manager}: Facilitates the student’s submission of the internship application after accepting the invitation.
+    \item \textbf{Notification Manager}: Sends notifications to the student to confirm the invitation and remind them to apply.
+     \item \textbf{Data Manager}: Used to retrieve all the invitation that were linked to the student's profile.
+    \item \textbf{Authentication Manager}: Ensures that the user is logged in a student type of account and has the privileges to do this action. 
+    \item \textbf{Statistical analysis tool manager}: Register the acceptance feedback of the match it created to improve its effectiveness.
+    
+\end{itemize}
+\textbf{[R14]}  When the two parties have accepted a recommendation, when the company has accepted an application received, or when the student has accepted a company's invitation the system allows them to establish a contact
+\begin{itemize}
+    \item \textbf{Account Manager}: Manages the contact information for both the student and the company, ensuring both parties are ready to engage.
+    \item \textbf{Statistical analysis tool manager}: Register the acceptance feedback of the match it created to improve its effectiveness.
+    \item \textbf{Notification Manager}: Notifies both the student and the company that they can now establish contact after acceptance.
+    \item \textbf{Interview Manager}: Assists in scheduling and managing communications related to interviews or further discussions.
+    \item \textbf{Authentication Manager}: Ensures that both the company and the student have the privileges to do this action, based on their previous interactions.
+    
+\end{itemize}
+\textbf{[R15]} When conducting an interview, the system supports the companies with the interview process
+\begin{itemize}
+    \item \textbf{Interview Manager}: Manages the interview process, including scheduling and tracking progress.
+    \item \textbf{Notification Manager}: Sends interview reminders and updates to both students and companies.
+    \item \textbf{Statistical analysis tool manager}: Follows related feedback to improve its effectiveness. 
+    \item \textbf{Authentication Manager}: Ensures that both the company and the student have the privileges to do this action, based on their previous interactions.
+\end{itemize}
+\textbf{[R16]} When conducting an interview, the system supports the companies with the finalization of the selection
+\begin{itemize}
+    \item \textbf{Interview Manager}: Helps the company track the progress of interviews and finalize their decision.
+    \item \textbf{Notification Manager}: Used to inform the student of the outcome of the interviewing process.
+\end{itemize}
+\textbf{[R17]} The system allows students and companies to provide feedback and suggestions to perform statistical analysis.
+\begin{itemize}
+    \item \textbf{Feedback Manager}: Collects and manages feedback from both students and companies.
+    \item \textbf{Statistical Analysis Tool Manager}: Analyzes the feedback data and generates statistical reports for insights.
+    \item \textbf{Notification Manager}: Used to request feedback form users.
+    \item \textbf{Account Manager}: Retrieves and stores feedback linked to the appropriate student and company profiles.
+    \item \textbf{Authentication Manager}: Ensures that both the company and the student have the privileges to do this action.
+    
+\end{itemize}
+\textbf{[R18] }The system provides suggestions to students regarding how to make their CVs more appealing
+\begin{itemize}
+    \item \textbf{Statistical Analysis Tool Manager}: Analyzes student CVs and generates suggestions for improvement based on trends and the needs of companies.
+    \item \textbf{Account Manager}: Retrieves and updates the student’s CV for analysis.
+     \item \textbf{Data Manager}: Used to access to all the students corresponding CVs and all the companies project description published to make the analysis. 
+    \item \textbf{Notification Manager}: Sends the student notifications with suggestions on how to improve their CV.
+
+\end{itemize}
+\textbf{[R19]} The system provides suggestions to companies regarding how to make their project descriptions more appealing
+\begin{itemize}
+    \item \textbf{Statistical Analysis Tool Manager}: Analyzes student CVs and generates suggestions for improvement based on trends and the needs of companies.
+    \item \textbf{Account Manager}: Retrieves and updates the company's project description for analysis.
+     \item \textbf{Data Manager}: Used to access to all the students corresponding CVs and all the companies' project description published to make the analysis. 
+    \item \textbf{Notification Manager}: Sends the student notifications with suggestions on how to improve their CV.
+\end{itemize}
+
+\textbf{[R20]} During the matchmaking process, the system allows all users to keep track of its execution and outcome.
+\begin{itemize}
+    \item \textbf{Recommendation Manager}: Monitors the matchmaking process and tracks the outcomes for each user.
+    \item \textbf{Statistical Analysis Tool Manager}: Provides detailed insights and progress tracking of matches during execution.
+    \item \textbf{Notification Manager}: Updates users in real time about the status of the matchmaking process.
+    \item \textbf{Account Manager}: Allows users to view ongoing matchmaking results in their accounts.
+    \item \textbf{Authentication Manager}: Ensures access rights are respected when viewing matchmaking data.
+\end{itemize}
+
+\textbf{[R21]} During the internship, the system allows all interested parties to monitor it.
+\begin{itemize}
+    \item \textbf{Overview Manager}: Tracks the progress and updates of the ongoing internship for all involved parties.
+    \item \textbf{Notification Manager}: Sends periodic updates or alerts to stakeholders about the internship status.
+    \item \textbf{Data Manager}: Retrieves and stores internship progress data.
+    \item \textbf{Authentication Manager}: Ensures appropriate access to internship monitoring features.
+\end{itemize}
+
+\textbf{[R22]} During an ongoing internship, the system allows all users to complain.
+\begin{itemize}
+    \item \textbf{Overview Manager}: Facilitates the lodging of complaints and their tracking.
+    \item \textbf{Notification Manager}: Notifies relevant parties (e.g., universities, companies) about submitted complaints.
+    \item \textbf{Authentication Manager}: Ensures only authenticated users can submit complaints.
+    \item \textbf{Data Manager}: Stores and retrieves complaints for resolution and record-keeping.
+\end{itemize}
+
+\textbf{[R23]} During an ongoing internship, the system allows all users to communicate problems.
+\begin{itemize}
+    \item \textbf{Overview Manager}: Manages the communication of problems between users and relevant parties.
+    \item \textbf{Notification Manager}: Sends updates or reminders about problem resolutions to involved parties.
+    \item \textbf{Authentication Manager}: Validates the identity and roles of users reporting problems.
+    \item \textbf{Data Manager}: Logs and organizes reported problems for reference and follow-up.
+\end{itemize}
+
+\textbf{[R24]} During an ongoing internship, the system allows all users to provide information on its status.
+\begin{itemize}
+    \item \textbf{Overview Manager}: Enables users to input updates about the internship status.
+    \item \textbf{Notification Manager}: Distributes updates to other stakeholders.
+    \item \textbf{Data Manager}: Records the status updates in the database for review and tracking.
+    \item \textbf{Authentication Manager}: Ensures only authorized users can update internship status.
+\end{itemize}
+
+\textbf{[R25]} When reports or complaints about the status of an ongoing internship are made, the system allows Universities to see them.
+\begin{itemize}
+    \item \textbf{Overview Manager}: Provides a dashboard for universities to view reports or complaints.
+    \item \textbf{Notification Manager}: Notifies universities about new complaints or reports.
+    \item \textbf{Data Manager}: Retrieves stored reports or complaints for university review.
+    \item \textbf{Authentication Manager}: Ensures access to reports is limited to university representatives.
+\end{itemize}
+
+\textbf{[R26]} When complaints about the status of an ongoing internship are made, the system allows Universities to handle them.
+\begin{itemize}
+    \item \textbf{Overview Manager}: Manages the process of addressing and resolving complaints.
+    \item \textbf{Notification Manager}: Notifies users about updates related to complaint resolution.
+    \item \textbf{Data Manager}: Logs the resolution actions and any updates to the complaint status.
+    \item \textbf{Authentication Manager}: Verifies the identity and permissions of university staff managing complaints.
+\end{itemize}
