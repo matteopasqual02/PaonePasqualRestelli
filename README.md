@@ -25,10 +25,10 @@ This project involves the creation of two major documents:
 
 | Member              | RASD         | DD         | RASD + DD         |
 |-------------------   |-------------|-------------|-------------|
-| **Arianna Paone** | 35 hours    |0 hours    |35 hours    |
-| **Matteo Pasqual**| 35 hours    |0 hours    |35 hours    |
-| **Matilde Restelli**| 36 hours   |0 hours   |36 hours   |
-| **Total**         | **101 hours** | **0 hours** | **101 hours** |
+| **Arianna Paone** | 35 hours    |28 hours    |63 hours    |
+| **Matteo Pasqual**| 35 hours    |27 hours    |62 hours    |
+| **Matilde Restelli**| 36 hours   |27 hours   |63 hours   |
+| **Total**         | **101 hours** | **82 hours** | **183 hours** |
 
 
 

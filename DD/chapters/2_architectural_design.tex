@@ -30,12 +30,13 @@ Figure 2.2 presents a detailed diagram illustrating the components that constitu
 
 \begin{itemize}
     \item \textbf{WebApp:} The WebApp serves as the primary interface for all users: students, companies, and universities, allowing them to interact with the application via their web browser. User requests are processed and sent to the appropriate backend components through the defined interfaces.
-    \item \textbf{Account Manager:} The Account Manager is a backend module responsible for managing all aspects of account registration, login, and user data. It handles the creation of different user profiles and ensures the validity of the submitted data. The Account Manager communicates with the Statistical Analysis Tool Manager to notify it of any updates to user data and works with the Notification Manager to send notifications to users as needed. To save the new user's data, the Account Manager interacts with the Data Manager to store the information in the database. However, before performing any database operations, the Account Manager first requests permission from the Authentication Manager to ensure that the user is authenticated and authorized to perform the action.
-    \item \textbf{Feedback Manager:}The Feedback Manager is responsible for gathering user feedback from both students and companies. It proactively requests feedback when needed through the Notification Manager, ensuring timely user engagement. This module collaborates with the Statistical Analysis Tool by providing updated feedback data, enabling continuous improvement of the recommendation system and analysis capabilities.
+    \item \textbf{Account Manager:} The Account Manager is a backend module responsible for managing all aspects of account registration, login, and user data. It handles the creation of different user profiles and ensures the validity of the submitted data. The Account Manager communicates with the Notification Manager to send notifications to users as needed. To save the new user's data, the Account Manager interacts with the Data Manager to store the information in the database. However, before performing any database operations, the Account Manager first requests permission from the Authentication Manager to ensure that the user is authenticated and authorized to perform the action.
+    \item \textbf{Feedback Manager:} The Feedback Manager is responsible for gathering user feedback from both students and companies. It proactively requests feedback when needed through the Notification Manager, ensuring user engagement. This module collaborates with the Statistical Analysis Tool by providing updated feedback data, enabling continuous improvement of the recommendation system and analysis capabilities.
     \item \textbf{Recommendation Manager:} The Recommendation Manager is the module that is responsible for requesting and receiving internship matches between students and projects from the Statistical Analysis Tool. After obtaining the matches, it communicates the results to the Notification Manager, which then notifies the involved users about the recommended opportunities.
-    \item \textbf{Application Manager:} The Application Manager handles student applications in three scenarios: when a student proactively applies for an internship they are interested in, when a student either accepts a recommendation, and when responds to an invitation from a company that has previously accepted the system's recommendation. After processing the applications, it communicates with the Notification Manager to notify both students and companies about the submitted applications. Additionally, it interacts with the Statistical Analysis Tool to provide data for further analysis and improvement of the recommendation system.
+    \item \textbf{Application Manager:} The Application Manager handles student applications in three scenarios: when a student proactively applies for an internship they are interested in when a student accepts a recommendation, and when he responds to an invitation from a company that has previously accepted the system's recommendation. After processing the applications, it communicates with the Notification Manager to notify both students and companies about the submitted applications. Additionally, it interacts with the Statistical Analysis Tool to provide data for further analysis and improvement of the recommendation system.
+    \pagebreak
     \item \textbf{Interview Manager:} The Interview Manager oversees the entire interview and final selection process. It communicates with the Notification Manager to keep both students and companies informed about new developments throughout the process. Additionally, it interacts with the Statistical Analysis Tool to provide data, such as information on who was selected for the job, helping to refine the system and adjust parameters for future job recommendations.
-    \item \textbf{Overview Manager:} The Overview Manager is responsible for monitoring ongoing internships. It communicates with the Notification Manager to keep universities, students, and companies involved in the project updated on progress. Additionally, it interacts with the Authentication Manager to obtain permission for accessing data, and then works with the Data Manager to insert and register the relevant updates.
+    \item \textbf{Overview Manager:} The Overview Manager is responsible for monitoring ongoing internships. It communicates with the Notification Manager to keep universities, students, and companies involved in the project updated on progress. Additionally, it interacts with the Authentication Manager to obtain permission for accessing data and then works with the Data Manager to insert and register the relevant updates.
     \item \textbf{StatisticalAnalysisTool Manager:} The Statistical Analysis Tool Manager is responsible for generating matches between students and internship projects based on student CVs and project descriptions. It also provides suggestions to students for improving their CVs and to companies for enhancing their project descriptions. These tasks are performed using a recommendation system powered by AI and machine learning. The tool is continuously refined through feedback from both students and companies about its previous recommendations. It communicates with the Data Manager to access the necessary data, with prior authentication provided by the Authentication Server.
     \item \textbf{Notification Manager:} The Notification Manager is responsible for sending notifications to all users across various channels. It interacts with the email service API to send email notifications and also delivers real-time updates directly within the web app. When delivering notifications through the app, it follows the chain of requests, processing them in reverse order to ensure that all relevant parties receive the appropriate updates.
     \item \textbf{Authentication Manager:} The Authentication Manager is responsible for managing access rights to data, ensuring that users can perform read or write operations based on their role and permissions.
@@ -45,6 +46,7 @@ Figure 2.2 presents a detailed diagram illustrating the components that constitu
     
 \end{itemize}
 
+\pagebreak
 \section{Deployment view}
 \begin{figure}[H]
     \centering
@@ -53,15 +55,22 @@ Figure 2.2 presents a detailed diagram illustrating the components that constitu
     \label{fig:enter-label}
 \end{figure}
 
+The deployment view illustrates how the Students \& Companies system components are distributed across various nodes. Users interact with the platform through a Web Browser running on a client device (Windows, Linux, or MacOS), which communicates with the Web Server over HTTPS. The Web Server includes a Load Balancer to efficiently distribute requests among multiple backend services, ensuring scalability and reliable performance under varying traffic loads.
+
+The Application Server, deployed on a Linux environment, handles core application logic, hosting the managers responsible for user accounts, recommendations, feedback, and other functionalities. The Mail Server, running on a separate Linux node, manages email notifications, ensuring communication between the platform and its users. Data storage and retrieval are managed by the Database Server, powered by MongoDB on a Linux environment, which interacts with the application layer over TCP/IP. This setup ensures a clear separation of responsibilities, allowing for modular development and easy scalability.
+
+\pagebreak
 \section{Runtime view}
 
 All the sequence diagrams described in the Requirements Analysis and Specification Document (RASD) will be elaborated in greater detail. In this expanded version, we will identify and specify the individual components of the application that are utilized to fulfill each specific functionality. 
 
-Here below we will include an explanation of how each application component contributes to the implementation of the corresponding functionality. By doing so, we hope to provide a clearer understanding of the interaction between various components and their roles in achieving the described features and requirements.
+Here below we will include a visual example (sequence diagrams) of how each application component contributes to the implementation of the corresponding functionality. By doing so, we hope to provide a clearer understanding of the interaction between various components and their roles in achieving the described features and requirements.
 
-\newpage
+Note on the sequence diagram: we did not model calls to the DBMS, since every time the DataManager is called it handles them all in the same way with the methods we will show in the next chapter.
+
 \textbf{UC1: Student creates an account}
-WebApp, AccountManager, Authentication manager, DataManager, DBMS, StatisticalAnalysisToolManager, NotificationManager, EmailServiceProvider
+
+This sequence diagram outlines the student registration process in the web app. It covers data submission, duplicate account checks, email verification, and optional CV upload. Notifications are handled via email, and validated accounts are saved in the database. Once the CV has been uploaded some calls are made to the statisticalAnalysisTool, but their return, the improvement suggestions and the matches, is not modeled since it will be handled in other use cases.
 
 %\begin{figure}[H]
    % \centering
@@ -79,7 +88,9 @@ WebApp, AccountManager, Authentication manager, DataManager, DBMS, StatisticalAn
 
 \newpage
 \textbf{UC2: Company creates an account}
-WebApp, AccountManager, Authentication manager, DataManager, DBMS, NotificationManager, EmailServiceProvider, StatisticalAnalysisToolManager
+
+This sequence diagram outlines the company registration process in the web app. It includes data submission, duplicate account checks, email verification, and project description upload. Notifications are managed via email, and validated accounts are stored in the database. Once the project description has been uploaded some calls are made to the statisticalAnalysisTool, but their return, the improvement suggestions and the matches, is not modeled since it will be handled in other use cases.
+
 
 %\begin{figure}[H]
   %  \centering
@@ -89,14 +100,15 @@ WebApp, AccountManager, Authentication manager, DataManager, DBMS, NotificationM
 
 \begin{figure}[H]
     \centering
-    \hspace{-1cm} % Adjust this value as needed to move the image lef
-    \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC2.pdf}
+    %\hspace{-1cm} % Adjust this value as needed to move the image lef
+    \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC2}
     \caption{UC2}
 \end{figure}
 
 \newpage
 \textbf{UC3: Student searches and applies for an internship}
-WebApp, AccountManager, Authentication manager, ApplicationManager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
+
+This sequence diagram describes the internship application process for students in the web app. It includes navigation to the global page, viewing internship details, and applying if interested. Successful applications trigger data updates in the system and notifications to companies via email. If the student is not interested, they return to the global page. 
 
 \begin{figure}[H]
     \centering
@@ -107,33 +119,43 @@ WebApp, AccountManager, Authentication manager, ApplicationManager, StatisticalA
 
 \newpage
 \textbf{UC4: Student recieves an internship recommendation}
-WebApp, AccountManager, Authentication manager, RecommendationManager, ApplicationManager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
+
+This sequence diagram illustrates the recommendation handling process for students in a web app. Recommendations are generated by the StatisticalAnalysisTool, notified to the student via email, and displayed in the app. The display of this notification is modeled as a message call to the WebApp, this is due to the fact that we chose to model all calls to the WebApp that show a notification using the word: message (a convention also applied in future diagrams); the arrow is not dotted since here this message call is not directly a return of another one, but it starts from the RecommendationManager. Students can either accept the recommendation by applying for the internship, which updates the system and notifies the company, or reject it, which removes the match and informs the company of the rejection.
 
 \begin{figure}[H]
     \centering
-    \hspace{-1cm} % Adjust this value as needed to move the image lef
+    %\hspace{-1cm} % Adjust this value as needed to move the image lef
     \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC4.pdf}
     \caption{UC4}
 \end{figure}
 
 \newpage
 \textbf{UC5: Company recieves a student's recommendation}
-WebApp, AccountManager, Authentication manager, RecommendationManager, ApplicationManager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
 
+This sequence diagram illustrates the recommendation handling process for companies in a web app. After logging in and uploading a project description, companies are notified of student matches generated by the StatisticalAnalysisTool via email and app notifications (same procedure described in the previous diagram's description). Companies can choose to accept or reject the recommendations. If they are interested in a student, and the student has already applied, the company accepts the application and notifies the student. If the student hasn’t applied, the company invites the student to apply. If the company isn’t interested, and the student has applied, the application is rejected, and the student is notified. If the student hasn’t applied, the company rejects the recommendation, removes the match, and notifies the student.
 \begin{figure}[H]
     \centering
     \hspace{-1 cm} % Adjust this value as needed to move the image left
-    \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC5.pdf}
+    \includegraphics[width=1\linewidth]{DD//Images/SequenceDiagrams/UC5.pdf}
     \caption{UC5}
 \end{figure}
 
 \newpage
 \textbf{UC6: Interview}
-WebApp, AccountManager, Authentication manager, ApplicationManager, StatisticalAnalysisToolManager, InterviewManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
+
+This sequence diagram illustrates a simplified version of the interview use case. We chose to do a simplified sequence diagram denoting only the basic flow of events, since otherwise it would have been very big and unreadable. The flow of events described is the case in which the university initiates contact, and the system notifies the student of it; then the university creates an assessment, and evaluates it after the student has responded (we did not model the student's action of filling the assessment). The student is then selected and the company schedules the interview using the system.
+
+\begin{figure}[H]
+    \centering
+    \hspace{-1 cm} % Adjust this value as needed to move the image left
+    \includegraphics[width=1.1\linewidth]{DD//Images/SequenceDiagrams/UC6.pdf}
+    \caption{UC6}
+\end{figure}
 
 \newpage
 \textbf{UC7: User leaves feedback}
-WebApp, AccountManager, Authentication manager, FeedbacknManager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
+
+This sequence diagram illustrates the process of leaving internship feedback in the web app. After the user participates in an internship, they receive a feedback notification via email. If the user decides to leave feedback, they fill out a form, which triggers an authorization check. If authorized, the feedback is submitted, saved in the database, and confirmed in the web app. If not authorized, the submission is rejected. If the user chooses not to leave feedback, the message is simply closed without any action.
 
 \begin{figure}[H]
     \centering
@@ -144,7 +166,8 @@ WebApp, AccountManager, Authentication manager, FeedbacknManager, StatisticalAna
 
 \newpage
 \textbf{UC8: Student recieves suggestion on CV}
-WebApp, AccountManager, Authentication manager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
+
+This sequence diagram describes the process of CV improvement suggestions for a student. After the student uploads their CV, the StatisticalAnalysisTool generates improvement suggestions and sends a notification via email through the NotificationManager and EmailServiceProvider. The suggestion is then displayed on the web app (as previously described). If the student finds the suggestion useful, they can upload a new version of the CV, which triggers an authorization check through the AuthenticationManager. If authorized, the CV is updated, and the suggestion process continues by calling the statisticalAnalysisTool (the return is not shown since it would be a loop of this use case). If the student doesn’t find the suggestion useful, they can close it, and no changes are made to the system.
 
 \begin{figure}[H]
     \centering
@@ -155,7 +178,8 @@ WebApp, AccountManager, Authentication manager, StatisticalAnalysisToolManager, 
 
 \newpage
 \textbf{UC9: Company recieves suggestion on project description}
-WebApp, AccountManager, Authentication manager, StatisticalAnalysisToolManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
+
+This sequence diagram describes the process for a company to handle project description improvement suggestions the web app. After uploading a project description, the company receives a suggestion via email. If the company finds the suggestion useful, they can modify the project description, triggering an authorization check. If authorized, the description is updated, the changes are saved in the database and the statisticalAnalysisTool is notified. If not authorized, the modification is rejected. If the company does not find the suggestion useful, they can simply close the suggestion without making any changes.
 
 \begin{figure}[H]
     \centering
@@ -166,7 +190,10 @@ WebApp, AccountManager, Authentication manager, StatisticalAnalysisToolManager, 
 
 \newpage
 \textbf{UC10: User makes a complaint}
-WebApp, AccountManager, Authentication manager, OverviewManager, DataManager, DBMS, NotificationManager, EmailServiceProvider
+
+This sequence diagram describes the process in which a user interacts with the web app to monitor and leave complaints about their ongoing internship. The user navigates to the "Internships to Monitor" section, views internship details, and submits a comment or complaint. The complaint is saved and a notification is sent to the university.
+
+Once the university logs in, they review the internship and complaints. If the complaint is deemed important, the university contacts the participant to manage the issue, resolves the complaint, and updates its status. If the complaint is critical, the university may terminate the internship, sending notifications to all relevant parties.
 
 \begin{figure}[H]
     \centering
@@ -184,9 +211,6 @@ The Component Interfaces here described are the ones exposed in the components. 
 are shown.
 
 
-?? Fare la webapp con metodo show message ??
-
-
 \begin{itemize}
 \item \textbf{Account Manager Interface}
     \begin{itemize}
@@ -199,11 +223,12 @@ are shown.
     This method takes all the data in input and contacts the DataManager to register a new CompanyUser in the system.
 
     \item \textbf{registerUserAsUniversity(string Email, string UniversityName, string LocationAddress, string Password) : boolean AccountCreated}
+    
     This method takes all the data in input and contacts the DataManager to register a new UniversityUser in the system.
 
     \item \textbf{loginUser(string Email, string Password) : boolean LoginSuccessful}
     
-    This method takes the user's email and password, check whetere they are registered and if they are it logs them into their account
+    This method takes the user's email and password, checks weather they are registered and if they are it logs them into their account
 
     \item \textbf{insertCv(CV Cv): boolean Inserted}
     
@@ -214,6 +239,7 @@ are shown.
     This method allows a StudentUser to delete their Cv from their profile.
     
     \item \textbf{insertProjectDescription(string ProjectDescription): booleand Inserted}
+    
     This method allows a CompanyUser to upload a new project description on their profile.
 
     \item \textbf{deleteProjectDescription(string ProjectName): booleand Deleted}
@@ -229,6 +255,7 @@ are shown.
 \begin{itemize}
 
 \item \textbf{authorizeAction(string Email, string Action) : boolean IsAuthorized, string UserId}  
+
 This method determines whether the specified user has the necessary permissions to perform the given action. It returns `true` if the action is allowed, otherwise `false`.
 
 
@@ -297,6 +324,12 @@ This method determines whether the specified user has the necessary permissions 
     \item \textbf{finalizeSelection(string CompanyId, string UserId): boolean Finalized}
 
     This method records the final selection decision made by the company and updates the relevant data.
+
+    
+    \item \textbf{initiateContact(string StudentEmail, string CompanyEmail): boolean Contacted}
+
+    This method is used by the community to initiate the first contact with the student; it calls the NotificationManager to do so.
+    
 \end{itemize}
 \item \textbf{Recommendation Manager Interface:}
 \begin{itemize}
@@ -334,10 +367,6 @@ This method determines whether the specified user has the necessary permissions 
 
     This method updates the system with the outcome of externally resolved complaints, ensuring all data remains centralized and accessible.
 
-    \item \textbf{manageFeedback(string InternshipId, string FeedbackContent): boolean Managed}
-
-    This method processes feedback submitted by students or companies about the internship and stores it in the system for future reference.
-
     \item \textbf{contactParticipant(string InternshipId, string ParticipantId, string MessageContent): boolean Contacted}
 
     This method enables the university to directly contact a student or company involved in the internship by sending a message through the app.
@@ -347,10 +376,6 @@ This method determines whether the specified user has the necessary permissions 
 \item \textbf{StatisticalAnalysisTool Manager Interface:}
 \begin{itemize}
 
-    \item \textbf{initiateContact(string StudentEmail, string CompanyEmail): boolean Contacted}
-
-    This method is used by the comoany to initiate the first contact with the student, it calls the NotificationManager to do so.
-    
     \item \textbf{generateStudentMatches(string StudentId): list Matches}
 
     This method generates a list of potential matches between students and internship projects based on student CVs and project descriptions using the recommendation system.
@@ -371,17 +396,9 @@ This method determines whether the specified user has the necessary permissions 
 
     This method processes feedback received from students and companies about previous recommendations to update and improve the recommendation algorithm.
 
-    \item \textbf{analyzeSelectionData(string SelectionData): boolean Analyzed} ???
-
-    This method evaluates data on selected candidates to refine parameters and optimize future recommendations.
-
-    \item \textbf{fetchData(string DataRequest): map Data}
+    \item \textbf{fetchData(string DataRequest): map Data} 
 
     This method interacts with the Data Manager to retrieve necessary data for analysis, ensuring access permissions are obtained through the Authentication Server.
-
-    \item \textbf{updateRecommendationParameters(string Parameters): boolean Updated} ???
-
-    This method adjusts the recommendation system's parameters based on new data or trends observed during analysis.
 
     \item \textbf{newApplication(string ApplicationData): boolean Recieved}
 
@@ -402,7 +419,7 @@ This method determines whether the specified user has the necessary permissions 
     \item \textbf{sendAccountNotification(userEmail: String, notificationType: String, message: String): String message}
 
     This method is used to send notifications related to account activities, such as registration confirmations, password updates, or account deactivations. It’s typically called by the Account Manager.
-    The method takes the userEmail (the ID of the user to notify), a notificationType (like "Registration"), and a message containing the notification content. The message is both sent by email through the notification manager and The Account Manager receives the formatted message through the backward chain and passes it along to the WebApp, where it’s displayed to the user in the notification page.
+    The method takes the userEmail (the ID of the user to notify), a notificationType (like "Registration"), and a message containing the notification content. The message is both sent by email through the notification manager and the Account Manager receives the formatted message through the backward chain and passes it along to the WebApp, where it’s displayed to the user in the notification page.
     \item \textbf{sendFeedbackNotification(userEmail: String, feedbackType: String, message: String): String message
 }
 
@@ -435,7 +452,7 @@ This method determines whether the specified user has the necessary permissions 
     \item \textbf{sendGeneralNotification(userEmail: string, toUserIds: List[String], message: String): String message}
     
     This method is used for sending generic notifications that don’t fit into other specific categories. It supports notifications across various channels and can target multiple users simultaneously. It’s called by any module requiring an ad hoc notification.
-    The method takes a list of toUserEmails (the emails of the users to notify), a channel (like "email" or "app"), and a message containing the content to be sent. The message is sent through the specified channel by the Notification Manager, and the calling module receives the formatted message through the backward chain and passes it along to the WebApp, where it’s displayed in the user’s notification area.
+    The message is sent by the Notification Manager, and the calling module receives the formatted message through the backward chain and passes it along to the WebApp, where it’s displayed in the user’s notification area.
 
 
 \end{itemize}
@@ -445,6 +462,7 @@ This method determines whether the specified user has the necessary permissions 
 \begin{itemize}
 
 \item \textbf{checkDuplicates(string TableName, string Email) : boolean Duplicates}
+
 This method when called checks if the email inserted already exists in the database.
     
 \item \textbf{saveRecord(string TableName, map<string, string> Data) : boolean RecordSaved}  
@@ -466,7 +484,6 @@ This method updates records in the specified table based on the condition provid
 \item \textbf{deleteRecord(string TableName, string Condition) : boolean RecordDeleted}  
 
 This method deletes records from the specified table that match the provided condition. Returns `true` if the deletion is successful.
-
 
 \item \textbf{provideDataAccess(string ModuleName, string DataRequest) : map<string, string> AccessedData}  
 This method grants secure data access to a specific module, returning the requested data while enforcing access control policies.
@@ -496,6 +513,7 @@ This method configures the SMTP settings for sending emails, including the serve
 This method checks whether the given email address is in a valid format and can be used for sending emails.
 
 \item \textbf{resendFailedEmails(string[] FailedEmailIds) : boolean Resent}  
+
 This method retries sending emails that previously failed to be delivered. Returns `true` if all retries are successful.
 \end{itemize}
 
@@ -505,7 +523,7 @@ This method retries sending emails that previously failed to be delivered. Retur
 
 This method inserts the provided data into the specified table within the database. Returns `true` if the operation is successful.
 
-\item \textbf{getData(string Query) : list<map<string, string>> RetrievedData}  
+\item \textbf{getData(string Query) : list<map<string, string > > RetrievedData}  
 
 This method executes the provided query to fetch data from the database. It returns the results as a list of records.
 
@@ -535,19 +553,23 @@ The three-tier architecture distributes responsibilities effectively within the 
 
 The primary benefit of using a three-tier architecture, and the reason it was chosen for the Students \& Companies system, is its modularity. Each tier can be developed, maintained, and operated independently on separate infrastructures. This separation simplifies updates and extensions by allowing modifications to be made to one tier without affecting the others. It enhances scalability and performance, making it easier to handle increased loads, and provides flexibility for evolving and adapting the system to future needs while maintaining its reliability and stability.
 
+\pagebreak
 \subsection{Component Based Development}
 Our approach is component-based, meaning the system is built using distinct, independent components that each handle specific functionalities. This approach offers significant advantages both in the short and long term. For example, by defining and developing components like the Application Manager or Feedback Manager, each responsible for a specific task, we can work on them independently without affecting the rest of the system. This modularity makes it easier to maintain, update, or even replace individual components without disrupting the entire system.  
 
 \subsection{REST Architecture}
-Our architecture is based on REST principles, meaning the web application is stateless. This allows the server to focus on processing requests without having to remember the client's state, which is managed by the client itself. One of the big advantages of this is cacheability. With caching, the application can load faster since the server doesn’t have to be contacted every time. Instead, cached data is used if it’s still valid, reducing the load and speeding things up.
+Our architecture is designed around REST principles, ensuring a stateless system where the server processes each request independently, while the client manages its own state. This approach improves scalability and efficiency by decoupling state management from the server, enabling each request to include all the necessary information for processing. A significant advantage of this design is cacheability: frequently accessed data, such as internship listings or static resources, can be cached, reducing server load and improving response times for users.
 
-Another benefit is the uniform interface. This makes sure the application works consistently across different browsers and operating systems, so any user can access the platform easily, no matter what device or system they’re using.
+The REST architecture also ensures a uniform interface, with APIs designed around resources rather than actions. Endpoints like /emails, /data, or /records allow operations through standard HTTP methods (GET, POST, PUT, DELETE), providing a consistent and predictable structure across the system. The methods we declared in the APIs, such as sendEmail and postData, are our custom implementations and are mapped to RESTful operations (e.g., POST for creating resources or GET for retrieving them), ensuring that the system aligns with REST principles while retaining flexibility.
+
+Additionally, REST aligns perfectly with our modular and scalable deployment architecture. The stateless nature of REST makes it easy to distribute requests across multiple servers using a load balancer, ensuring efficient handling of high traffic. By adopting a hybrid approach, combining preconfigured services (e.g., for email handling) with custom RESTful endpoints, the system achieves flexibility while adhering to REST principles. Overall, REST provides the scalability, adaptability, and consistency required to meet the needs of the Students \& Companies platform and its users.
 
 \subsection{Model View Controller}
 The Model-View-Controller (MVC) pattern is a great fit for our system and works well with the architecture choices we've made. It divides the application into three distinct layers: the Model manages the data (consistent with the Data Layer in our three-tier architecture), the View handles user interaction and display (aligned with the Presentation Layer), and the Controller connects both the data and the user interface (matching the Application Layer’s role of processing business logic).
 
 By using MVC, we maintain the modularity and separation of concerns we discussed earlier with the three-tier architecture. The MVC pattern enhances our ability to scale and maintain the system since each layer can evolve independently. For instance, we can modify the user interface (View) or improve the application logic (Controller) without impacting how the data is managed (Model). Additionally, MVC supports the RESTful principles we implemented, ensuring that each request is stateless and can be handled independently. This consistency between architectural choices ensures that the application remains flexible, maintainable, and easily adaptable to future changes.
 
+\pagebreak
 \section{Other design decisions }
 \subsection{MongoDB}
 
@@ -557,10 +579,8 @@ We chose to implement our databases using a NoSQL model, specifically MongoDB, a
 
 \begin{itemize}
     \item \textbf{User Database:} This database is responsible for managing user-related data, including profiles for both students and companies, login credentials, and session details. It is accessed during user authentication (login/registration) and session management. MongoDB’s document model allows us to store and query diverse user types efficiently while adapting to changing data requirements.
-    \item \textbf{Opportunities Database:}This database handles all data related to internship opportunities, including job postings, candidate recommendations, invitations, and match notifications. Each request involving the creation, update, or retrieval of internship-related data interacts with this database. MongoDB’s flexible schema is ideal for storing hierarchical data, such as job descriptions, candidate lists, and interview schedules, in a single, cohesive structure.
-    \item \textbf{Internship Feedback Database:}This database manages feedback and issue tracking during internships. It stores data related to feedback from students, companies, and universities, as well as complaint logs and resolution updates. The use of embedded documents ensures that related feedback and complaint data can be stored together for efficient access and analysis
+    \item \textbf{Opportunities Database:} This database handles all data related to internship opportunities, including job postings, candidate recommendations, invitations, and match notifications. Each request involving the creation, update, or retrieval of internship-related data interacts with this database. MongoDB’s flexible schema is ideal for storing hierarchical data, such as job descriptions, candidate lists, and interview schedules, in a single, cohesive structure.
+    \item \textbf{Internship Feedback Database:} This database manages feedback and issue tracking during internships. It stores data related to feedback from students, companies, and universities, as well as complaint logs and resolution updates. The use of embedded documents ensures that related feedback and complaint data can be stored together for efficient access and analysis
 \end{itemize}
 
-MongoDB was chosen for its scalability, built-in sharding for distributing data across servers, and support for advanced aggregation pipelines, which are ideal for handling complex queries efficiently. Its flexibility also complements our microservices approach, allowing independent scaling and deployment of each service.
-
-By structuring our data in this way, we ensure modularity, scalability, and a seamless development process aligned with the principles of microservices architecture.
+MongoDB was chosen for its scalability, built-in sharding for distributing data across servers, and support for advanced aggregation pipelines, which are ideal for handling complex queries efficiently. 
